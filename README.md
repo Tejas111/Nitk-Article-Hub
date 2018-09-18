@@ -1,3 +1,3 @@
-# ITA
+ITA
 
-Programs done in ITA lab
+A web-based application for searching and displaying articles uploaded by students.
