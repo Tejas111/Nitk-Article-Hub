@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 # Ignore folder name `node_modules`
 node_modules/
 # Ignore folder name `data`
 data/
 # Ignore folder name `.vs`
 .vs/
-=======
-article/node_modules
-data
-.vs
->>>>>>> d04c88acb5b6465d8d2c1103b748958ae54956d9

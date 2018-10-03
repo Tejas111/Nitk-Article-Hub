@@ -14,6 +14,9 @@ router.get('/register', function(req, res, next) {
   res.render('register');
 });
 
+router.get('/multer', function(req, res, next) {
+  res.render('multer');
+});
 
 
 module.exports = router;
