@@ -33,6 +33,8 @@
 		position: fixed;
 		top: 0;
 		left: 0;
+		border-bottom: 1px solid  #11cbd7;
+		border-top: 1px solid  #11cbd7;
 		width: 100%;
 		height: 60px;
 		font-size: 13px;
@@ -41,7 +43,7 @@
 .gn-menu-main a {
 		display: block;
 		height: 100%;
-		color: #5f6f81;
+		color: #11cbd7;
 		text-decoration: none;
 		cursor: pointer;
 }
@@ -58,7 +60,7 @@
 		float: left;
 		height: 100%;
 
-		border-right: 1px solid #c6d0da;
+		border-right: 0px solid #c6d0da;
 		text-align: center;
 		z-index: 3;
 }
@@ -80,7 +82,7 @@
 .gn-menu-main > li:last-child {
 		float: right;
 		border-right: none;
-		border-left: 1px solid #c6d0da;
+		
 		
 }
 
@@ -106,7 +108,8 @@
 		left: 0;
 		overflow: hidden;
 		width: 60px;
-		border-top: 1px solid #c6d0da;
+		
+		border-right:1px solid #11cbd7;
 		background: white;
 		-webkit-transform: translateX(-60px);
 		-moz-transform: translateX(-60px);
@@ -126,7 +129,7 @@
 }
 
 .gn-menu {
-		border-bottom: 1px solid #11cbd7;
+	
 		text-align: left;
 		font-size: 18px;
 		z-index: 3;
@@ -318,7 +321,7 @@ input.gn-search:focus {
 }
 
 .gn-menu-wrapper.gn-open-all {
-		width: 340px
+		width: 220px
 }
 
 .gn-menu-wrapper.gn-open-all .gn-submenu li {
