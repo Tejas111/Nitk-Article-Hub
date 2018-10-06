@@ -18,5 +18,13 @@ router.get('/multer', function(req, res, next) {
   res.render('multer');
 });
 
+router.get('/user_home', function(req, res, next) {
+  res.render('user/user_home');
+});
+
+router.get('/all_articles', function(req, res, next) {
+  res.render('user/all_articles');
+});
+
 
 module.exports = router;
