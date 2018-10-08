@@ -40,6 +40,10 @@ router.get('/article', function(req, res, next) {
   res.render('search/article');
 });
 
+router.get('/about', function(req, res, next) {
+  res.render('about');
+});
+
 
 
 module.exports = router;
