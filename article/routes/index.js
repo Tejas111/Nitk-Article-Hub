@@ -36,6 +36,9 @@ router.get('/edit_profile', function(req, res, next) {
 router.get('/new_article', function(req, res, next) {
   res.render('user/new_article');
 });
+router.get('/article', function(req, res, next) {
+  res.render('search/article');
+});
 
 
 
