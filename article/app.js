@@ -19,6 +19,7 @@ var mongoose = require('mongoose');
 const url = config.mongourl;
 const connect = mongoose.connect(url);
 var users = require('./routes/users');
+var userdetail = require('./routes/userdetail');
 connect.then((db) => {
     console.log("Connected correctly to server");
 }, (err) => { console.log(err); });
@@ -54,25 +55,27 @@ app.use(passport.session());
 app.use('/', indexRouter);
 //app.get('/users', indexRouter);
 app.use('/users',users)
+
 app.use(express.static(path.join(__dirname, 'public')));
 //app.use('')
 
+function auth(req,res,next){
+  console.log(req.user);
 
-// function auth(req,res,next){
-//   console.log(req.user);
-
-//   if (!req.user) {
-//     var err = new Error('You are not authenticated!');
-//     res.setHeader('WWW-Authenticate', 'Basic');                          
-//     err.status = 401;
-//     next(err);
-//   }
-//   else {
-//         next();
-//   }
-// }
-// app.use(auth);
-
+  if (!req.user) {
+    var err = new Error('You are not authenticated!');
+    res.setHeader('WWW-Authenticate', 'Basic');                          
+    err.status = 401;
+    next(err);
+  }
+  else {
+        next();
+  }
+}
+app.use(auth);
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/userdetail',userdetail);
+app.get('/',indexRouter);
 //app.use('/upload',grid);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

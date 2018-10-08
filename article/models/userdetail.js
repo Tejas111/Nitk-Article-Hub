@@ -6,10 +6,12 @@ var user_Schema = new Schema({
     Index:{type:String},//req.user.id
     firstname:{type: String, required:true},
     lastname:{type: String, required:true},
-    Address:{type:String,required:true},
+    mobile:{type:Number},
+    email:{type:String},
+    address:{type:String,required:true},
    // Age:{type:Number,required:true,min:10,max:100},
-    Course:{type:String,required:true},
-    Branch:{type:String,required:true},
+    course:{type:String,required:true},
+    branch:{type:String,required:true},
     //Mobile:{type:Number},
     //Date:{type:Date,default:Date.now()},
     

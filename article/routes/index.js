@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+var student = require('../models/userdetail');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('homepage');
@@ -24,12 +24,21 @@ router.get('/all_articles', function(req, res, next) {
   res.render('user/all_articles');
 });
 
-router.get('/profile', function(req, res, next) {
-  res.render('user/profile');
-});
 
 router.get('/edit_profile', function(req, res, next) {
   res.render('user/edit_profile');
+});
+router.get('/pro', function(req, res, next) {
+  var a = toString(req.user._id);
+  student.findById({"_id":ObjectId(a)},(err,file)=>{
+    if(err)
+      console.log(err);
+    if(file){
+      console.log(file);
+      res.render('user/pro',{student:student});
+    }
+  });
+  
 });
 router.get('/new_article', function(req, res, next) {
   res.render('user/new_article');

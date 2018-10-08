@@ -24,9 +24,7 @@ router.post('/signup', (req, res, next) => {
     }
     else {
       passport.authenticate('local')(req, res, () => {
-        res.statusCode = 200;
-        res.setHeader('Content-Type', 'application/json');
-        res.json({success: true, status: 'Registration Successful!'});
+        res.redirect('/login');
       });
     }
   });
@@ -34,9 +32,7 @@ router.post('/signup', (req, res, next) => {
 
 router.post('/login', passport.authenticate('local'), (req, res) => {
   console.log(req.user);
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'application/json');
-  res.json({success: true, status: 'You are successfully logged in!'});
+ res.redirect('/userdetail');
 });
 
 router.get('logout',(req,res)=>{
