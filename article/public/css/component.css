@@ -135,6 +135,12 @@
 		z-index: 3;
 }
 
+.gn-menu :hover{
+	
+	color: #11cbd7;
+	
+	
+}
 .gn-menu li:not(:first-child),
 .gn-menu li li {
 		box-shadow: inset 0 0px #11cbd7;
