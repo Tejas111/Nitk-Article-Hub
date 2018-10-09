@@ -5,6 +5,8 @@ var GridFsStorage = require('multer-gridfs-storage');
  var config = require('../config');
  const path = require('path');
  var express = require('express');
+ var student = require('../models/userdetail');
+
  
 
 var router = express.Router();
@@ -12,8 +14,10 @@ var router = express.Router();
  var connect = mongoose.createConnection(config.mongourl,{useNewUrlParser:true});
  
  connect.then((db) => {
-   console.log("Connected correctly to mongoDb");
+   console.log("Connection2 ");
  }, (err) => { console.log(err); });
+
+ 
 //Initialize gfs
 let gfs;
 connect.once('open', function () {
@@ -43,7 +47,7 @@ router.post('/',upload.single('pdf',),(req,res)=>{
     res.json({file:req.file});
 });
 router.get('/',(req,res)=>{
-    gfs.files.findOne({filename:'ajay.pdf'},(err,file)=>{
+    gfs.files.findOne({filename:'tushar.pdf'},(err,file)=>{
         if(!file|| file.length ==0){
             return res.json({err:'No_file_exists'});
         }

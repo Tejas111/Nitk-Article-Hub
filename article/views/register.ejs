@@ -105,18 +105,18 @@
           <div class="col-md-7">
             <div class="form-wrap">
               <h2 class="mb-5">Register new account</h2>
-              <form action="#" method="post">
+              <form action="/users/signup" method="post" enctype="application/x-www-form-urlencoded">
                   
                   <div class="row">
                     <div class="col-md-12 form-group">
                       <label for="name">Email Address</label>
-                      <input type="text" id="name" class="form-control py-2">
+                      <input type="text" id="username" name="username" class="form-control py-2">
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-12 form-group">
                       <label for="name">Password</label>
-                      <input type="password" id="name" class="form-control py-2 ">
+                      <input type="password" id="name" name="password" class="form-control py-2 ">
                     </div>
                   </div>
                   <div class="row mb-5">

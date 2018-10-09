@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 439ef559f5773551e977423a69df0952c35459ab
 # Ignore folder name `node_modules`
 node_modules/
 # Ignore folder name `data`

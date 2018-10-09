@@ -1,19 +1,18 @@
 var express = require('express');
 var router = express.Router();
-
+var student = require('../models/userdetail');
+var mongoose = require('mongoose');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('homepage');
+});
+router.get('/register', function(req, res, next) {
+  res.render('register');
 });
 
 router.get('/login', function(req, res, next) {
   res.render('login');
 });
-
-router.get('/register', function(req, res, next) {
-  res.render('register');
-});
-
 router.get('/multer', function(req, res, next) {
   res.render('multer');
 });
@@ -26,12 +25,23 @@ router.get('/all_articles', function(req, res, next) {
   res.render('user/all_articles');
 });
 
-router.get('/profile', function(req, res, next) {
-  res.render('user/profile');
-});
 
 router.get('/edit_profile', function(req, res, next) {
   res.render('user/edit_profile');
+});
+router.get('/pro', function(req, res, next) {
+  //var a = toString(req.user._id);
+  //var id = mongoose.Types.ObjectId(a);
+  student.findById(req.user._id,(err,file)=>{
+    if(err)
+      console.log(err);
+    if(file){
+      console.log(file);
+      console.log("tejaskumar");
+      res.render('user/pro',{student:file});
+    }
+  });
+  
 });
 router.get('/new_article', function(req, res, next) {
   res.render('user/new_article');
