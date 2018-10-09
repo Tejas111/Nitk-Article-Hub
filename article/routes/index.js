@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var student = require('../models/userdetail');
+var mongoose = require('mongoose');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('homepage');
@@ -29,13 +30,15 @@ router.get('/edit_profile', function(req, res, next) {
   res.render('user/edit_profile');
 });
 router.get('/pro', function(req, res, next) {
-  var a = toString(req.user._id);
-  student.findById({"_id":ObjectId(a)},(err,file)=>{
+  //var a = toString(req.user._id);
+  //var id = mongoose.Types.ObjectId(a);
+  student.findById(req.user._id,(err,file)=>{
     if(err)
       console.log(err);
     if(file){
       console.log(file);
-      res.render('user/pro',{student:student});
+      console.log("tejaskumar");
+      res.render('user/pro',{student:file});
     }
   });
   

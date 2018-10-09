@@ -43,22 +43,26 @@
                           <div class="row">
                               <div class="col-lg-6 col-sm-12">
                                     <ul class="list-group">
-                                            <li class="list-group-item text-muted"><%= student.name%></li>
+                                      <% if(student) { %>
+                                            <li class="list-group-item text-muted"><%= student.firstname %></li>
                                            
-                                            <li class="list-group-item text-right"><span class="pull-left"><%= student.course %></li>
-                                            <li class="list-group-item text-right"><span class="pull-left"><%= student.branch %> </li>
+                                            <li class="list-group-item text-right"><span class="pull-left"><%= student.lastname %></li>
+                                            <li class="list-group-item text-right"><span class="pull-left"> <%= student.mobile %></li>
                                            
                                           </ul> 
+                                          <% } %>
                               </div>
 
                               <div class="col-lg-6 col-sm-12">
                                     <ul class="list-group">
+                                    <% if(student) { %>
                                             <li class="list-group-item text-muted"><%= student.email %></li>
                                            
-                                            <li class="list-group-item text-right"><span class="pull-left"><%= student.mobile %></li>
                                             <li class="list-group-item text-right"><span class="pull-left"><%= student.address %></li>
+                                            <li class="list-group-item text-right"><span class="pull-left"><%= student.course %></li>
                                            
                                           </ul> 
+                                          <% } %>
                                 </div>
                           </div>
                           
