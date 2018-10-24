@@ -1,5 +1,4 @@
 module.exports={
     'secretKey':'01234-56789',
-    'mongourl':'mongodb://tejask:tejasku11@ds125683.mlab.com:25683/tejas'
-
+    'mongourl':'mongodb://shreyas:dpsp1191@ds239903.mlab.com:39903/ita'
 }

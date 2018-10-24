@@ -4,6 +4,7 @@ var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
 var User = require('../models/user');
+var students = require('../models/userdetail');
 var passport = require('passport');
 //router.use(bodyParser.urlencoded({extended:true,type:'application/x-www-form-urlencode'}));
 var authenticate = require('../authenticate');
@@ -23,6 +24,36 @@ router.post('/signup', (req, res, next) => {
       res.json({err: err});
     }
     else {
+
+        console.log("%%%%%%%%%%%%%%%%%%%%%%%%%");
+        console.log(user);
+        console.log("%%%%%%%%%%%%%%%%%%%%%%%%%");
+        var obj={
+          Index: user._id,
+
+          };
+
+
+        students.create(obj, function (err, student) {
+            if (err) {
+                console.log(err);
+
+            }
+            else
+            {
+                console.log('Student Created ', student);
+                // res.statusCode = 200;
+                // res.setHeader('Content-Type', 'application/json');
+                // res.json(student);
+                //console.log('hello');
+                res.redirect('/login');
+            }
+
+            // saved!
+        });
+
+
+
       passport.authenticate('local')(req, res, () => {
         res.redirect('/login');
       });
@@ -32,7 +63,7 @@ router.post('/signup', (req, res, next) => {
 
 router.post('/login', passport.authenticate('local'), (req, res) => {
   console.log(req.user);
- res.redirect('/userdetail');
+ res.redirect('/user/edit_profile');
 });
 
 router.get('logout',(req,res)=>{

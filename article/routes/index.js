@@ -40,21 +40,7 @@ router.get('/uploads',(req,res)=>{
       console.log(file);
   })
 });
-router.get('/pro', function(req, res, next) {
-  //var a = toString(req.user._id);
-  //var id = mongoose.Types.ObjectId(a);
-  student.findById(req.user._id).populate('Index')
-  .exec((err,file)=>{
-    if(err)
-      console.log(err);
-    if(file){
-      console.log(file.Index);
-      //console.log("tejaskumar");
-      res.render('user/pro',{student:file});
-    }
-  });
-  
-});
+
 router.get('/new_article', function(req, res, next) {
   res.render('user/new_article');
 });
