@@ -6,6 +6,17 @@ var mongoose = require('mongoose');
 var students = require('../models/userdetail');
 var authenticate = require('../authenticate');
 
+Router.get('/', function(req, res, next) {
+    console.log("hoooooooo................");
+    if(req.session)
+    {
+        res.render('user/user_home');
+    }else{
+        res.redirect('/login');
+    }
+
+});
+
 
 Router.get('/profile', function(req, res, next) {
     //var a = toString(req.user._id);
@@ -135,5 +146,19 @@ Router.route('/edit_profile')
 
 
     );
+
+
+Router.get('/logout',(req,res)=>{
+    if(req.session){
+        req.session.destroy();
+        res.clearCookie('session-id');
+        res.redirect('/');
+    }
+    else{
+        var err = new Error('You are not logged in!');
+        err.status = 403;
+        next(err);
+    }
+});
 
 module.exports=Router;
