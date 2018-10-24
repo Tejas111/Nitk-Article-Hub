@@ -5,7 +5,6 @@ Router.use(bodyParser.json());
 var mongoose = require('mongoose');
 var students = require('../models/userdetail');
 var authenticate = require('../authenticate');
-var flag =1;
 Router.route('/')
 .get((req,res)=>{
     res.render('user/edit_profile');
@@ -15,6 +14,8 @@ Router.route('/')
         if(err) throw err;
         if(!file){
             req.body._id = req.user._id,
+            req.body.Index = req.user._id,
+            req.body.Uploads = req.user._id,
     //students.
     students.create(req.body)
     .then((student) => {

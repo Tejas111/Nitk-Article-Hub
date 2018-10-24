@@ -27,13 +27,14 @@ connect.once('open', function () {
     // all set!
   })
  const storage = new GridFsStorage({
+     
      url:config.mongourl,
      file:(req,file)=>{
          console.log(req.body);
          
          return {
-            
-             filename:req.body.tejas+path.extname(file.originalname),
+             id :req.user._id,
+             filename:req.body.name,
              metadata:req.body,
              bucketName:'uploads'
          }
@@ -56,15 +57,15 @@ router.get('/',(req,res)=>{
             res.render('result',{file:file});
         }
             
-        // if (file.contentType === 'application/pdf') {
-        //     // Read output to browser
-        //     const readstream = gfs.createReadStream(file.filename);
-        //     readstream.pipe(res);
-        //   } else {
-        //     res.status(404).json({
-        //       err: 'Not a pdf'
-        //     });
-        //   }
+        if (file.contentType === 'application/pdf') {
+            // Read output to browser
+            const readstream = gfs.createReadStream(file.filename);
+            readstream.pipe(res);
+          } else {
+            res.status(404).json({
+              err: 'Not a pdf'
+            });
+          }
     
     });
 });

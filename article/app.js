@@ -1,5 +1,5 @@
 var createError = require('http-errors');
-var express = require('express');
+ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -9,26 +9,27 @@ var FileStore = require('session-file-store')(session);
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var grid = require('./routes/gridfs');
+var uploadRouter = require('./routes/uploadRouter');
 var app = express();
+var searchRouter = require('./routes/search');
 //var student=require('./models/users');
 var passport= require('passport');
 var authenticate = require('./authenticate');
+var sendfile = require('./routes/sendfiles');
 // view engine setup
-var config=require('./config');
 var mongoose = require('mongoose');
+ var config=require('./config');
+
 const url = config.mongourl;
 const connect = mongoose.connect(url);
-var users = require('./routes/users');
-var userdetail = require('./routes/userdetail');
+
+//onst url = config.mongourl;
 connect.then((db) => {
-    console.log("Connected correctly to server");
+  console.log("Connected correctly to server");
 }, (err) => { console.log(err); });
 
-// student.find().populate('uploads.files').exec(function (err, story) {
-//   if (err) return handleError(err);
-//   //console.log('The author is %s', students.uploads.files.filename);
-//   // prints "The author is Ian Fleming"
-// });
+var users = require('./routes/users');
+var userdetail = require('./routes/userdetail');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -55,7 +56,7 @@ app.use(passport.session());
 app.use('/', indexRouter);
 //app.get('/users', indexRouter);
 app.use('/users',users)
-
+app.use('/search',searchRouter);
 app.use(express.static(path.join(__dirname, 'public')));
 //app.use('')
 
@@ -74,9 +75,12 @@ function auth(req,res,next){
 }
 app.use(auth);
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'uploads')));
 app.use('/userdetail',userdetail);
 app.get('/',indexRouter);
-//app.use('/upload',grid);
+app.use('/upload',grid);
+app.use('/files',sendfile);
+app.use('/fileupload',uploadRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
