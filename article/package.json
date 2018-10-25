@@ -5,6 +5,10 @@
   "scripts": {
     "start": "node ./bin/www"
   },
+  "nodemonConfig": {
+  "ignore": ["sessions"]
+},
+
   "dependencies": {
     "body-parser": "^1.18.3",
     "cookie-parser": "~1.4.3",

@@ -4,6 +4,7 @@ var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
 var User = require('../models/user');
+var students = require('../models/userdetail');
 var passport = require('passport');
 //router.use(bodyParser.urlencoded({extended:true,type:'application/x-www-form-urlencode'}));
 var authenticate = require('../authenticate');
@@ -22,6 +23,7 @@ router.post('/signup', (req, res, next) => {
       res.json({err: err});
     }
     else {
+<<<<<<< HEAD
       if(req.body.firstname)
        user.firstname = req.body.firstname;
       if(req.body.lastname)
@@ -33,6 +35,38 @@ router.post('/signup', (req, res, next) => {
           res.json({err: err});
           return ;
         }
+=======
+
+        console.log("%%%%%%%%%%%%%%%%%%%%%%%%%");
+        console.log(user);
+        console.log("%%%%%%%%%%%%%%%%%%%%%%%%%");
+        var obj={
+          Index: user._id,
+
+          };
+
+
+        students.create(obj, function (err, student) {
+            if (err) {
+                console.log(err);
+
+            }
+            else
+            {
+                console.log('Student Created ', student);
+                // res.statusCode = 200;
+                // res.setHeader('Content-Type', 'application/json');
+                // res.json(student);
+                //console.log('hello');
+                res.redirect('/login');
+            }
+
+            // saved!
+        });
+
+
+
+>>>>>>> 1af34da38ddc14133b11b41af1dc049aa0e8b50a
       passport.authenticate('local')(req, res, () => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
@@ -44,6 +78,7 @@ router.post('/signup', (req, res, next) => {
   });
 //passing back the token once authenticated
 router.post('/login', passport.authenticate('local'), (req, res) => {
+<<<<<<< HEAD
   //var token = authenticate.getToken({_id:req.user._id});
   res.redirect('/userdetail');
 });
@@ -61,5 +96,11 @@ router.get('logout',(req,res)=>{
     next(err);
   }
 });
+=======
+  console.log(req.user);
+ res.redirect('/user/');
+});
+
+>>>>>>> 1af34da38ddc14133b11b41af1dc049aa0e8b50a
 
 module.exports=router;

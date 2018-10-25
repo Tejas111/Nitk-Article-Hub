@@ -19,9 +19,6 @@ router.get('/multer', function(req, res, next) {
   res.render('multer');
 });
 
-router.get('/user_home', function(req, res, next) {
-  res.render('user/user_home');
-});
 
 router.get('/all_articles', function(req, res, next) {
   res.render('user/all_articles');
@@ -33,6 +30,7 @@ router.get('/edit_profile', function(req, res, next) {
 });
 router.get('/uploads',(req,res)=>{
   student.find({_id:req.user._id})
+<<<<<<< HEAD
   .then((files)=>{
     console.log(files);
     res.json(files);
@@ -52,6 +50,16 @@ router.get('/pro', function(req, res, next) {
   },(err)=>next(err))
   .catch((err)=>next(err));
 });
+=======
+  .exec((err,file)=>{
+    if (err) throw err;
+    else
+      res.json(file);
+      console.log(file);
+  })
+});
+
+>>>>>>> 1af34da38ddc14133b11b41af1dc049aa0e8b50a
 router.get('/new_article', function(req, res, next) {
   res.render('user/new_article');
 });

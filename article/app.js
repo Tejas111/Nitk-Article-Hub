@@ -30,7 +30,12 @@ connect.then((db) => {
   console.log("Connected correctly to server");
 }, (err) => { console.log(err); });
 
+<<<<<<< HEAD
 app.use(express.static(path.join(__dirname, 'public')));
+=======
+var users = require('./routes/users');
+var user = require('./routes/user');
+>>>>>>> 1af34da38ddc14133b11b41af1dc049aa0e8b50a
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -61,8 +66,10 @@ app.use('/users',users)
 
 //app.use('')
 
+
+
 function auth(req,res,next){
-  console.log(req.user);
+  //console.log(req.user);
 
   if (!req.user) {
     var err = new Error('You are not authenticated!');
@@ -75,10 +82,18 @@ function auth(req,res,next){
   }
 }
 app.use(auth);
+<<<<<<< HEAD
 // app.use(express.static(path.join(__dirname, 'public')));
 // app.use(express.static(path.join(__dirname, 'uploads')));
 app.use('/userdetail',userdetail);
 //app.get('/',indexRouter);
+=======
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'uploads')));
+app.use('/user',user);
+app.use('/',indexRouter);
+>>>>>>> 1af34da38ddc14133b11b41af1dc049aa0e8b50a
 app.use('/upload',grid);
 app.use('/files',sendfile);
 app.use('/fileupload',uploadRouter);
@@ -95,7 +110,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  //res.render('error');
 });
 
 module.exports = app;
