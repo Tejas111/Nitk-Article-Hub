@@ -11,7 +11,7 @@ Router.route('/')
 })
 .post((req, res, next) => {
     students.findById(req.user._id,(err,file)=>{
-        //if(err) throw err;
+        if(err) throw err;
         if(!file){
             req.body._id = req.user._id,
             req.body.Index = req.user._id,
@@ -24,7 +24,7 @@ Router.route('/')
         // res.setHeader('Content-Type', 'application/json');
         // res.json(student);
         //console.log('hello');
-       return res.redirect('/pro');
+        res.redirect('/pro');
         //res.json(student);
     }, (err) => next(err))
     .catch((err) => next(err));

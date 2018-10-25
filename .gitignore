@@ -1,6 +1,0 @@
-# Ignore folder name `node_modules`
-node_modules/
-# Ignore folder name `data`
-data/
-# Ignore folder name `.vs`
-.vs/

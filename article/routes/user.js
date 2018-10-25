@@ -1,10 +1,71 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 const Router = express.Router();
+var article = require('../models/article');
 Router.use(bodyParser.json());
 var mongoose = require('mongoose');
 var students = require('../models/userdetail');
 var authenticate = require('../authenticate');
+
+var multer = require('multer');
+var path = require('path');
+//config multer
+
+var storage = multer.diskStorage({
+        destination:(req,file,cb)=>{
+            cb(null,'uploads/')
+        },
+        filename:(req,file,cb)=>{
+            console.log("**************************************");
+            console.log(req.body);
+            console.log("**************************************");
+            cb(null,req.body.title+'.pdf')
+        }
+    }
+);
+
+const imageFileFilter = (req,file,cb)=>{
+    if(!file.originalname.match(/\.(pdf)$/)){
+        return cb(new Error('You can upload pdf files!'),false);
+    }
+    cb(null,true);
+};
+const upload = multer({storage:storage, fileFilter:imageFileFilter});
+
+
+Router.route('/new_article')
+    .get((req,res,next)=>{
+        res.render('user/new_article');
+    })
+
+    .post(upload.single('pdf'),(req,res,next)=>{
+
+        students.findOne({ Index: req.user._id })
+            .exec((err, file) => {
+                if (err) {
+                    console.log(" in new_article page 1a ");
+                    console.log(err);
+                    res.redirect('/user/profile')
+                }
+                else {
+                    req.body.author = file._id;
+                    console.log("-------------------------------------");
+                    console.log(req.body);
+                    console.log("-------------------------------------");
+
+                        article.create(req.body)
+                            .then((article)=>{
+                                console.log(article);
+                                res.redirect('/user/profile');
+                            },(err) => next(err))
+                            .catch((err)=>next(err));
+
+                }
+                });
+
+
+    });
+
 
 Router.get('/', function(req, res, next) {
     console.log("hoooooooo................");
@@ -90,7 +151,7 @@ Router.route('/edit_profile')
 
                 });
 
-            res.render('user/edit_profile');
+
          }
     else
         {
