@@ -291,7 +291,7 @@ Router.post('/my_articles/:id',(req,res)=> {
         else{
             console.log("99999999999999999");
             console.log(file);
-            console.log("999999999999999999");
+            console.log("9999999999999");
             res.redirect('/user/my_articles/:id');
         }
     });
