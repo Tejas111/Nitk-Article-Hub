@@ -33,27 +33,24 @@ router.get('/edit_profile', function(req, res, next) {
 });
 router.get('/uploads',(req,res)=>{
   student.find({_id:req.user._id})
-  .exec((err,file)=>{
-    if (err) throw err;
-    else
-      res.json(file);
-      console.log(file);
-  })
-});
+  .then((files)=>{
+    console.log(files);
+    res.json(files);
+    //console.log(files);
+  },(err)=>next(err))
+  .catch((err)=>next(err));
+})
+
 router.get('/pro', function(req, res, next) {
   //var a = toString(req.user._id);
   //var id = mongoose.Types.ObjectId(a);
   student.findById(req.user._id).populate('Index')
-  .exec((err,file)=>{
-    if(err)
-      console.log(err);
-    if(file){
-      console.log(file.Index);
-      //console.log("tejaskumar");
-      res.render('user/pro',{student:file});
-    }
-  });
-  
+  .then((files)=>{
+    console.log(files);
+    res.json(files);
+    //console.log(files);
+  },(err)=>next(err))
+  .catch((err)=>next(err));
 });
 router.get('/new_article', function(req, res, next) {
   res.render('user/new_article');
@@ -68,8 +65,9 @@ router.get('/about', function(req, res, next) {
 router.get('/myuploads',function(req,res,next){
   article.find({uploaded:req.user._id})
   .then((files)=>{
-    res.json(files);
     console.log(files);
+    res.json(files);
+    //console.log(files);
   },(err)=>next(err))
   .catch((err)=>next(err));
 })
