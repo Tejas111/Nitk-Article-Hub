@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title></title>
+
+    <title>home</title>
+
+    <meta name="description" content="A sidebar menu as seen on the Google Nexus 7 website" />
+    <meta name="keywords" content="google nexus 7 menu, css transitions, sidebar, side menu, slide out menu" />
+    <meta name="author" content="Codrops" />
+
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="/css/component.css" />
+    <script src="/js/modernizr.custom.js"></script>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
+    <link href="https://unpkg.com/ionicons@4.4.4/dist/css/ionicons.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+
+    <link rel="stylesheet" href="/fonts/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div >
+
+
+
+
+    <ul id="gn-menu" class="gn-menu-main" style="z-index:1;">
+        <li class="gn-trigger">
+            <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+            <nav class="gn-menu-wrapper">
+                <div class="gn-scroller">
+                    <ul class="gn-menu">
+                        <li><a href="/user/profile" class="gn-icon ion-ios-person">Profile</a></li>
+                        <li><a href="/user/edit_profile" class="gn-icon ion-ios-person">Edit Profile</a></li>
+                        <li><a href="/user/my_articles" class="gn-icon gn-icon-article">My Articles</a></li>
+
+                        <li><a href="/user/new_article" class="gn-icon ion-md-add-circle-outline">Create Article</a></li>
+                        <!--  <li><a class="gn-icon  ion-ios-settings">Settings</a></li> -->
+
+                        <li><a href="/user/logout" class="gn-icon ion-md-log-out">Logout</a></li>
+                        <!-- <li><a class="gn-icon ion-md-log-out">Logout</a></li>
+                         <li><a class="gn-icon ion-md-log-out">Logout</a></li>
+
+                         <li><a class="gn-icon gn-icon-archive">Archives</a></li> -->
+
+
+
+
+                        </li>
+                    </ul>
+                </div><!-- /gn-scroller -->
+            </nav>
+        </li>
+
+        <li class="navbar-nav absolute-right">
+            <a href="#">logout</a>
+        </li>
+
+    </ul>
+</div>
+
+
+
+
+<div class="abc" style="margin-top: 60px">
+
+    <div class="site-section bg-light">
+        <div class="container">
+
+            <div class="row justify-content-center mb-5 element-animate" >
+                <h2>Article Details</h2>
+            </div>
+            <div class="row element-animate">
+
+             <!--- -->
+             <div class="row element-animate" style="height: 100%;width:100%" >
+
+                       <div class="col-lg-5">
+
+                            <iframe src="https://www.math.ksu.edu/~dbski/writings/further.pdf#zoom=50" style="height:100%;width:100%;">
+                                <p>Your browser does not support iframes.</p>
+                            </iframe>
+                       </div>
+
+                       <div class="col-lg-1"></div>
+                       <div calss="col-lg-6" >
+<!-- #a6ebf0-->
+                           <div  style="background-color: #a6ebf0 ">
+                                       <form    style="margin: 5px;" class="form" action="/user/my_articles/<%= article._id %>" method="post" enctype='multipart/form-data' id="new_article_form">
+
+                                           <div class="row">
+
+                                                     <div class="col-lg-6 col-md-12">
+                                                         <div class="form-group">
+
+                                                             <div class="col-xs-12">
+                                                                 <label for="title"><h6 style="color: #1b1e21">Article Title</h6></label>
+                                                                 <input type="text" class="form-control " name="title" id="title" value="<%= article.title %>" >
+                                                             </div>
+                                                         </div>
+                                                     </div>
+
+
+                                                       <div class="col-lg-6 col-md-12">
+                                                           <div class="form-group">
+                                                               <div class="col-xs-12">
+                                                                   <label style="margin-top: 3px;" for="category"><h6 style="color: #1b1e21">Category</h6></label><br>
+                                                                   <input type="text" class="form-control " name="category" id="description" value="<%= article.category %>" >
+                                                               </div>
+                                                           </div>
+                                                       </div>
+
+
+
+
+                                           </div>
+
+                                           <div class="form-group">
+                                               <div class="col-xs-12">
+                                                   <label style="margin-top: 3px;" for="description"><h6 style="color: #1b1e21">Description</h6></label><br>
+                                                   <input type="text" class="form-control " name="description" id="description" value="<%= article.description %>" >
+                                               </div>
+                                           </div>
+
+                                           <input id="html_btn" class="file-upload  search-submit btn btn-primary  "  name="pdf" type='file' />
+
+
+
+
+                                           <div class="form-group">
+                                               <div class="col-xs-12">
+                                                   <br>
+                                                   <button class="search-submit btn btn-primary pull-center" style="background-color: #0c5460" type="submit" style="font-size:10px;"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+
+                                               </div>
+                                           </div>
+                                       </form>
+
+                           </div>
+
+
+                            <div class="row">
+                                <div class="col-lg-12 col-sm-12">
+                                    <ul class="list-group">
+                                       <!-- <li class="list-group-item text-muted">Autor :Virat Kohli</li> -->
+
+                                        <li class="list-group-item text-right"><span class="pull-left">Created At </span></li>
+
+
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                <!------>
+
+                            <div class="block-15">
+                                <div class="heading">
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+
+                                    <div class="block-18 d-flex align-items-center">
+                                        <div class="icon mr-4">
+                                            <!-- <span class="flaticon-like"></span> -->
+                                        </div>
+                                        <div class="text">
+                                            <strong class="number" data-number="0">9</strong>
+                                            <span>Likes</span>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="block-18 d-flex align-items-center">
+                                        <div class="icon mr-4">
+
+                                        </div>
+                                        <div class="text">
+                                            <strong class="number" data-number="1">17</strong>
+                                            <span>Comments</span>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                <!------>
+                            <br>
+                            <button  class="search-submit btn btn-primary  " ><i class="glyphicon glyphicon-like"></i>Like</button>
+            </div>
+
+
+
+
+
+        </div>
+
+            <!-- -->
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- loader -->
+    <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
+
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/jquery-migrate-3.0.0.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+    <script src="/js/jquery.waypoints.min.js"></script>
+    <script src="/js/jquery.stellar.min.js"></script>
+    <script src="/js/jquery.animateNumber.min.js"></script>
+
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+
+    <script src="/js/main.js"></script>
+
+
+</div><!-- /abc -->
+
+<script src="/js/classie.js"></script>
+<script src="/js/gnmenu.js"></script>
+<script>
+    new gnMenu( document.getElementById( 'gn-menu' ) );
+</script>
+</body>
+</html>

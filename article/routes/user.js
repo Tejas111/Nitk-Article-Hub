@@ -182,7 +182,7 @@ Router.route('/edit_profile')
                             console.log(file);
                             res.redirect('/user/profile');
                         }
-                    })
+                    });
 
 
 
@@ -221,5 +221,84 @@ Router.get('/logout',(req,res)=>{
         next(err);
     }
 });
+
+Router.get('/my_articles',(req,res)=>{
+
+
+
+    students.findOne({ Index: req.user._id })
+        .exec((err, file) => {
+            if (err) {
+
+                console.log(err);
+                res.redirect('/login');
+            }
+            else {
+
+                    console.log(" in my article 1b ");
+
+
+                article.find({ author: file._id})
+                    .exec((err, articles) => {
+                        if (err) {
+
+                            console.log(err);
+                            res.redirect('/user/profile');
+                        }
+                        else {
+                             console.log(articles);
+                            res.render('user/my_articles',{articles : articles});
+                        }
+                    });
+
+            }
+
+        });
+
+
+});
+
+
+Router.get('/my_articles/:id',(req,res)=> {
+
+    article.findOne({ _id : req.params.id})
+        .exec((err, articles) => {
+            if (err) {
+
+                console.log(err);
+                res.redirect('/user/my_articles');
+            }
+            else {
+                console.log(articles);
+                res.render('user/my_article',{article : articles});
+            }
+        });
+
+});
+
+Router.post('/my_articles/:id',(req,res)=> {
+
+    console.log("77777777777777777");
+    console.log(req.params.id);
+    console.log("77777777777777777");
+    var obj={
+      title: req.body.title,
+        description:req.body.description,
+        category: req.body.category
+    };
+    article.findByIdAndUpdate( req.params.id,{$set:obj},(err,file)=>{
+        if(err) throw err;
+        else{
+            console.log("99999999999999999");
+            console.log(file);
+            console.log("999999999999999999");
+            res.redirect('/user/my_articles/:id');
+        }
+    });
+
+
+
+});
+
 
 module.exports=Router;
