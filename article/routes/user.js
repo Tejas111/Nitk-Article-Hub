@@ -15,12 +15,14 @@ var storage = multer.diskStorage({
         destination:(req,file,cb)=>{
             cb(null,'uploads/')
         },
-        filename:(req,file,cb)=>{
-            console.log("**************************************");
-            console.log(req.body);
-            console.log("**************************************");
-            cb(null,req.body.title+'.pdf')
-        }
+        /*  filename:(req,file,cb)=>{
+              console.log("**************************************");
+              console.log(req.body);
+              console.log(req.file);
+              console.log("**************************************");
+              cb(null,'.pdf')
+          }
+          */
     }
 );
 
@@ -52,16 +54,18 @@ Router.route('/new_article')
                     console.log("-------------------------------------");
                     console.log(req.body);
                     console.log("-------------------------------------");
-
-                        article.create(req.body)
-                            .then((article)=>{
-                                console.log(article);
-                                res.redirect('/user/profile');
-                            },(err) => next(err))
-                            .catch((err)=>next(err));
+                    req.body.filename = req.file.filename;
+                    article.create(req.body)
+                        .then((article)=>{
+                            console.log("+++++++++++++++++++++++");
+                            console.log(req.file);
+                            console.log("+++++++++++++++++++++++");
+                            res.redirect('/user/profile');
+                        },(err) => next(err))
+                        .catch((err)=>next(err));
 
                 }
-                });
+            });
 
 
     });
@@ -122,7 +126,7 @@ Router.route('/edit_profile')
 
 
         if (req.user)
-         {
+        {
 
 
             console.log(".............................................................................");
@@ -152,8 +156,8 @@ Router.route('/edit_profile')
                 });
 
 
-         }
-    else
+        }
+        else
         {
         }
     })
@@ -235,7 +239,7 @@ Router.get('/my_articles',(req,res)=>{
             }
             else {
 
-                    console.log(" in my article 1b ");
+                console.log(" in my article 1b ");
 
 
                 article.find({ author: file._id})
@@ -246,7 +250,7 @@ Router.get('/my_articles',(req,res)=>{
                             res.redirect('/user/profile');
                         }
                         else {
-                             console.log(articles);
+                            console.log(articles);
                             res.render('user/my_articles',{articles : articles});
                         }
                     });
@@ -280,9 +284,10 @@ Router.post('/my_articles/:id',(req,res)=> {
 
     console.log("77777777777777777");
     console.log(req.params.id);
+    console.log(req.body);
     console.log("77777777777777777");
     var obj={
-      title: req.body.title,
+        title: req.body.title,
         description:req.body.description,
         category: req.body.category
     };

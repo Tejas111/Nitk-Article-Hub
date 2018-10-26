@@ -89,105 +89,41 @@
             </div>
             <div class="row element-animate">
 
-             <!--- -->
-             <div class="row element-animate" style="height: 100%;width:100%" >
+                <!--- -->
+                <div class="row element-animate" style="height: 100%;width:100%" >
 
-                       <div class="col-lg-5">
+                    <div class="col-lg-5">
 
-                            <iframe src="https://www.math.ksu.edu/~dbski/writings/further.pdf#zoom=50" style="height:100%;width:100%;">
-                                <p>Your browser does not support iframes.</p>
-                            </iframe>
-                       </div>
+                        <iframe src="https://www.math.ksu.edu/~dbski/writings/further.pdf#zoom=50" style="height:100%;width:100%;">
+                            <p>Your browser does not support iframes.</p>
+                        </iframe>
+                    </div>
 
-                       <div class="col-lg-1"></div>
-                       <div calss="col-lg-6" >
-<!-- #a6ebf0-->
-                           <div  style="background-color: #a6ebf0 ">
-                                       <form    style="margin: 5px;" class="form" action="/user/my_articles/<%= article._id %>" method="post" enctype='multipart/form-data' id="new_article_form">
+                    <div class="col-lg-1"></div>
+                    <div calss="col-lg-6" >
+                        <!-- #a6ebf0-->
+                        <div  style="background-color: #a6ebf0 ">
+                            <form    style="margin: 5px;" class="form" action="/user/my_articles/<%= article._id %>" method="post"  id="new_article_form">
 
-                                           <div class="row">
+                                <div class="row">
 
-                                                     <div class="col-lg-6 col-md-12">
-                                                         <div class="form-group">
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="form-group">
 
-                                                             <div class="col-xs-12">
-                                                                 <label for="title"><h6 style="color: #1b1e21">Article Title</h6></label>
-                                                                 <input type="text" class="form-control " name="title" id="title" value="<%= article.title %>" >
-                                                             </div>
-                                                         </div>
-                                                     </div>
-
-
-                                                       <div class="col-lg-6 col-md-12">
-                                                           <div class="form-group">
-                                                               <div class="col-xs-12">
-                                                                   <label style="margin-top: 3px;" for="category"><h6 style="color: #1b1e21">Category</h6></label><br>
-                                                                   <input type="text" class="form-control " name="category" id="description" value="<%= article.category %>" >
-                                                               </div>
-                                                           </div>
-                                                       </div>
-
-
-
-
-                                           </div>
-
-                                           <div class="form-group">
-                                               <div class="col-xs-12">
-                                                   <label style="margin-top: 3px;" for="description"><h6 style="color: #1b1e21">Description</h6></label><br>
-                                                   <input type="text" class="form-control " name="description" id="description" value="<%= article.description %>" >
-                                               </div>
-                                           </div>
-
-                                           <input id="html_btn" class="file-upload  search-submit btn btn-primary  "  name="pdf" type='file' />
-
-
-
-
-                                           <div class="form-group">
-                                               <div class="col-xs-12">
-                                                   <br>
-                                                   <button class="search-submit btn btn-primary pull-center" style="background-color: #0c5460" type="submit" style="font-size:10px;"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
-
-                                               </div>
-                                           </div>
-                                       </form>
-
-                           </div>
-
-
-                            <div class="row">
-                                <div class="col-lg-12 col-sm-12">
-                                    <ul class="list-group">
-                                       <!-- <li class="list-group-item text-muted">Autor :Virat Kohli</li> -->
-
-                                        <li class="list-group-item text-right"><span class="pull-left">Created At </span></li>
-
-
-                                    </ul>
-                                </div>
-
-
-                            </div>
-                <!------>
-
-                            <div class="block-15">
-                                <div class="heading">
-
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-
-                                    <div class="block-18 d-flex align-items-center">
-                                        <div class="icon mr-4">
-                                            <!-- <span class="flaticon-like"></span> -->
+                                            <div class="col-xs-12">
+                                                <label for="title"><h6 style="color: #1b1e21">Article Title</h6></label>
+                                                <input type="text" class="form-control " name="title" id="title" value="<%= article.title %>" >
+                                            </div>
                                         </div>
-                                        <div class="text">
-                                            <strong class="number" data-number="0">9</strong>
-                                            <span>Likes</span>
+                                    </div>
+
+
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="form-group">
+                                            <div class="col-xs-12">
+                                                <label style="margin-top: 3px;" for="category"><h6 style="color: #1b1e21">Category</h6></label><br>
+                                                <input type="text" class="form-control " name="category" id="description" value="<%= article.category %>" >
+                                            </div>
                                         </div>
                                     </div>
 
@@ -195,33 +131,97 @@
 
 
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="block-18 d-flex align-items-center">
-                                        <div class="icon mr-4">
 
-                                        </div>
-                                        <div class="text">
-                                            <strong class="number" data-number="1">17</strong>
-                                            <span>Comments</span>
-                                        </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <label style="margin-top: 3px;" for="description"><h6 style="color: #1b1e21">Description</h6></label><br>
+                                        <input type="text" class="form-control " name="description" id="description" value="<%= article.description %>" >
                                     </div>
-
-
-
                                 </div>
+
+                                <input id="html_btn" class="file-upload  search-submit btn btn-primary  "  name="pdf" type='file' />
+
+
+
+
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <br>
+                                        <button class="search-submit btn btn-primary pull-center" style="background-color: #0c5460" type="submit" style="font-size:10px;"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-lg-12 col-sm-12">
+                                <ul class="list-group">
+                                    <!-- <li class="list-group-item text-muted">Autor :Virat Kohli</li> -->
+
+                                    <li class="list-group-item text-right"><span class="pull-left">Created At </span></li>
+
+
+                                </ul>
                             </div>
-                <!------>
-                            <br>
-                            <button  class="search-submit btn btn-primary  " ><i class="glyphicon glyphicon-like"></i>Like</button>
-            </div>
+
+
+                        </div>
+                        <!------>
+
+                        <div class="block-15">
+                            <div class="heading">
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <div class="block-18 d-flex align-items-center">
+                                    <div class="icon mr-4">
+                                        <!-- <span class="flaticon-like"></span> -->
+                                    </div>
+                                    <div class="text">
+                                        <strong class="number" data-number="0">9</strong>
+                                        <span>Likes</span>
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="block-18 d-flex align-items-center">
+                                    <div class="icon mr-4">
+
+                                    </div>
+                                    <div class="text">
+                                        <strong class="number" data-number="1">17</strong>
+                                        <span>Comments</span>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                        <!------>
+                        <br>
+                        <button  class="search-submit btn btn-primary  " ><i class="glyphicon glyphicon-like"></i>Like</button>
+                    </div>
 
 
 
 
 
-        </div>
+                </div>
 
-            <!-- -->
+                <!-- -->
 
 
 
