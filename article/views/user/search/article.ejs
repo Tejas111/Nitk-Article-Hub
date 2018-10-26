@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title></title>
+
+    <title>home</title>
+
+    <meta name="description" content="A sidebar menu as seen on the Google Nexus 7 website" />
+    <meta name="keywords" content="google nexus 7 menu, css transitions, sidebar, side menu, slide out menu" />
+    <meta name="author" content="Codrops" />
+
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="/css/component.css" />
+    <script src="/js/modernizr.custom.js"></script>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
+    <link href="https://unpkg.com/ionicons@4.4.4/dist/css/ionicons.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+
+    <link rel="stylesheet" href="/fonts/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="/css/style.css">
+
+
+    <style>
+
+        input, textarea {
+            outline: none;
+            border: none;
+            display: block;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            font-family: "PT Sans", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+            font-size: 1rem;
+            color: #555f77;
+        }
+        input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+            color: #ced2db;
+        }
+        input::-moz-placeholder, textarea::-moz-placeholder {
+            color: #ced2db;
+        }
+        input:-moz-placeholder, textarea:-moz-placeholder {
+            color: #ced2db;
+        }
+        input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+            color: #ced2db;
+        }
+
+        p {
+            line-height: 1.3125rem;
+        }
+
+        .comments {
+            margin: 2.5rem auto 0;
+            max-width: 60.75rem;
+            padding: 0 1.25rem;
+        }
+
+        .comment-wrap {
+            margin-bottom: 1.25rem;
+            display: table;
+            width: 100%;
+            min-height: 5.3125rem;
+        }
+
+        .photo {
+            padding-top: 0.625rem;
+            display: table-cell;
+            width: 3.5rem;
+        }
+        .photo .avatar {
+            height: 2.25rem;
+            width: 2.25rem;
+            border-radius: 50%;
+            background-size: contain;
+        }
+
+        .comment-block {
+            padding: 1rem;
+            background-color: #fff;
+            display: table-cell;
+            vertical-align: top;
+            border-radius: 0.1875rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+        }
+        .comment-block textarea {
+            width: 100%;
+            resize: none;
+        }
+
+        .comment-text {
+            margin-bottom: 1.25rem;
+        }
+
+        .bottom-comment {
+            color: #acb4c2;
+            font-size: 0.875rem;
+        }
+
+        .comment-date {
+            float: left;
+        }
+
+        .comment-actions {
+            float: right;
+        }
+        .comment-actions li {
+            display: inline;
+            margin: -2px;
+            cursor: pointer;
+        }
+        .comment-actions li.complain {
+            padding-right: 0.75rem;
+            border-right: 1px solid #e1e5eb;
+        }
+        .comment-actions li.reply {
+            padding-left: 0.75rem;
+            padding-right: 0.125rem;
+        }
+        .comment-actions li:hover {
+            color: #0095ff;
+        }
+    </style>
+</head>
+<body>
+<div >
+
+
+
+
+    <ul id="gn-menu" class="gn-menu-main" style="z-index:1;">
+        <li class="gn-trigger">
+            <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+            <nav class="gn-menu-wrapper">
+                <div class="gn-scroller">
+                    <ul class="gn-menu">
+                        <li><a href="/user/profile" class="gn-icon ion-ios-person">Profile</a></li>
+                        <li><a href="/user/edit_profile" class="gn-icon ion-ios-person">Edit Profile</a></li>
+                        <li><a href="/user/my_articles" class="gn-icon gn-icon-article">My Articles</a></li>
+
+                        <li><a href="/user/new_article" class="gn-icon ion-md-add-circle-outline">Create Article</a></li>
+                        <!--  <li><a class="gn-icon  ion-ios-settings">Settings</a></li> -->
+
+                        <li><a href="/user/logout" class="gn-icon ion-md-log-out">Logout</a></li>
+                        <!-- <li><a class="gn-icon ion-md-log-out">Logout</a></li>
+                         <li><a class="gn-icon ion-md-log-out">Logout</a></li>
+
+                         <li><a class="gn-icon gn-icon-archive">Archives</a></li> -->
+
+
+
+                        </li>
+                    </ul>
+                </div><!-- /gn-scroller -->
+            </nav>
+        </li>
+
+        <li class="navbar-nav absolute-right">
+            <a href="#">logout</a>
+        </li>
+
+    </ul>
+</div>
+
+
+
+
+<div class="abc" style="margin-top: 60px">
+
+
+
+
+
+    <!-- END section -->
+    <div class="site-section bg-light">
+        <div class="container">
+
+            <div class="row justify-content-center mb-5 element-animate" >
+                <h2>Article Details</h2>
+            </div>
+            <div class="row element-animate">
+
+                <!--- -->
+                <div class="row element-animate" style="height: 100%;width:100%" >
+
+                    <div class="col-lg-6">
+
+                        <iframe src="https://www.math.ksu.edu/~dbski/writings/further.pdf#zoom=50" style="height:100%;width:100%;">
+                            <p>Your browser does not support iframes.</p>
+                        </iframe>
+                    </div>
+
+                    <div class="col-lg-1"></div>
+                    <div calss="col-lg-5" >
+                        <!-- #a6ebf0-->
+                        <div  style="background-color: #a6ebf0 ">
+
+                            <div class="card">
+
+                                <div class="card-header"><h4><b>Title</b> : <%= article.title%></h4></div>
+
+
+                                <div class="card-body"><h4><b>Description</b> : <%= article.description%></h4></div>
+                                <div class="card-header"><h4><b>Author</b> : <%= article.author.firstname%> &nbsp; <%= article.author.lastname%></h4></div>
+                            </div>
+                        </div>
+
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-12 col-sm-12">
+                                <ul class="list-group">
+                                    <!-- <li class="list-group-item text-muted">Autor :Virat Kohli</li> -->
+
+                                    <li class="list-group-item text-right"><span class="pull-left">Created At </span></li>
+
+
+                                </ul>
+                            </div>
+
+
+                        </div>
+                        <!------>
+
+                        <div class="block-15">
+                            <div class="heading">
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <div class="block-18 d-flex align-items-center">
+                                    <div class="icon mr-4">
+                                        <!-- <span class="flaticon-like"></span> -->
+                                    </div>
+                                    <div class="text">
+                                        <strong class="number" data-number="0">9</strong>
+                                        <span>Likes</span>
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="block-18 d-flex align-items-center">
+                                    <div class="icon mr-4">
+
+                                    </div>
+                                    <div class="text">
+                                        <strong class="number" data-number="1"><%= comments.length%></strong>
+                                        <span>Comments</span>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                        <!------>
+                        <br>
+                        <button  class="search-submit btn btn-primary  " ><i class="glyphicon glyphicon-like"></i>Like</button>
+                    </div>
+
+
+
+
+
+                </div>
+
+
+
+            </div>
+
+            <!-- -->
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+<div class="site-section bg-primary">
+
+    <div class="container">
+        <div class="row element-animate">
+
+            <div class=" center element-animate" style="text-align: center" >
+                <h2>Comments</h2>
+            </div>
+
+            <div class="comments">
+                <div class="comment-wrap">
+                    <div class="photo">
+                        <div class="avatar" style="background-image: url('https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg')"></div>
+                    </div>
+                    <div class="comment-block">
+                        <form action="/user/search/articles/<%= article._id%>/comment" method="post">
+                            <textarea name="comment" id="" cols="30" rows="3" placeholder="Add comment..."></textarea>
+                            <button type="submit" class="btn-primary btn">submit</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="comm" style="height:400px ;overflow-y: scroll;margin : 15px;">
+                <% for(var i=0; i< comments.length;i++) { %>
+
+                    <div class="comment-wrap">
+                        <div class="photo">
+                            <div class="avatar" style="background-image: url('https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg')"></div>
+                        </div>
+                        <div class="comment-block">
+                            <p class="comment-text"><%= comments[i].comment %></p>
+                            <div class="bottom-comment">
+                                <div class="comment-date"><%= comments[i].student.firstname%> &nbsp;<%= comments[i].student.lastname%></div>
+                                <ul class="comment-actions">
+                                    <li class="complain"><%= comments[i].date %></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                <% } %>
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+    <!-- end section -->
+    <!-- loader -->
+    <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
+
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/jquery-migrate-3.0.0.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+    <script src="/js/jquery.waypoints.min.js"></script>
+    <script src="/js/jquery.stellar.min.js"></script>
+    <script src="/js/jquery.animateNumber.min.js"></script>
+
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+
+    <script src="/js/main.js"></script>
+
+
+</div><!-- /abc -->
+
+<script src="/js/classie.js"></script>
+<script src="/js/gnmenu.js"></script>
+<script>
+    new gnMenu( document.getElementById( 'gn-menu' ) );
+</script>
+</body>
+</html>

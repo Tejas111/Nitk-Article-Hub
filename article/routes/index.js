@@ -5,6 +5,7 @@ router.use(bodyParser.json());
 var student = require('../models/userdetail');
 var mongoose = require('mongoose');
 var users = require('../models/user');
+var comments= require('../models/comment');
 var article = require('../models/article');
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -46,7 +47,7 @@ router.post('/search', function(req, res, next) {
 
 router.get('/search/articles/:id',(req,res)=> {
 
-    article.findOne({ _id : req.params.id})
+    article.findOne({ _id : req.params.id}).populate('author')
         .exec((err, articles) => {
             if (err) {
 
@@ -54,30 +55,28 @@ router.get('/search/articles/:id',(req,res)=> {
                 res.redirect('/');
             }
             else {
+                comments.find({ article: req.params.id}).populate('student')
+                    .exec((err, comments) => {
+                        if (err) {
 
-                res.render('search/article',{article : articles});
+                            console.log(err);
+                            res.redirect('/');
+                        }
+                        else {
+                            console.log("---------------------");
+                            console.log(comments);
+                            res.render('search/article',{article : articles ,comments :comments});
+                        }
+                    });
+
             }
         });
 
 });
 
 
-router.post('search/articles/:id',(req,res)=> {
-    res.redirect('/');
-    /*  article.findOne({ _id : req.params.id})
-          .exec((err, articles) => {
-              if (err) {
 
-                  console.log(err);
-                  res.redirect('/');
-              }
-              else {
 
-                  res.render('search/article',{article : articles});
-              }
-          });*/
-
-});
 
 /*
 router.get('/uploads',(req,res)=>{

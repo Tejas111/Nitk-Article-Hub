@@ -5,6 +5,7 @@ var article = require('../models/article');
 Router.use(bodyParser.json());
 var mongoose = require('mongoose');
 var students = require('../models/userdetail');
+var comments = require('../models/comment');
 var authenticate = require('../authenticate');
 
 var multer = require('multer');
@@ -304,6 +305,95 @@ Router.post('/my_articles/:id',(req,res)=> {
 
 
 });
+
+
+
+
+Router.post('/search', function(req, res, next) {
+    article.find({'title' : { '$regex' : req.body.keywords, '$options' : 'i' }}).populate('author')
+        .exec((err,file)=>{
+            if (err) throw err;
+            else
+            {
+                console.log(file);
+                res.render('user/search/articles',{articles :file});
+            }
+        });
+
+});
+
+
+Router.get('/search/articles/:id',(req,res)=> {
+
+    article.findOne({ _id : req.params.id}).populate('author')
+        .exec((err, articles) => {
+            if (err) {
+
+                console.log(err);
+                res.redirect('/');
+            }
+            else {
+                comments.find({ article: req.params.id}).populate('student')
+                    .exec((err, comments) => {
+                        if (err) {
+
+                            console.log(err);
+                            res.redirect('/');
+                        }
+                        else {
+                            console.log("---------------------");
+                             console.log(comments);
+                            res.render('user/search/article',{article : articles ,comments :comments});
+                        }
+                    });
+
+            }
+        });
+
+});
+
+
+Router.post('/search/articles/:id/comment',(req,res)=> {
+
+    students.findOne({ Index: req.user._id})
+        .exec((err, student) => {
+            if (err) {
+                console.log(" entered 1 ");
+                console.log(err);
+                res.redirect('/login');
+            }
+            else {
+                console.log(" entered 2");
+                var obj={
+
+                  comment: req.body.comment,
+                  article: mongoose.Types.ObjectId(req.params.id),
+                  student:student._id
+                };
+
+               console.log(obj);
+               console.log(student);
+
+                comments.create(obj, function (err, comm) {
+                    if (err) {
+                        console.log(" entered 3");
+                        console.log(err);
+                        res.redirect('/user/search/articles/:id');
+                    }
+                    else
+                    {
+                        console.log(" entered 1 ");
+                        var url='/user/search/articles/'+req.params.id;
+                        res.redirect(url);
+                    }
+
+                });
+
+            }
+        });
+
+});
+
 
 
 module.exports=Router;
