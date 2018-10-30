@@ -6,6 +6,7 @@ Router.use(bodyParser.json());
 var mongoose = require('mongoose');
 var students = require('../models/userdetail');
 var comments = require('../models/comment');
+var replies = require('../models/reply');
 var authenticate = require('../authenticate');
 
 var multer = require('multer');
@@ -341,9 +342,27 @@ Router.get('/search/articles/:id',(req,res)=> {
                             res.redirect('/');
                         }
                         else {
-                            console.log("---------------------");
-                             console.log(comments);
-                            res.render('user/search/article',{article : articles ,comments :comments});
+
+                            replies.find({ article: req.params.id}).populate('student')
+                                .exec((err, r) => {
+                                    if (err) {
+
+                                        console.log(err);
+                                        res.redirect('/');
+                                    }
+                                    else {
+
+
+
+
+                                        console.log("---------------------");
+                                        console.log(r);
+                                        res.render('user/search/article',{article : articles ,comments :comments ,reply: r});
+                                    }
+                                });
+
+
+
                         }
                     });
 
@@ -388,6 +407,62 @@ Router.post('/search/articles/:id/comment',(req,res)=> {
                     }
 
                 });
+
+            }
+        });
+
+});
+
+
+Router.post('/search/articles/:id/:cid/reply',(req,res)=> {
+
+    students.findOne({ Index: req.user._id})
+        .exec((err, student) => {
+            if (err) {
+                console.log(" entered 1 ");
+                console.log(err);
+                res.redirect('/login');
+            }
+            else {
+                console.log(" entered 2");
+                comments.findOne({ _id: req.params.comment_id})
+                    .exec((err, comment) => {
+                        if (err) {
+                            console.log(" entered 2 ");
+                            console.log(err);
+                            var ur='/search/articles/'+req.params.id;
+                            res.redirect(ur);
+                        }
+                        else {
+
+                            var obj={
+
+                                reply: req.body.comment,
+                                article: mongoose.Types.ObjectId(req.params.id),
+                                comment: mongoose.Types.ObjectId(req.params.cid),
+                                student:student._id
+                            };
+
+
+
+                            replies.create(obj, function (err, r) {
+                                if (err) {
+                                    console.log(" entered 3");
+                                    console.log(err);
+                                    res.redirect('/user/search/articles/'+req.params.id);
+                                }
+                                else
+                                {
+                                    console.log(" entered 4 ");
+                                    var url='/user/search/articles/'+req.params.id;
+                                    res.redirect(url);
+                                }
+
+                            });
+
+                        }
+
+                    });
 
             }
         });

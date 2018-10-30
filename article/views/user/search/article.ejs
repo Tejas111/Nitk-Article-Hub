@@ -342,7 +342,35 @@
                             </div>
                         </div>
                     </div>
+                        <% for(var j=0; j< reply.length;j++) { %>
 
+                    <% if( comments[i]._id.equals(reply[j].comment) ){%>
+
+                            <div class="comment-wrap "  style="margin-left: 30%">
+                                <div class="photo">
+                                    <div class="avatar" style="background-image: url('https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg')"></div>
+                                </div>
+                                <div class="comment-block">
+                                    <p class="comment-text"><%= reply[j].reply %></p>
+                                    <div class="bottom-comment">
+
+                                        <ul class="comment-actions">
+                                            <li class="complain"><%= reply[j].date %></li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                                <% } %>
+                        <% } %>
+                      <div style="border:3px solid green">
+                          <form action="/user/search/articles/<%= article._id%>/<%= comments[i]._id %>/reply " method="post">
+                              <textarea name="comment" id="" cols="30" rows="3" placeholder="Add reply..."></textarea>
+                              <button type="submit" class="btn-primary btn">reply</button>
+                          </form>
+
+                      </div>
                 <% } %>
                 </div>
 
