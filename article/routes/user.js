@@ -16,14 +16,14 @@ var storage = multer.diskStorage({
         destination:(req,file,cb)=>{
             cb(null,'uploads/')
         },
-        /*  filename:(req,file,cb)=>{
+          filename:(req,file,cb)=>{
               console.log("**************************************");
               console.log(req.body);
               console.log(req.file);
               console.log("**************************************");
-              cb(null,'.pdf')
+              cb(null, req.user._id+ '-' + Date.now() + path.extname(file.originalname));
           }
-          */
+
     }
 );
 

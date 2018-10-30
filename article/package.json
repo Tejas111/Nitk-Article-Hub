@@ -6,11 +6,13 @@
     "start": "node ./bin/www"
   },
   "nodemonConfig": {
-  "ignore": ["sessions"]
-},
-
+    "ignore": [
+      "sessions"
+    ]
+  },
   "dependencies": {
     "body-parser": "^1.18.3",
+    "connect-mongodb-session": "^2.0.3",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "ejs": "~2.5.7",

@@ -19,6 +19,7 @@ var sendfile = require('./routes/sendfiles');
 // view engine setup
 var mongoose = require('mongoose');
  var config=require('./config');
+var MongoDBStore = require('connect-mongodb-session')(session);
 
 const url = config.mongourl;
 const connect = mongoose.connect(url);
@@ -43,12 +44,27 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
 
+var store = new MongoDBStore({
+    uri: 'mongodb://shreyas:dpsp1191@ds239903.mlab.com:39903/ita',
+    collection: 'mySessions'
+});
+
+store.on('connected', function() {
+    store.client; // The underlying MongoClient object from the MongoDB driver
+});
+
+// Catch errors
+store.on('error', function(error) {
+    assert.ifError(error);
+    assert.ok(false);
+});
+
 app.use(session({
   name: 'session-id',
   secret: '12345-67890-09876-54321',
   saveUninitialized: false,
   resave: false,
-  store: new FileStore()
+  store: store
 }));
 
 app.use(passport.initialize());
@@ -58,6 +74,7 @@ app.use('/', indexRouter);
 app.use('/users',users)
 //app.use('/search',searchRouter);
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'uploads')));
 //app.use('')
 
 
