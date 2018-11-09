@@ -34,6 +34,19 @@
     
         <!-- Theme Style -->
         <link rel="stylesheet" href="/css/style.css">
+        <style>
+        ul {
+            list-style-type: none;
+            margin-top: 10px;
+            padding-left:25px ;
+            float:none;
+        }
+    li{
+        padding-left:10px;
+        
+        color:green;
+    }
+        </style>
 	</head>
 	<body>
 		<div >
@@ -85,18 +98,19 @@
                 <div class="mb-5 element-animate">
                     <div class="block-17">
                         <h2 class="heading text-center mb-4">Find Articles On Any Catagory</h2>
-                        <form action="/user/search/" method="post" class="d-block d-lg-flex mb-4">
+                       <form action="/user/search/" method="post" class="d-block d-lg-flex mb-4">
                             <div class="fields d-block d-lg-flex">
 
-                                <div class="textfield-search one-third"><input type="text" name="keywords" class="form-control" placeholder="Keyword search..."></div>
-
+                                <div class="textfield-search one-third"><input type="text" name="keywords" id="keyword" class="form-control" placeholder="Keyword search..."></div>
+                                
 
                                 <div class="textfield-search one-third"><input type="text" class="form-control" placeholder="Author search..."></div>
 
                             </div>
                             <input type="submit" class="search-submit btn btn-primary" value="Search">
-                        </form>
-
+                       </form>
+                       <div id="result">
+                       </div>
                     </div>
                 </div>
 
@@ -124,5 +138,35 @@
                 <script>
                     new gnMenu( document.getElementById( 'gn-menu' ) );
                 </script>
+                
 	</body>
 </html>
+<script>
+                //Ajax search based on keywords
+                $(document).ready(function(){
+                                $('#keyword').keyup(function(){
+                                    var query = $(this).val();
+                                    if(1)
+                                    {
+                                        $.ajax({
+                                            url:"/user/searchajax/",
+                                            method:"POST",
+                                            data:{query:query},
+                                            success:function(data)
+                                            {
+                                                    $('#result').fadeIn();
+                                                    $('#result').html(data);
+                                            }
+                                        });
+                                    }
+                                    
+                                });
+                            });
+                            $(document).on('click', 'li', function(){
+                                    $('#keyword').val($(this).text());
+                                    $('#result').fadeOut();
+                                });
+                                $('body').on('click',function(){
+                                         $('#result').fadeOut();
+                                 })
+</script>

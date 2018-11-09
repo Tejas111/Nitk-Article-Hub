@@ -8,8 +8,8 @@ var article_schema = new Schema({
     filename:{type:String,required:true,lowercase:true},
     //comments:[String],
     //likes:{type:Number,default:0},
-    author:{type:mongoose.Schema.Types.ObjectId,ref:'student',index:true}
-
+    author:{type:mongoose.Schema.Types.ObjectId,ref:'student'}
+    
 });
 
 var article = mongoose.model('article',article_schema);

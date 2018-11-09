@@ -8,9 +8,20 @@ var students = require('../models/userdetail');
 var comments = require('../models/comment');
 var replies = require('../models/reply');
 var authenticate = require('../authenticate');
-
+var follow = require('../models/follow');
 var multer = require('multer');
 var path = require('path');
+//for nodemailer
+var nodemailer = require('nodemailer');
+
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'nitk.article@gmail.com',
+    pass: 'nitk@ita'
+  }
+});
+
 //config multer
 
 var storage = multer.diskStorage({
@@ -57,6 +68,37 @@ Router.route('/new_article')
                     console.log(req.body);
                     console.log("-------------------------------------");
                     req.body.filename = req.file.filename;
+                    follow.find({followed_to:file._id}).
+                    exec((err,files)=>{
+                        if(err) throw(err);
+                        if(files){
+                            console.log(files)
+                            for(i=0;i<files.length;i++){
+                                students.findOne({Index:files[i].followed_by})
+                                .exec((err,file1)=>{
+                                    if(err) throw(err);
+                                    console.log(typeof file1.email);
+                                    if(file1){
+                                        var mailOptions = {
+                                            from: 'nitk.article@gmail.com',
+                                            to: file1.email,
+                                            subject: 'REGARDING THE FOLLOWING OF THE AUTHOR :'+file.firstname+''+file.lastname,
+                                            text: 'YOUR AUTHOR HAS JUST UPLOADED THE FILE:'+req.file.filename
+                                          };
+                                          
+                                          transporter.sendMail(mailOptions, function(error, info){
+                                            if (error) {
+                                              console.log(error);
+                                            } else {
+                                              console.log('Email sent: ' + info.response);
+                                            }
+                                          });
+                                    }
+                                })
+                            }
+                            
+                        }
+                    });
                     article.create(req.body)
                         .then((article)=>{
                             console.log("+++++++++++++++++++++++");
@@ -65,6 +107,7 @@ Router.route('/new_article')
                             res.redirect('/user/profile');
                         },(err) => next(err))
                         .catch((err)=>next(err));
+       
 
                 }
             });
@@ -140,7 +183,7 @@ Router.route('/edit_profile')
                     if (err) {
                         console.log(" in edit profile page 1a ");
                         console.log(err);
-                        res.redirect('/');
+                        res.redirect(401,'/');
                     }
                     else {
                         if (file) {
@@ -151,7 +194,7 @@ Router.route('/edit_profile')
                         }
                         else {
                             console.log(" in profile page 1c ");
-                            res.redirect('user/edit_profile',{student: null});
+                            res.render('user/edit_profile');
                         }
                     }
 
@@ -323,6 +366,26 @@ Router.post('/search', function(req, res, next) {
 
 });
 
+Router.post('/searchajax',(req,res)=>{
+    article.find({'title':{ '$regex' : req.body.query, '$options' : 'i' }})
+    .exec((err,file)=>{
+        if (err) throw err;
+        else
+        {
+            if(file.length!=0){
+                var i;
+                var output='';
+                output='<ul class="list-unstyled">';
+                for(i=0;i<file.length;i++ ){
+                    output+='<li>'+file[i].title+'</li>'
+                }
+                output+='</ul>';
+                res.send(output);
+            }
+           
+        }
+    })
+})
 
 Router.get('/search/articles/:id',(req,res)=> {
 
@@ -469,6 +532,34 @@ Router.post('/search/articles/:id/:cid/reply',(req,res)=> {
 
 });
 
-
+// For the process of following
+Router.post('/search/articles/:id/follow',(req,res,next)=>{
+    req.body.followed_by = req.user._id;
+    
+    article.findById(req.params.id).populate('student')
+    .then((file)=>{
+        req.body.followed_to = file.author._id;
+        req.body.followed_article = file._id;
+        follow.findOne({followed_by:req.user._id,followed_to:file.author._id})
+        .exec((err,file)=>{
+            if(file){
+                console.log("You have already followed the given author");
+                var url = '/user/search/articles/'+req.params.id;
+                res.redirect(200,url)
+            }
+            else{
+                    follow.create(req.body)
+                    .then((file)=>{
+                        console.log("One follower Inserted After checking ");
+                        var url = '/user/search/articles/'+req.params.id;
+                        res.redirect(200,url)
+                    },(err)=>next(err))
+                    .catch((err)=>next(err));
+                
+            }
+        })
+    },(err)=>next(err))
+    .catch((err)=>next(err));
+})
 
 module.exports=Router;

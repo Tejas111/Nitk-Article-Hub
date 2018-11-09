@@ -37,6 +37,8 @@ router.post('/signup', (req, res, next) => {
         students.create(obj, function (err, student) {
             if (err) {
                 console.log(err);
+                req.flash('info','Registration failed');
+                res.redirect('/signup');
 
             }
             else
@@ -61,7 +63,8 @@ router.post('/signup', (req, res, next) => {
   });
 });
 
-router.post('/login', passport.authenticate('local'), (req, res) => {
+router.post('/login', passport.authenticate('local',{failureRedirect:'/login',failureFlash:true}), (req, res) => {
+  
   console.log(req.user);
  res.redirect('/user/');
 });

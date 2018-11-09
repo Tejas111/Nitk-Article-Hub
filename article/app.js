@@ -8,6 +8,7 @@ var session = require('express-session');
 var FileStore = require('session-file-store')(session);
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var flash = require('connect-flash');
 var grid = require('./routes/gridfs');
 var uploadRouter = require('./routes/uploadRouter');
 var app = express();
@@ -42,10 +43,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
-
+app.use(flash());
 
 var store = new MongoDBStore({
-    uri: 'mongodb://shreyas:dpsp1191@ds239903.mlab.com:39903/ita',
+    uri: config.mongourl,
     collection: 'mySessions'
 });
 
@@ -78,29 +79,29 @@ app.use(express.static(path.join(__dirname, 'uploads')));
 //app.use('')
 
 
-
-function auth(req,res,next){
-  //console.log(req.user);
-
-  if (!req.user) {
-    var err = new Error('You are not authenticated!');
-    res.setHeader('WWW-Authenticate', 'Basic');                          
-    err.status = 401;
-    next(err);
-  }
-  else {
-        next();
-  }
-}
-app.use(auth);
-
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'uploads')));
 app.use('/user',user);
-app.use('/',indexRouter);
-app.use('/upload',grid);
-app.use('/files',sendfile);
-app.use('/fileupload',uploadRouter);
+// function auth(req,res,next){
+//   //console.log(req.user);
+
+//   if (!req.user) {
+//     var err = new Error('You are not authenticated!');
+//     res.setHeader('WWW-Authenticate', 'Basic');                          
+//     err.status = 401;
+//     next(err);
+//   }
+//   else {
+//         next();
+//   }
+// }
+// app.use(auth);
+
+// app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'uploads')));
+
+// app.use('/',indexRouter);
+// app.use('/upload',grid);
+// app.use('/files',sendfile);
+// app.use('/fileupload',uploadRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

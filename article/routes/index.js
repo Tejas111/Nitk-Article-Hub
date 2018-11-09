@@ -16,13 +16,13 @@ router.get('/register', function(req, res, next) {
 });
 
 router.get('/login', function(req, res, next) {
-  res.render('login');
+  res.render('login',{message:req.flash('info')});
 });
 
 
-router.get('/edit_profile', function(req, res, next) {
-  res.render('user/edit_profile');
-});
+// router.get('/edit_profile', function(req, res, next) {
+//   res.render('user/edit_profile');
+// });
 
 
 router.get('/about', function(req, res, next) {
