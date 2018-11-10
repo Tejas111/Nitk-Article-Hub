@@ -85,7 +85,7 @@
                                   <div class="container bootstrap snippet">
                                   <form class="form" action="/edit_profile" method="post" id="registrationForm" enctype="multipart/form-data">
                                    <div class="row">
-                                         <div class="col-sm-12"><h1>User name</h1></div>
+                                         <div class="col-sm-12"><h1>User Page</h1></div>
                                        
                                    </div>
                                    <div class="row">
@@ -133,7 +133,7 @@
                                                          
                                                          <div class="col-xs-6">
                                                            <label for="last_name"><h4>Last name</h4></label>
-                                                             <input type="text" class="form-control" name="lastname" id="last_name" value="<%=student.lastname %>" title="enter your last name if any.">
+                                                             <input type="text" class="form-control" name="lastname" id="last_name" value="<%=student.lastname %>" title="enter your last name if any." >
                                                          </div>
                                                      </div>
                                          
@@ -141,7 +141,7 @@
                                                          
                                                          <div class="col-xs-6">
                                                              <label for="phone"><h4>Phone</h4></label>
-                                                             <input type="text" class="form-control" name="mobile" id="mobile" value="<%=student.mobile %>" title="enter your phone number if any.">
+                                                             <input type="text" class="form-control" name="mobile" id="mobile" value="<%=student.mobile %>" title="enter your phone number if any." required="true">
                                                          </div>
                                                      </div>
                                          
@@ -150,7 +150,7 @@
                                                          
                                                          <div class="col-xs-6">
                                                              <label for="email"><h4>Email</h4></label>
-                                                             <input type="email" class="form-control" name="email" id="email" name="email" value="<%=student.email %>" title="enter your email.">
+                                                             <input type="email" class="form-control" name="email" id="email" name="email" value="<%=student.email %>" title="enter your email." required="true">
                                                          </div>
                                                      </div>
                                                      <div class="form-group">
@@ -164,7 +164,7 @@
                                                          
                                                             <div class="col-xs-6">
                                                                 <label for="email"><h4>Course</h4></label>
-                                                                <input type="text" class="form-control" id="course" name='course' value="<%=student.course %>" title="enter a location">
+                                                                <input type="text" class="form-control" id="course" name='course' value="<%=student.course %>" title="enter the course studying">
                                                             </div>
                                                         </div>
 
@@ -172,7 +172,7 @@
                                                          
                                                                 <div class="col-xs-6">
                                                                     <label for="email"><h4>Branch</h4></label>
-                                                                    <input type="text" class="form-control" id="branch" name="branch" value="<%=student.branch %>" title="enter a location">
+                                                                    <input type="text" class="form-control" id="branch" name="branch" value="<%=student.branch %>" title="enter a Branch">
                                                                 </div>
                                                             </div>
                                                     

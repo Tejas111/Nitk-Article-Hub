@@ -109,26 +109,22 @@
                   
                   <div class="row">
                     <div class="col-md-12 form-group">
-                      <label for="name">Email Address</label>
-                      <input type="text" id="username" name="username" class="form-control py-2">
+                      <label for="name">Username</label>
+                      <input type="text" id="username" name="username" class="form-control py-2" required>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-12 form-group">
                       <label for="name">Password</label>
-                      <input type="password" id="name" name="password" class="form-control py-2 ">
-                    </div>
-                  </div>
-                  <div class="row mb-5">
-                    <div class="col-md-12 form-group">
-                      <label for="name">Re-type Password</label>
-                      <input type="password" id="name" class="form-control py-2">
+                      <input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" required class="form-control py-2 ">
+                      <!--<span style="color:red" id="password_error"></span>-->
                     </div>
                   </div>
                   
+                  
                   <div class="row">
                     <div class="col-md-6 form-group">
-                      <input type="submit" value="Register" class="btn btn-primary px-5 py-2">
+                      <input  type="submit" value="Register" class="btn btn-primary px-5 py-2">
                     </div>
                   </div>
                 </form>
@@ -202,5 +198,10 @@
     <script src="js/jquery.animateNumber.min.js"></script>
 
     <script src="js/main.js"></script>
+    <script type="text/javascript">
+
+	
+        
+    </script>
   </body>
 </html>
