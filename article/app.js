@@ -79,22 +79,23 @@ app.use(express.static(path.join(__dirname, 'uploads')));
 //app.use('')
 
 
+
+function auth(req,res,next){
+  //console.log(req.user);
+
+  if (!req.user) {
+    var err = new Error('You are not authenticated!');
+    res.setHeader('WWW-Authenticate', 'Basic');  
+    res.json('You are not authenticated')                        
+    // err.status = 401;
+    // next(err);
+  }
+  else {
+        next();
+  }
+}
+app.use(auth);
 app.use('/user',user);
-// function auth(req,res,next){
-//   //console.log(req.user);
-
-//   if (!req.user) {
-//     var err = new Error('You are not authenticated!');
-//     res.setHeader('WWW-Authenticate', 'Basic');                          
-//     err.status = 401;
-//     next(err);
-//   }
-//   else {
-//         next();
-//   }
-// }
-// app.use(auth);
-
 // app.use(express.static(path.join(__dirname, 'public')));
 // app.use(express.static(path.join(__dirname, 'uploads')));
 
