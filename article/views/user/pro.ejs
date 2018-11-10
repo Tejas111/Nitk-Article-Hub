@@ -47,6 +47,8 @@
             <nav class="gn-menu-wrapper">
                 <div class="gn-scroller">
                     <ul class="gn-menu">
+                        <li><a href="/user/" class="gn-icon ion-ios-person">Home</a></li>
+
                         <li><a href="/user/profile" class="gn-icon ion-ios-person">Profile</a></li>
                         <li><a href="/edit_profile" class="gn-icon ion-ios-person">Edit Profile</a></li>
                         <li><a href="/user/my_articles" class="gn-icon gn-icon-article">My Articles</a></li>
@@ -91,7 +93,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="text-center">
-                        <img src="/uploadnew/<%= student.Index %>.png" class="img-responcive img-circle img-thumbnail" alt="avatar">
+                        <img src="/uploadnew/<%= student.Index %>.png" class="img-responcive img-circle img-thumbnail" alt="avatar" width="250px" height="250px">
 
                     </div><br>
 
@@ -144,7 +146,7 @@
                                     <span class="flaticon-books"></span>
                                 </div>
                                 <div class="text">
-                                    <strong class="number" data-number="192">0</strong>
+                                    <strong class="number" ><%= articles%></strong>
                                     <span>Articles</span>
                                 </div>
                             </div>
@@ -155,7 +157,7 @@
                                     <span class="flaticon-student"></span>
                                 </div>
                                 <div class="text">
-                                    <strong class="number" data-number="121">0</strong>
+                                    <strong class="number" ><%= following%></strong>
                                     <span>Following</span>
                                 </div>
                             </div>
@@ -167,7 +169,7 @@
                                     <span class="flaticon-student"></span>
                                 </div>
                                 <div class="text">
-                                    <strong class="number" data-number="121">0</strong>
+                                    <strong class="number" ><%= followers%></strong>
                                     <span>Followers</span>
                                 </div>
                             </div>
@@ -177,7 +179,7 @@
                                     <span class="flaticon-mortarboard"></span>
                                 </div>
                                 <div class="text">
-                                    <strong class="number" data-number="1921">0</strong>
+                                    <strong class="number" >0</strong>
                                     <span>Likes</span>
                                 </div>
                             </div>
@@ -190,77 +192,6 @@
         </div>
     </section>
     <!-- END section -->
-
-    <section class="site-section pt-3 element-animate">
-        <div class="container">
-            <div class="row">
-                <!---
-              <div class="col-md-6 col-lg-3">
-                <div class="media block-6 d-block">
-                  <div class="icon mb-3"><span class="flaticon-book"></span></div>
-                  <div class="media-body">
-                    <h3 class="heading">Knowledge is power</h3>
-                    <p></p>
-                    <p><a href="#" class="more">Read More <span class="ion-arrow-right-c"></span></a></p>
-                  </div>
-                </div>
-              </div>
-            -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="media block-6 d-block">
-                        <div class="icon mb-3"><span class="flaticon-student"></span></div>
-                        <div class="media-body">
-                            <h3 class="heading">Following</h3>
-                            <p>view whom the user is following</p>
-                            <p><a href="#" class="more"><span class="ion-arrow-right-c"></span></a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="media block-6 d-block">
-                        <div class="icon mb-3"><span class="flaticon-diploma"></span></div>
-                        <div class="media-body">
-                            <h3 class="heading">Articles</h3>
-                            <p>Have a look at  Articles</p>
-                            <p><a href="#" class="more"> <span class="ion-arrow-right-c"></span></a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="media block-6 d-block">
-                        <div class="icon mb-3"><span class="flaticon-professor"></span></div>
-                        <div class="media-body">
-                            <h3 class="heading"> Followers</h3>
-                            <p>View followers</p>
-                            <p><a href="#" class="more"><span class="ion-arrow-right-c"></span></a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- End section-->
-
-    <div class="py-5 block-22">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-8 mb-4 mb-md-0 pr-md-5 col-sm-12">
-                    <h2 class="heading">Follow the User to get Updates </h2>
-                    <p>By following the user u get notified when he puts up new articles</p>
-                </div>
-                <div class="col-md-4 col-sm-12">
-
-
-                    <Button class="btn btn-primary submit" style="background-color: white;color: teal;width: 40%" >Follow</Button>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-
 
 
 

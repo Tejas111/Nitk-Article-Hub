@@ -145,11 +145,49 @@ Router.get('/profile', function(req, res, next) {
                 }
                 else {
                     if (file) {
+
+
                         console.log(" in profile page 1b ");
-                        
+
+                        var articles=0;
+                        var followers=0;
+                        var following=0;
                         console.log(file);
-                        
-                        res.render('user/pro', {student: file});
+                        article.count({
+                            author: file._id
+
+                        }, function (err, c) {
+                            console.log("c = "+c);
+                            articles=c;
+                            console.log("art = "+articles);
+
+                            follow.count({
+                                followed_to: file._id
+
+
+                            }, function (err, c) {
+                                followers=c;
+
+                                follow.count({
+                                    followed_by: file._id
+
+
+                                }, function (err, c) {
+                                    following=c;
+                                    console.log(articles + " " +followers+" "+following);
+                                    res.render('user/pro', {student: file,articles: articles,followers:followers,following:following});
+
+
+
+                                });
+
+                            });
+
+                        });
+
+
+
+
                     }
                     else {
                         console.log(" in profile page 1c ");
@@ -471,7 +509,18 @@ Router.post('/search/articles/:id/:cid/reply',(req,res)=> {
 
 // For the process of following
 Router.post('/search/articles/:id/follow',(req,res,next)=>{
-    req.body.followed_by = req.user._id;
+
+    students.findOne({ Index: req.user._id })
+        .exec((err, s) => {
+            if (err) {
+                console.log(" in profile page 1a ");
+                console.log(err);
+                res.redirect('/user/edit_profile')
+            }
+            else {
+                req.body.followed_by = s._id;
+            }
+        });
     
     article.findById(req.params.id).populate('student')
     .then((file)=>{
@@ -498,5 +547,36 @@ Router.post('/search/articles/:id/follow',(req,res,next)=>{
     },(err)=>next(err))
     .catch((err)=>next(err));
 })
+
+
+
+
+Router.get('/search/author/:id',(req,res)=> {
+
+    students.findOne({ _id : req.params.id})
+        .exec((err, file) => {
+            if (err) {
+
+                console.log(err);
+                res.redirect('/');
+            }
+            else {
+                if (file) {
+                    console.log(" in profile page 1b ");
+
+                    console.log(file);
+
+                    res.render('user/search/author', {student: file});
+                }
+                else {
+                    console.log(" in profile page 1c ");
+                    res.redirect('user/');
+                }
+
+            }
+        });
+
+});
+
 
 module.exports=Router;
