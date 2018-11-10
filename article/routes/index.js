@@ -33,17 +33,43 @@ router.get('/about', function(req, res, next) {
 
 
 router.post('/search', function(req, res, next) {
-    article.find({'title' : { '$regex' : req.body.keywords, '$options' : 'i' }}).populate('author')
-        .exec((err,file)=>{
-            if (err) throw err;
-            else
-            {
-              console.log(file);
-                res.render('search/articles',{articles :file});
-            }
-        });
+    if(req.body.keywords) {
+        article.find({'title': {'$regex': req.body.keywords, '$options': 'i'}}).populate('author')
+            .exec((err, file) => {
+                if (err) throw err;
+                else {
+                    console.log(file);
+                    res.render('search/articles', {articles: file});
+                }
+            });
+    }
+    else if(req.body.author){
+
+        student.find({'firstname': {'$regex': req.body.author, '$options': 'i'}})
+            .exec((err, file) => {
+                if (err) throw err;
+                else {
+                    console.log(file);
+                    res.render('search/authors', {authors: file});
+                }
+            });
+    }
+    else
+    {
+        article.find({'title': {'$regex': req.body.keywords, '$options': 'i'}}).populate('author')
+            .exec((err, file) => {
+                if (err) throw err;
+                else {
+                    console.log(file);
+                    res.render('search/articles', {articles: file});
+                }
+            });
+    }
 
 });
+
+
+
 
 router.get('/search/articles/:id',(req,res)=> {
 
@@ -75,6 +101,42 @@ router.get('/search/articles/:id',(req,res)=> {
 });
 
 
+
+
+
+router.get('/search/authors/:id',(req,res)=> {
+
+    student.findOne({ _id : req.params.id})
+        .exec((err, author) => {
+            if (err) {
+
+                console.log(err);
+                res.redirect('/');
+            }
+            else {
+
+                            res.render('search/author',{student: author});
+
+
+            }
+        });
+
+});
+
+
+
+router.get('/search/author/:id/articles',(req,res)=> {
+
+    article.find({'author':req.params.id }).populate('author')
+        .exec((err, file) => {
+            if (err) throw err;
+            else {
+                console.log(file);
+                res.render('search/articles', {articles: file});
+            }
+        });
+
+});
 
 
 

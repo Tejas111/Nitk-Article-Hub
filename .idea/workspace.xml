@@ -2,21 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a024c9d5-26f7-4823-9d79-0f1b3e5d88c3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/article/views/search/author.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/article/views/search/authors.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/article/views/user/search/author.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/article/views/user/search/authors.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/article/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/article/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/article/routes/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/views/search/article.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/article/views/search/article.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/views/user/edit_profile.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/article/views/user/edit_profile.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/views/user/my_article.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/article/views/user/my_article.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/article/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/article/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/article/views/homepage.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/article/views/homepage.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/article/views/search/articles.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/article/views/search/articles.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/article/views/search/author.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/article/views/search/author.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/article/views/search/authors.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/article/views/search/authors.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/article/views/user/my_articles.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/article/views/user/my_articles.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/views/user/new_article.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/article/views/user/new_article.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/views/user/pro.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/article/views/user/pro.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/article/views/user/search/article.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/article/views/user/search/article.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/views/user/search/articles.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/article/views/user/search/articles.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/views/user/user_home.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/article/views/user/user_home.ejs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -71,28 +66,28 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="ejs" value="17" />
-          <entry key="js" value="14" />
+          <entry key="ejs" value="26" />
+          <entry key="js" value="17" />
           <entry key="png" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="EJS" value="17" />
+          <entry key="EJS" value="26" />
           <entry key="Image" value="2" />
-          <entry key="JavaScript" value="14" />
+          <entry key="JavaScript" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="ejs" value="113" />
-          <entry key="js" value="356" />
+          <entry key="ejs" value="513" />
+          <entry key="js" value="540" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="EJS" value="113" />
-          <entry key="JavaScript" value="356" />
+          <entry key="EJS" value="513" />
+          <entry key="JavaScript" value="540" />
         </counts>
       </usages-collector>
     </session>
@@ -100,83 +95,98 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/article/routes/user.js">
+        <entry file="file://$PROJECT_DIR$/article/models/userdetail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-378">
-              <caret line="524" column="33" lean-forward="true" selection-start-line="524" selection-start-column="33" selection-end-line="524" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/article/views/user/my_articles.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="93" column="35" selection-start-line="93" selection-start-column="35" selection-end-line="93" selection-end-column="35" />
+            <state relative-caret-position="119">
+              <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/article/models/article.js">
+        <entry file="file://$PROJECT_DIR$/article/views/user/search/author.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="3" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+            <state relative-caret-position="299">
+              <caret line="242" lean-forward="true" selection-start-line="193" selection-start-column="4" selection-end-line="242" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/article/views/user/my_article.ejs">
+        <entry file="file://$PROJECT_DIR$/article/views/search/author.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="50" selection-start-line="50" selection-end-line="50" />
+            <state relative-caret-position="347">
+              <caret line="291" column="78" selection-start-line="291" selection-start-column="78" selection-end-line="291" selection-end-column="78" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/article/views/user/edit_profile.ejs">
+        <entry file="file://$PROJECT_DIR$/article/views/search/article.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="275" column="14" lean-forward="true" selection-start-line="275" selection-start-column="14" selection-end-line="275" selection-end-column="14" />
+            <state relative-caret-position="-1668">
+              <caret line="213" lean-forward="true" selection-start-line="213" selection-end-line="213" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/article/views/user/all_articles.ejs">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/article/views/user/pro.ejs">
+        <entry file="file://$PROJECT_DIR$/article/views/user/search/authors.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="171" column="59" selection-start-line="171" selection-start-column="59" selection-end-line="171" selection-end-column="59" />
+            <state relative-caret-position="216">
+              <caret line="104" column="105" lean-forward="true" selection-start-line="104" selection-start-column="61" selection-end-line="104" selection-end-column="105" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/article/models/follow.js">
+        <entry file="file://$PROJECT_DIR$/article/views/search/authors.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="16" selection-start-line="4" selection-start-column="3" selection-end-line="5" selection-end-column="16" />
+            <state relative-caret-position="202">
+              <caret line="124" column="65" selection-start-line="124" selection-start-column="65" selection-end-line="124" selection-end-column="65" />
+              <folding>
+                <element signature="n#style#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/article/models/user.js">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/article/views/search/articles.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="123" column="67" selection-start-line="123" selection-start-column="67" selection-end-line="123" selection-end-column="67" />
+              <folding>
+                <element signature="n#style#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/article/views/user/search/articles.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="49" column="66" selection-start-line="49" selection-start-column="66" selection-end-line="49" selection-end-column="66" />
+            <state relative-caret-position="114">
+              <caret line="44" column="11" lean-forward="true" selection-start-line="44" selection-start-column="11" selection-end-line="44" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/article/views/user/search/article.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="335" column="9" selection-start-line="335" selection-start-column="9" selection-end-line="335" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/article/routes/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="115">
+              <caret line="146" column="23" lean-forward="true" selection-start-line="146" selection-start-column="23" selection-end-line="146" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -191,11 +201,7 @@
       <list>
         <option value="$PROJECT_DIR$/article/models/article.js" />
         <option value="$PROJECT_DIR$/article/models/comment.js" />
-        <option value="$PROJECT_DIR$/article/routes/index.js" />
-        <option value="$PROJECT_DIR$/article/config.js" />
-        <option value="$PROJECT_DIR$/article/views/search/author.ejs" />
         <option value="$PROJECT_DIR$/article/views/search/article.ejs" />
-        <option value="$PROJECT_DIR$/article/views/user/search/article.ejs" />
         <option value="$PROJECT_DIR$/article/views/user/user_home.ejs" />
         <option value="$PROJECT_DIR$/article/views/user/new_article.ejs" />
         <option value="$PROJECT_DIR$/article/views/user/my_article.ejs" />
@@ -204,6 +210,14 @@
         <option value="$PROJECT_DIR$/article/views/user/pro.ejs" />
         <option value="$PROJECT_DIR$/article/views/user/edit_profile.ejs" />
         <option value="$PROJECT_DIR$/article/views/user/my_articles.ejs" />
+        <option value="$PROJECT_DIR$/article/config.js" />
+        <option value="$PROJECT_DIR$/article/views/user/search/authors.ejs" />
+        <option value="$PROJECT_DIR$/article/views/homepage.ejs" />
+        <option value="$PROJECT_DIR$/article/views/search/author.ejs" />
+        <option value="$PROJECT_DIR$/article/routes/index.js" />
+        <option value="$PROJECT_DIR$/article/views/search/articles.ejs" />
+        <option value="$PROJECT_DIR$/article/views/search/authors.ejs" />
+        <option value="$PROJECT_DIR$/article/views/user/search/article.ejs" />
       </list>
     </option>
   </component>
@@ -261,13 +275,6 @@
               <item name="ITA" type="b2602c69:ProjectViewProjectNode" />
               <item name="ITA" type="462c0819:PsiDirectoryNode" />
               <item name="article" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="uploadnew" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ITA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ITA" type="462c0819:PsiDirectoryNode" />
-              <item name="article" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -275,13 +282,6 @@
               <item name="ITA" type="462c0819:PsiDirectoryNode" />
               <item name="article" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ITA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ITA" type="462c0819:PsiDirectoryNode" />
-              <item name="article" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="search" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ITA" type="b2602c69:ProjectViewProjectNode" />
@@ -339,12 +339,12 @@
       <updated>1540563484879</updated>
       <workItem from="1540563487977" duration="12484000" />
       <workItem from="1540727613388" duration="6000" />
-      <workItem from="1541839105011" duration="8268000" />
+      <workItem from="1541839105011" duration="14646000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20758000" />
+    <option name="totallyTimeSpent" value="27136000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="697" extended-state="6" />
@@ -362,7 +362,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.04609929" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.07978723" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -383,13 +383,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/article/views/homepage.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="75" column="31" selection-start-line="75" selection-start-column="31" selection-end-line="75" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/article/models/comment.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -397,24 +390,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/article/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/article/routes/users.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1122">
           <caret line="66" column="2" selection-start-line="66" selection-start-column="2" selection-end-line="66" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/article/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="47">
-          <caret line="7" column="40" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -445,54 +424,6 @@
     <entry file="file://$PROJECT_DIR$/article/views/search/autors.ejs">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/article/views/search/author.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="292" column="7" selection-start-line="292" selection-start-column="7" selection-end-line="292" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/article/views/search/authors.ejs">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/article/views/search/articles.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="138" column="14" lean-forward="true" selection-start-line="138" selection-start-column="14" selection-end-line="138" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/article/models/userdetail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/article/views/search/article.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="216" column="72" selection-start-line="216" selection-start-column="72" selection-end-line="216" selection-end-column="72" />
-          <folding>
-            <element signature="e#7474#7480#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/article/views/user/search/author.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="15" column="52" lean-forward="true" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/article/views/user/search/article.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4">
-          <caret line="219" column="205" selection-start-line="219" selection-start-column="205" selection-end-line="219" selection-end-column="205" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/article/views/user/user_home.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="49">
@@ -510,27 +441,13 @@
     <entry file="file://$PROJECT_DIR$/article/views/user/all_articles.ejs">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/article/views/user/search/articles.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="49" column="66" selection-start-line="49" selection-start-column="66" selection-end-line="49" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/article/models/user.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/article/models/follow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="16" selection-start-line="4" selection-start-column="3" selection-end-line="5" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/article/routes/user.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-378">
-          <caret line="524" column="33" lean-forward="true" selection-start-line="524" selection-start-column="33" selection-end-line="524" selection-end-column="33" />
+        <state relative-caret-position="-259">
+          <caret line="531" column="33" lean-forward="true" selection-start-line="531" selection-start-column="33" selection-end-line="531" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -551,7 +468,7 @@
     <entry file="file://$PROJECT_DIR$/article/models/article.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
-          <caret line="12" column="3" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+          <caret line="13" column="3" lean-forward="true" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -562,10 +479,108 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/article/models/follow.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="35" lean-forward="true" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/article/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/article/views/user/my_articles.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="93" column="35" selection-start-line="93" selection-start-column="35" selection-end-line="93" selection-end-column="35" />
+        <state relative-caret-position="-980">
+          <caret line="25" column="70" selection-start-line="25" selection-start-column="70" selection-end-line="25" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/article/views/homepage.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="84" column="108" selection-start-line="84" selection-start-column="108" selection-end-line="84" selection-end-column="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/article/models/userdetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/article/views/user/search/articles.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="44" column="11" lean-forward="true" selection-start-line="44" selection-start-column="11" selection-end-line="44" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/article/views/user/search/author.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="242" lean-forward="true" selection-start-line="193" selection-start-column="4" selection-end-line="242" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/article/views/user/search/authors.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="104" column="105" lean-forward="true" selection-start-line="104" selection-start-column="61" selection-end-line="104" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/article/views/search/author.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="291" column="78" selection-start-line="291" selection-start-column="78" selection-end-line="291" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/article/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="146" column="23" lean-forward="true" selection-start-line="146" selection-start-column="23" selection-end-line="146" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/article/views/search/articles.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="123" column="67" selection-start-line="123" selection-start-column="67" selection-end-line="123" selection-end-column="67" />
+          <folding>
+            <element signature="n#style#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/article/views/search/authors.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="124" column="65" selection-start-line="124" selection-start-column="65" selection-end-line="124" selection-end-column="65" />
+          <folding>
+            <element signature="n#style#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/article/views/search/article.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1668">
+          <caret line="213" lean-forward="true" selection-start-line="213" selection-end-line="213" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/article/views/user/search/article.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="335" column="9" selection-start-line="335" selection-start-column="9" selection-end-line="335" selection-end-column="9" />
         </state>
       </provider>
     </entry>

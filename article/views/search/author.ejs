@@ -1,27 +1,11 @@
-<!DOCTYPE html>
-<html lang="en" class="no-js">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title></title>
-
-    <title>home</title>
-
-    <meta name="description" content="A sidebar menu as seen on the Google Nexus 7 website" />
-    <meta name="keywords" content="google nexus 7 menu, css transitions, sidebar, side menu, slide out menu" />
-    <meta name="author" content="Codrops" />
-
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="/css/demo.css" />
-    <link rel="stylesheet" type="text/css" href="/css/component.css" />
-    <script src="/js/modernizr.custom.js"></script>
-
+    <title>Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
-    <link href="https://unpkg.com/ionicons@4.4.4/dist/css/ionicons.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/animate.css">
@@ -30,264 +14,355 @@
     <link rel="stylesheet" href="/fonts/ionicons/css/ionicons.min.css">
     <link rel="stylesheet" href="/fonts/fontawesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" href="/css/magnific-popup.css">
 
     <!-- Theme Style -->
     <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+
+        input, textarea {
+            outline: none;
+            border: none;
+            display: block;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            font-family: "PT Sans", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+            font-size: 1rem;
+            color: #555f77;
+        }
+        input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+            color: #ced2db;
+        }
+        input::-moz-placeholder, textarea::-moz-placeholder {
+            color: #ced2db;
+        }
+        input:-moz-placeholder, textarea:-moz-placeholder {
+            color: #ced2db;
+        }
+        input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+            color: #ced2db;
+        }
+
+        p {
+            line-height: 1.3125rem;
+        }
+
+        .comments {
+            margin: 2.5rem auto 0;
+            max-width: 60.75rem;
+            padding: 0 1.25rem;
+        }
+
+        .comment-wrap {
+            margin-bottom: 1.25rem;
+            display: table;
+            width: 100%;
+            min-height: 5.3125rem;
+        }
+
+        .photo {
+            padding-top: 0.625rem;
+            display: table-cell;
+            width: 3.5rem;
+        }
+        .photo .avatar {
+            height: 2.25rem;
+            width: 2.25rem;
+            border-radius: 50%;
+            background-size: contain;
+        }
+
+        .comment-block {
+            padding: 1rem;
+            background-color: #fff;
+            display: table-cell;
+            vertical-align: top;
+            border-radius: 0.1875rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+        }
+        .comment-block textarea {
+            width: 100%;
+            resize: none;
+        }
+
+        .comment-text {
+            margin-bottom: 1.25rem;
+        }
+
+        .bottom-comment {
+            color: #acb4c2;
+            font-size: 0.875rem;
+        }
+
+        .comment-date {
+            float: left;
+        }
+
+        .comment-actions {
+            float: right;
+        }
+        .comment-actions li {
+            display: inline;
+            margin: -2px;
+            cursor: pointer;
+        }
+        .comment-actions li.complain {
+            padding-right: 0.75rem;
+            border-right: 1px solid #e1e5eb;
+        }
+        .comment-actions li.reply {
+            padding-left: 0.75rem;
+            padding-right: 0.125rem;
+        }
+        .comment-actions li:hover {
+            color: #0095ff;
+        }
+    </style>
 </head>
 <body>
-<div >
 
+<header role="banner">
 
-
-
-    <ul id="gn-menu" class="gn-menu-main" style="z-index:1;">
-        <li class="gn-trigger">
-            <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
-            <nav class="gn-menu-wrapper">
-                <div class="gn-scroller">
-                    <ul class="gn-menu">
-                        <li><a href="/user/profile" class="gn-icon ion-ios-person">Profile</a></li>
-                        <li><a href="/edit_profile" class="gn-icon ion-ios-person">Edit Profile</a></li>
-                        <li><a href="/user/my_articles" class="gn-icon gn-icon-article">My Articles</a></li>
-
-                        <li><a href="/user/new_article" class="gn-icon ion-md-add-circle-outline">Create Article</a></li>
-                        <!--  <li><a class="gn-icon  ion-ios-settings">Settings</a></li> -->
-
-                        <li><a href="/user/logout" class="gn-icon ion-md-log-out">Logout</a></li>
-                        <!-- <li><a class="gn-icon ion-md-log-out">Logout</a></li>
-                         <li><a class="gn-icon ion-md-log-out">Logout</a></li>
-
-                         <li><a class="gn-icon gn-icon-archive">Archives</a></li> -->
-
-
-
-                        </li>
-                    </ul>
-                </div><!-- /gn-scroller -->
-            </nav>
-        </li>
-
-        <li class="navbar-nav absolute-right">
-            <a href="#">logout</a>
-        </li>
-
-    </ul>
-</div>
-
-
-
-
-<div class="abc" style="margin-top: 60px">
-
-
-
-
-
-    <!-- END section -->
-
-    <section class="site-section bg-light element-animate" id="section-counter">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="text-center">
-                        <img src="/uploadnew/<%= student.Index %>.png" class="img-responcive img-circle img-thumbnail" alt="avatar" width="250px" height="250px">
+            <a class="navbar-brand absolute" href="index.html">N I T K</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                    </div><br>
+            <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Home</a>
+                    </li>
+                    <!--   <li class="nav-item dropdown">
+                         <a class="nav-link dropdown-toggle" href="courses.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Courses</a>
+                         <div class="dropdown-menu" aria-labelledby="dropdown04">
+                           <a class="dropdown-item" href="courses.html">HTML</a>
+                           <a class="dropdown-item" href="courses.html">WordPress</a>
+                           <a class="dropdown-item" href="courses.html">Laravel</a>
+                           <a class="dropdown-item" href="courses.html">JavaScript</a>
+                           <a class="dropdown-item" href="courses.html">Python</a>
+                         </div>
 
+                       </li>
 
+                       <li class="nav-item dropdown">
+                         <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
+                         <div class="dropdown-menu" aria-labelledby="dropdown05">
+                           <a class="dropdown-item" href="#">HTML</a>
+                           <a class="dropdown-item" href="#">WordPress</a>
+                           <a class="dropdown-item" href="#">Laravel</a>
+                           <a class="dropdown-item" href="#">JavaScript</a>
+                           <a class="dropdown-item" href="#">Python</a>
+                         </div>
 
+                       </li>
 
-                    <div class="row">
-                        <div class="col-lg-6 col-sm-12">
-                            <ul class="list-group">
-                                <% if(student) { %>
-                                    <li class="list-group-item text-muted"><%= student.firstname %></li>
+                       <li class="nav-item">
+                         <a class="nav-link" href="blog.html">Blog</a>
+                       </li>
 
-                                    <li class="list-group-item text-right"><span class="pull-left"><%= student.lastname %></li>
-                                    <li class="list-group-item text-right"><span class="pull-left"> <%= student.mobile %></li>
+                     -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/#contact">Contact</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav absolute-right">
+                    <li>
+                        <a href="login">Login</a> / <a href="register">Register</a>
+                    </li>
+                </ul>
 
-                            </ul>
-                            <% } %>
-                        </div>
-
-                        <div class="col-lg-6 col-sm-12">
-                            <ul class="list-group">
-                                <% if(student) { %>
-                                    <li class="list-group-item text-muted"><%= student.email %></li>
-
-                                    <li class="list-group-item text-right"><span class="pull-left"><%= student.address %></li>
-                                    <li class="list-group-item text-right"><span class="pull-left"><%= student.course %></li>
-
-                            </ul>
-                            <% } %>
-                        </div>
-                    </div>
-
-
-
-                </div>
-
-                <div class="col-lg-5 ml-auto">
-                    <div class="block-15">
-                        <div class="heading">
-                            <h2>Some Numbers</h2>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6">
-
-                            <div class="block-18 d-flex align-items-center">
-                                <div class="icon mr-4">
-                                    <span class="flaticon-books"></span>
-                                </div>
-                                <div class="text">
-                                    <strong class="number" data-number="192">0</strong>
-                                    <span>Articles</span>
-                                </div>
-                            </div>
-
-
-                            <div class="block-18 d-flex align-items-center">
-                                <div class="icon mr-4">
-                                    <span class="flaticon-student"></span>
-                                </div>
-                                <div class="text">
-                                    <strong class="number" data-number="121">0</strong>
-                                    <span>Following</span>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-md-6">
-                            <div class="block-18 d-flex align-items-center">
-                                <div class="icon mr-4">
-                                    <span class="flaticon-student"></span>
-                                </div>
-                                <div class="text">
-                                    <strong class="number" data-number="121">0</strong>
-                                    <span>Followers</span>
-                                </div>
-                            </div>
-
-                            <div class="block-18 d-flex align-items-center">
-                                <div class="icon mr-4">
-                                    <span class="flaticon-mortarboard"></span>
-                                </div>
-                                <div class="text">
-                                    <strong class="number" data-number="1921">0</strong>
-                                    <span>Likes</span>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
             </div>
         </div>
-    </section>
-    <!-- END section -->
+    </nav>
+</header>
 
-    <section class="site-section pt-3 element-animate">
-        <div class="container">
-            <div class="row">
-                <!---
-              <div class="col-md-6 col-lg-3">
+
+<div class="site-section bg-light">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="text-center">
+                    <img src="/uploadnew/<%= student.Index %>.png" class="img-responcive img-circle img-thumbnail" alt="avatar" width="250px" height="250px">
+
+                </div><br>
+
+
+
+
+                <div class="row">
+                    <div class="col-lg-6 col-sm-12">
+                        <ul class="list-group">
+                            <% if(student) { %>
+                                <li class="list-group-item text-muted"><%= student.firstname %></li>
+
+                                <li class="list-group-item text-right"><span class="pull-left"><%= student.lastname %></li>
+                                <li class="list-group-item text-right"><span class="pull-left"> <%= student.mobile %></li>
+
+                        </ul>
+                        <% } %>
+                    </div>
+
+                    <div class="col-lg-6 col-sm-12">
+                        <ul class="list-group">
+                            <% if(student) { %>
+                                <li class="list-group-item text-muted"><%= student.email %></li>
+
+                                <li class="list-group-item text-right"><span class="pull-left"><%= student.address %></li>
+                                <li class="list-group-item text-right"><span class="pull-left"><%= student.course %></li>
+
+                        </ul>
+                        <% } %>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <div class="col-lg-5 ml-auto">
+                <div class="block-15">
+                    <div class="heading">
+                        <h2>Some Numbers</h2>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <div class="block-18 d-flex align-items-center">
+                            <div class="icon mr-4">
+                                <span class="flaticon-books"></span>
+                            </div>
+                            <div class="text">
+                                <strong class="number" data-number="192">0</strong>
+                                <span>Articles</span>
+                            </div>
+                        </div>
+
+
+                        <div class="block-18 d-flex align-items-center">
+                            <div class="icon mr-4">
+                                <span class="flaticon-student"></span>
+                            </div>
+                            <div class="text">
+                                <strong class="number" data-number="121">0</strong>
+                                <span>Following</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="block-18 d-flex align-items-center">
+                            <div class="icon mr-4">
+                                <span class="flaticon-student"></span>
+                            </div>
+                            <div class="text">
+                                <strong class="number" data-number="121">0</strong>
+                                <span>Followers</span>
+                            </div>
+                        </div>
+
+                        <div class="block-18 d-flex align-items-center">
+                            <div class="icon mr-4">
+                                <span class="flaticon-mortarboard"></span>
+                            </div>
+                            <div class="text">
+                                <strong class="number" data-number="1921">0</strong>
+                                <span>Likes</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <hr>
                 <div class="media block-6 d-block">
-                  <div class="icon mb-3"><span class="flaticon-book"></span></div>
-                  <div class="media-body">
-                    <h3 class="heading">Knowledge is power</h3>
-                    <p></p>
-                    <p><a href="#" class="more">Read More <span class="ion-arrow-right-c"></span></a></p>
-                  </div>
-                </div>
-              </div>
-            -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="media block-6 d-block">
-                        <div class="icon mb-3"><span class="flaticon-student"></span></div>
-                        <div class="media-body">
-                            <h3 class="heading">Following</h3>
-                            <p>view whom the user is following</p>
-                            <p><a href="#" class="more"><span class="ion-arrow-right-c"></span></a></p>
-                        </div>
+                    <div class="icon mb-3"><span class="flaticon-diploma"></span></div>
+                    <div class="media-body">
+                        <h3 class="heading">Articles</h3>
+                        <p>Have a look at  Articles</p>
+                        <p><a href="/search/author/<%= student._id %>/articles" class="more"> <span class="ion-arrow-right-c"></span></a></p>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-4">
-                    <div class="media block-6 d-block">
-                        <div class="icon mb-3"><span class="flaticon-diploma"></span></div>
-                        <div class="media-body">
-                            <h3 class="heading">Articles</h3>
-                            <p>Have a look at  Articles</p>
-                            <p><a href="#" class="more"> <span class="ion-arrow-right-c"></span></a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="media block-6 d-block">
-                        <div class="icon mb-3"><span class="flaticon-professor"></span></div>
-                        <div class="media-body">
-                            <h3 class="heading"> Followers</h3>
-                            <p>View followers</p>
-                            <p><a href="#" class="more"><span class="ion-arrow-right-c"></span></a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- End section-->
-
-    <div class="py-5 block-22">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-8 mb-4 mb-md-0 pr-md-5 col-sm-12">
-                    <h2 class="heading">Follow the User to get Updates </h2>
-                    <p>By following the user u get notified when he puts up new articles</p>
-                </div>
-                <div class="col-md-4 col-sm-12">
-
-
-                    <Button class="btn btn-primary submit" style="background-color: white;color: teal;width: 40%" >Follow</Button>
-
-
-                </div>
             </div>
         </div>
     </div>
+</div>
 
 
+<footer class="site-footer " id="contact">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-10 col-lg-5 mb-5 mb-lg-0">
+                <h3>NITK</h3>
+                <p>National Institute of Technology Karnataka, formerly known as Karnataka Regional Engineering College, also known as NIT Surathkal, is a public engineering university at Surathkal, Mangalore.</p>
+            </div>
+            <div class="col-md-2 col-lg-3 mb-5 mb-lg-0">
+                <h3 class="heading">Quick Link</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="list-unstyled">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="#about">About Us</a></li>
 
+                            <li><a href="http://www.nitk.ac.in">NITK</a></li>
 
-    <!-- end section -->
-    <!-- loader -->
-    <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
+                        </ul>
+                    </div>
 
-    <script src="/js/jquery-3.2.1.min.js"></script>
-    <script src="/js/jquery-migrate-3.0.0.js"></script>
-    <script src="/js/popper.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/owl.carousel.min.js"></script>
-    <script src="/js/jquery.waypoints.min.js"></script>
-    <script src="/js/jquery.stellar.min.js"></script>
-    <script src="/js/jquery.animateNumber.min.js"></script>
+                </div>
+            </div>
 
-    <script src="/js/jquery.magnific-popup.min.js"></script>
+            <div class="col-md-12 col-lg-4 mb-5 mb-lg-0">
+                <h3 class="heading">Contact Information</h3>
+                <div class="block-23">
+                    <ul>
+                        <li><span class="icon ion-android-pin"></span><span class="text">NITK Surathkal,Srinivas Nagar ,Mangaluru ,Karnataka ,India</span></li>
+                        <li><a href="#"><span class="icon ion-ios-telephone"></span><span class="text">+91 9901057366</span></a></li>
+                        <li><a href="#"><span class="icon ion-android-mail"></span><span class="text">teamita@gmail.com</span></a></li>
+                        <li><span class="icon ion-android-time"></span><span class="text">Monday &mdash; Friday 8:00am - 5:00pm</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-5">
+            <div class="col-md-12 text-center copyright">
 
-    <script src="/js/main.js"></script>
+                <p class="float-md-left">Designed by Shreyas,Tejas,Tushar - Team ITA</p>
+                <p class="float-md-right">
+                    <a href="#" class="fa fa-facebook p-2"></a>
+                    <a href="#" class="fa fa-twitter p-2"></a>
+                    <a href="#" class="fa fa-linkedin p-2"></a>
+                    <a href="#" class="fa fa-instagram p-2"></a>
 
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- END footer -->
 
-</div><!-- /abc -->
+<!-- loader -->
+<div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
 
-<script src="/js/classie.js"></script>
-<script src="/js/gnmenu.js"></script>
-<script>
-    new gnMenu( document.getElementById( 'gn-menu' ) );
-</script>
+<script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/js/jquery-migrate-3.0.0.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/jquery.waypoints.min.js"></script>
+<script src="/js/jquery.stellar.min.js"></script>
+<script src="/js/jquery.animateNumber.min.js"></script>
+
+<script src="/js/main.js"></script>
 </body>
 </html>
