@@ -300,29 +300,29 @@ Router.post('/searchajax',(req,res)=>{
         }
     })
 })
-//Ajax search for author
-// Router.post('/searchajax2',(req,res)=>{
-//     var a =req.body.query;
-//    // article.find({$or:[{'firstname':{ /a/i }},{'lastname':{ '$regex' : req.body.query, '$options' : 'i' }}]}).populate('author')
-//     .exec((err,file)=>{
-//         if (err) throw err;
-//         else
-//         {
-//             console.log(file);
-//             if(file.length!=0){
-//                 var i;
-//                 var output='';
-//                 output='<ul class="list-unstyled">';
-//                 for(i=0;i<file.length;i++ ){
-//                     output+='<li>'+file[i].title+'</li>'
-//                 }
-//                 output+='</ul>';
-//                 res.send(output);
-//             }
+// Ajax search for author
+Router.post('/searchajax2',(req,res)=>{
+    var a =req.body.query;
+   students.find({$or:[{'firstname':{'$regex' : req.body.query2}},{'lastname':{ '$regex' : req.body.query2 }}]})
+    .exec((err,file)=>{
+        if (err) throw err;
+        else
+        {
+            console.log(file);
+            if(file.length!=0){
+                var i;
+                var output='';
+                output='<ul class="list-unstyled">';
+                for(i=0;i<file.length;i++ ){
+                    output+='<li>'+file[i].firstname+'  '+file[i].lastname+'</li>'
+                }
+                output+='</ul>';
+                res.send(output);
+            }
            
-//         }
-//     })
-// })
+        }
+    })
+})
 //---------End of author ---------
 Router.get('/search/articles/:id',(req,res)=> {
 

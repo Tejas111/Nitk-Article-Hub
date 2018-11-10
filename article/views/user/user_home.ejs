@@ -105,17 +105,20 @@
 
                         <div class="textfield-search one-third"><input type="text" name="keywords" id="keyword" class="form-control"
                                 placeholder="Keyword search..."></div>
-
+                                <br>
+                                <div id="result">
+                                </div>
 
                         <div class="textfield-search one-third"><input type="text" id="author" class="form-control"
                                 placeholder="Author search..."></div>
-
+                                <div id="result1">
+                                </div>
                     </div>
                     <input type="submit" class="search-submit btn btn-primary" value="Search">
                 </form>
                 <div class="container-fluid">
                     <div class="row">
-                        <div id="result" class="col-md-4">
+                        
                         </div>
                         <div id="result1" class="col-md-offset-4 col-md-4">
                         </div>
@@ -156,15 +159,15 @@
 
 </html>
 <script>
-    //Ajax search based on keywords
-    $(document).ready(function () {
-        $('#author').keyup(function () {
+
+$(document).ready(function () {
+    $('#author').keyup(function () {
             var query1 = $(this).val();
             if (query1 != '') {
                 $.ajax({
                     url: "/user/searchajax2/",
                     method: "POST",
-                    data: { query: query1 },
+                    data: { query2: query1 },
                     success: function (data) {
                         $('#result1').fadeIn();
                         $('#result1').html(data);
@@ -172,6 +175,12 @@
                 });
             }
         });
+});
+</script>
+<script>
+    //Ajax search based on keywords
+    $(document).ready(function () {
+        
 
         $('#keyword').keyup(function () {
             var query = $(this).val();
