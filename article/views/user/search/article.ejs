@@ -217,7 +217,7 @@
 
 
                                 <div class="card-body"><h4><b>Description</b> : <%= article.description%></h4></div>
-                                <div class="card-header"><h4><b>Author</b> : <%= article.author.firstname%> &nbsp; <%= article.author.lastname%></h4></div>
+                                <div class="card-header"><h4><b>Author</b> : <a href="/user/search/author/<%= article.author._id %>"> <%= article.author.firstname%> &nbsp; <%= article.author.lastname%></a></h4></div>
                             </div>
                         </div>
 
