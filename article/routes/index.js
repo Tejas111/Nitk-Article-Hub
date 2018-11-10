@@ -16,7 +16,7 @@ router.get('/register', function(req, res, next) {
 });
 
 router.get('/login', function(req, res, next) {
-  res.render('login',{message:req.flash('info')});
+  res.render('login',{message:req.query.message});
 });
 
 

@@ -63,10 +63,10 @@ router.post('/signup', (req, res, next) => {
   });
 });
 
-router.post('/login', passport.authenticate('local',{failureRedirect:'/login',failureFlash:true}), (req, res) => {
+router.post('/login', passport.authenticate('local',{failureFlash:"Invalid username or password",failureRedirect:'/login?message=Invalid username or Password'}), (req, res) => {
   
   console.log(req.user);
- res.redirect('/user/');
+  res.redirect('/user/');
 });
 
 

@@ -101,7 +101,7 @@ app.use('/user',user);
 // app.use('/',indexRouter);
 // app.use('/upload',grid);
 // app.use('/files',sendfile);
-// app.use('/fileupload',uploadRouter);
+app.use('/edit_profile',uploadRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

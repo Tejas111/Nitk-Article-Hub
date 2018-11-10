@@ -10,6 +10,7 @@ var replies = require('../models/reply');
 var authenticate = require('../authenticate');
 var follow = require('../models/follow');
 var multer = require('multer');
+// var multer2 = require('multer');
 var path = require('path');
 //for nodemailer
 var nodemailer = require('nodemailer');
@@ -83,7 +84,7 @@ Router.route('/new_article')
                                             from: 'nitk.article@gmail.com',
                                             to: file1.email,
                                             subject: 'REGARDING THE FOLLOWING OF THE AUTHOR :'+file.firstname+''+file.lastname,
-                                            text: 'YOUR AUTHOR HAS JUST UPLOADED THE FILE:'+req.file.filename
+                                            html:'<h1>THE AUTHOR YOU HAVE HAS JUST UPLOADED THE FILE:</h1><br>'+'<h2>'+req.body.title+'</h2>'
                                           };
                                           
                                           transporter.sendMail(mailOptions, function(error, info){
@@ -145,8 +146,9 @@ Router.get('/profile', function(req, res, next) {
                 else {
                     if (file) {
                         console.log(" in profile page 1b ");
+                        
                         console.log(file);
-
+                        
                         res.render('user/pro', {student: file});
                     }
                     else {
@@ -165,97 +167,9 @@ Router.get('/profile', function(req, res, next) {
 });
 
 
-
-Router.route('/edit_profile')
-    .get((req,res)=> {
+//Configuring for upload of images
 
 
-        if (req.user)
-        {
-
-
-            console.log(".............................................................................");
-            console.log(req.user._id);
-            console.log("..............................................................................");
-
-            students.findOne({Index: req.user._id})
-                .exec((err, file) => {
-                    if (err) {
-                        console.log(" in edit profile page 1a ");
-                        console.log(err);
-                        res.redirect(401,'/');
-                    }
-                    else {
-                        if (file) {
-                            console.log(" in profile page 1b ");
-                            console.log(file);
-
-                            res.render('user/edit_profile', {student: file});
-                        }
-                        else {
-                            console.log(" in profile page 1c ");
-                            res.render('user/edit_profile');
-                        }
-                    }
-
-                });
-
-
-        }
-        else
-        {
-        }
-    })
-    .post((req, res, next) => {
-            students.findOne({ Index: req.user._id },(err,file)=>{
-                if(err) throw err;
-                var obj = { name: "Company Inc",
-
-                    Index: req.user.id ,
-                    firstname: req.body.firstname,
-                    lastname: req.body.lastname,
-                    mobile: req.body.mobile,
-                    email: req.body.email,
-                    address: req.body.address,
-                    // Age:{type:Number,required:true,min:10,max:100},
-                    course: req.body.course ,
-                    branch: req.body.branch,
-                };
-                if(file){
-                    console.log("hhhhhhhhhhhhhhhhhhhhh");
-                    console.log(file);
-                    console.log("hhhhhhhhhhhhhhhhhhhhh");
-                    students.findOneAndUpdate({ Index: req.user._id },{$set:obj},{new: true},(err,file)=>{
-                        if(err) throw err;
-                        else{
-                            console.log(file);
-                            res.redirect('/user/profile');
-                        }
-                    });
-
-
-
-
-                }
-                else{
-                    //students.
-                    students.create(obj)
-                        .then((student) => {
-                            console.log('Student Created ', student);
-                            // res.statusCode = 200;
-                            // res.setHeader('Content-Type', 'application/json');
-                            // res.json(student);
-                            //console.log('hello');
-                            res.redirect('/user/profile');
-                            //res.json(student);
-                        }, (err) => next(err))
-                        .catch((err) => next(err));
-                }
-            });
-        }
-
-
-    );
 
 
 Router.get('/logout',(req,res)=>{
@@ -365,7 +279,7 @@ Router.post('/search', function(req, res, next) {
         });
 
 });
-
+//Ajax search of keywords
 Router.post('/searchajax',(req,res)=>{
     article.find({'title':{ '$regex' : req.body.query, '$options' : 'i' }})
     .exec((err,file)=>{
@@ -386,7 +300,30 @@ Router.post('/searchajax',(req,res)=>{
         }
     })
 })
-
+//Ajax search for author
+// Router.post('/searchajax2',(req,res)=>{
+//     var a =req.body.query;
+//    // article.find({$or:[{'firstname':{ /a/i }},{'lastname':{ '$regex' : req.body.query, '$options' : 'i' }}]}).populate('author')
+//     .exec((err,file)=>{
+//         if (err) throw err;
+//         else
+//         {
+//             console.log(file);
+//             if(file.length!=0){
+//                 var i;
+//                 var output='';
+//                 output='<ul class="list-unstyled">';
+//                 for(i=0;i<file.length;i++ ){
+//                     output+='<li>'+file[i].title+'</li>'
+//                 }
+//                 output+='</ul>';
+//                 res.send(output);
+//             }
+           
+//         }
+//     })
+// })
+//---------End of author ---------
 Router.get('/search/articles/:id',(req,res)=> {
 
     article.findOne({ _id : req.params.id}).populate('author')

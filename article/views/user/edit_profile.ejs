@@ -43,7 +43,7 @@
 						<div class="gn-scroller">
 							<ul class="gn-menu">
                                 <li><a href="/user/profile" class="gn-icon ion-ios-person">Profile</a></li>
-                                <li><a href="/user/edit_profile" class="gn-icon ion-ios-person">Edit Profile</a></li>
+                                <li><a href="/edit_profile" class="gn-icon ion-ios-person">Edit Profile</a></li>
                                 <li><a href="/user/my_articles" class="gn-icon gn-icon-article">My Articles</a></li>
 
                                 <li><a href="/user/new_article" class="gn-icon ion-md-add-circle-outline">Create Article</a></li>
@@ -81,6 +81,7 @@
                                    <!----------------------- page actual body -->
 
                                   <div class="container bootstrap snippet">
+                                  <form class="form" action="/edit_profile" method="post" id="registrationForm" enctype="multipart/form-data">
                                    <div class="row">
                                          <div class="col-sm-12"><h1>User name</h1></div>
                                        
@@ -88,19 +89,18 @@
                                    <div class="row">
                                          <div class="col-sm-3"><!--left col-->
                                              
-                               
-                                     <div class="text-center">
-                                       <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="img-responcive img-circle img-thumbnail" alt="avatar">
-                                       <h6>Upload a different photo...</h6>
-                                      
-                                       <input id="html_btn" class="file-upload  search-submit btn btn-primary  " type='file' /><br>
-                                     </div><br>
+                                         <div class="text-center">
+                                         <img src="/uploadnew/<%= student.Index %>.png" class="img-responcive img-circle img-thumbnail" alt="Image not uploaded yet">
+                                         <h6>Upload a different photo...</h6>
+                                        
+                                         <input id="html_btn" name="image" class="file-upload  search-submit btn btn-primary  " type='file' /><br>
+                                       </div><br>
+                                     
                      
 
                                               
                                          
-                                         
-                                         
+                        
                                          <ul class="list-group">
                                            <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
                                           
@@ -122,7 +122,7 @@
                                          <div class="tab-content">
                                            <div class="tab-pane active" id="home">
                                               
-                                                 <form class="form" action="/user/edit_profile" method="post" id="registrationForm">
+                                                 
                                                      <div class="form-group">
                                                          
                                                          <div class="col-xs-6">
@@ -188,6 +188,9 @@
                                                              
                                                            </div>
                                                      </div>
+
+
+                                                     
                                                  </form>
                                                 
                                                  </div> <!-- tab end-->
