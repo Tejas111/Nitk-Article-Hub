@@ -73,13 +73,19 @@ Router.route('/new_article')
                     exec((err,files)=>{
                         if(err) throw(err);
                         if(files){
-                            console.log(files)
+                            console.log(files);
+                            console.log(files.length);
+                            var i;
                             for(i=0;i<files.length;i++){
-                                students.findOne({Index:files[i].followed_by})
+                                students.findOne({_id:files[i].followed_by})
                                 .exec((err,file1)=>{
+                                    console.log(i);
+                                    console.log(file1);
                                     if(err) throw(err);
-                                    console.log(typeof file1.email);
-                                    if(file1){
+                                    console.log("========email======")
+                                     console.log(file1.email);
+                                     console.log("========email======")
+                                    if(1){
                                         var mailOptions = {
                                             from: 'nitk.article@gmail.com',
                                             to: file1.email,
@@ -390,12 +396,12 @@ Router.get('/search/articles/:id',(req,res)=> {
                                     }
                                     else {
 
-
+                                        var message = req.flash('info');
 
 
                                         console.log("---------------------");
                                         console.log(r);
-                                        res.render('user/search/article',{article : articles ,comments :comments ,reply: r});
+                                        res.render('user/search/article',{article : articles ,comments :comments ,reply: r,message:message});
                                     }
                                 });
 
@@ -519,6 +525,7 @@ Router.post('/search/articles/:id/follow',(req,res,next)=>{
             }
             else {
                 req.body.followed_by = s._id;
+                // req.body.follower_email = s.email;
             }
         });
     
@@ -530,13 +537,17 @@ Router.post('/search/articles/:id/follow',(req,res,next)=>{
         .exec((err,file)=>{
             if(file){
                 console.log("You have already followed the given author");
+                // var a = "You have already followed the given author";
                 var url = '/user/search/articles/'+req.params.id;
-                res.redirect(200,url)
+                req.flash("info","You have already followed the given author");
+                res.redirect(url);
             }
             else{
                     follow.create(req.body)
                     .then((file)=>{
                         console.log("One follower Inserted After checking ");
+                        var a ="You have successfully followed the author";
+                        req.flash("info","You have successfully followed the author");
                         var url = '/user/search/articles/'+req.params.id;
                         res.redirect(200,url)
                     },(err)=>next(err))
