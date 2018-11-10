@@ -603,12 +603,19 @@ Router.get('/search/author/:id',(req,res)=> {
                 res.redirect('/');
             }
             else {
+
                 if (file) {
-                    console.log(" in profile page 1b ");
+                    if (file.Index.equals(req.user._id)) {
+                        res.redirect('/user/profile');
 
-                    console.log(file);
+                    } else {
 
-                    res.render('user/search/author', {student: file});
+                            console.log(" in profile page 1b ");
+
+                            console.log(file);
+
+                            res.render('user/search/author', {student: file});
+                     }
                 }
                 else {
                     console.log(" in profile page 1c ");
