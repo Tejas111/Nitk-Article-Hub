@@ -277,7 +277,38 @@ Router.get('/my_articles/:id',(req,res)=> {
             }
             else {
                 console.log(articles);
-                res.render('user/my_article',{article : articles});
+                comments.find({ article: req.params.id}).populate('student')
+                    .exec((err, comments) => {
+                        if (err) {
+
+                            console.log(err);
+                            res.redirect('/');
+                        }
+                        else {
+
+                            replies.find({ article: req.params.id}).populate('student')
+                                .exec((err, r) => {
+                                    if (err) {
+
+                                        console.log(err);
+                                        res.redirect('/');
+                                    }
+                                    else {
+
+                                        var message = req.flash('info');
+
+
+                                        console.log("---------------------");
+                                        console.log(r);
+                                        res.render('user/my_article',{article : articles ,comments :comments ,reply: r,message:message});
+                                    }
+                                });
+
+
+
+                        }
+                    });
+
             }
         });
 

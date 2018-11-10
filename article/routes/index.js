@@ -6,6 +6,7 @@ var student = require('../models/userdetail');
 var mongoose = require('mongoose');
 var users = require('../models/user');
 var comments= require('../models/comment');
+var replies= require('../models/reply');
 var article = require('../models/article');
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -89,15 +90,32 @@ router.get('/search/articles/:id',(req,res)=> {
                             res.redirect('/');
                         }
                         else {
-                            console.log("---------------------");
-                            console.log(comments);
-                            res.render('search/article',{article : articles ,comments :comments});
+
+                            replies.find({ article: req.params.id}).populate('student')
+                                .exec((err, r) => {
+                                    if (err) {
+
+                                        console.log(err);
+                                        res.redirect('/');
+                                    }
+                                    else {
+
+                                        var message = req.flash('info');
+
+
+                                        console.log("---------------------");
+                                        console.log(r);
+                                        res.render('search/article',{article : articles ,comments :comments ,reply: r});
+                                    }
+                                });
+
+
+
                         }
                     });
 
             }
         });
-
 });
 
 

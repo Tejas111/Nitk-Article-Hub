@@ -35,61 +35,37 @@
     <link rel="stylesheet" href="/css/style.css">
 
 
-    <style>
-
-        input, textarea {
-            outline: none;
-            border: none;
-            display: block;
+    <style class="cp-pen-styles">/**
+ * Oscuro: #283035
+ * Azul: #03658c
+ * Detalle: #c7cacb
+ * Fondo: #dee1e3
+ ----------------------------------*/
+        * {
             margin: 0;
             padding: 0;
-            -webkit-font-smoothing: antialiased;
-            font-family: "PT Sans", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
-            font-size: 1rem;
-            color: #555f77;
-        }
-        input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-            color: #ced2db;
-        }
-        input::-moz-placeholder, textarea::-moz-placeholder {
-            color: #ced2db;
-        }
-        input:-moz-placeholder, textarea:-moz-placeholder {
-            color: #ced2db;
-        }
-        input:-ms-input-placeholder, textarea:-ms-input-placeholder {
-            color: #ced2db;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
         }
 
-        p {
-            line-height: 1.3125rem;
+        a {
+            color: #03658c;
+            text-decoration: none;
         }
 
-        .comments {
-            margin: 2.5rem auto 0;
-            max-width: 60.75rem;
-            padding: 0 1.25rem;
+        ul {
+            list-style-type: none;
         }
 
-        .comment-wrap {
-            margin-bottom: 1.25rem;
-            display: table;
-            width: 100%;
-            min-height: 5.3125rem;
+        body {
+            font-family: 'Roboto', Arial, Helvetica, Sans-serif, Verdana;
+            background: #dee1e3;
         }
 
-        .photo {
-            padding-top: 0.625rem;
-            display: table-cell;
-            width: 3.5rem;
-        }
-        .photo .avatar {
-            height: 2.25rem;
-            width: 2.25rem;
-            border-radius: 50%;
-            background-size: contain;
-        }
-
+        /** ====================
+         * Lista de Comentarios
+         =======================*/
         .comment-block {
             padding: 1rem;
             background-color: #fff;
@@ -102,40 +78,241 @@
             width: 100%;
             resize: none;
         }
-
-        .comment-text {
-            margin-bottom: 1.25rem;
+        .comments-container {
+            margin: 60px auto 15px;
+            width: 768px;
         }
 
-        .bottom-comment {
-            color: #acb4c2;
-            font-size: 0.875rem;
+        .comments-container h1 {
+            font-size: 36px;
+            color: #283035;
+            font-weight: 400;
         }
 
-        .comment-date {
+        .comments-container h1 a {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .comments-list {
+            margin-top: 30px;
+            position: relative;
+        }
+
+        /**
+         * Lineas / Detalles
+         -----------------------*/
+        .comments-list:before {
+            content: '';
+            width: 2px;
+            height: 100%;
+            background: #c7cacb;
+            position: absolute;
+            left: 32px;
+            top: 0;
+        }
+
+        .comments-list:after {
+            content: '';
+            position: absolute;
+            background: #c7cacb;
+            bottom: 0;
+            left: 27px;
+            width: 7px;
+            height: 7px;
+            border: 3px solid #dee1e3;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+        }
+
+        .reply-list:before, .reply-list:after {display: none;}
+        .reply-list li:before {
+            content: '';
+            width: 60px;
+            height: 2px;
+            background: #c7cacb;
+            position: absolute;
+            top: 25px;
+            left: -55px;
+        }
+
+
+        .comments-list li {
+            margin-bottom: 15px;
+            display: block;
+            position: relative;
+        }
+
+        .comments-list li:after {
+            content: '';
+            display: block;
+            clear: both;
+            height: 0;
+            width: 0;
+        }
+
+        .reply-list {
+            padding-left: 88px;
+            clear: both;
+            margin-top: 15px;
+        }
+        /**
+         * Avatar
+         ---------------------------*/
+        .comments-list .comment-avatar {
+            width: 65px;
+            height: 65px;
+            position: relative;
+            z-index: 99;
             float: left;
+            border: 3px solid #FFF;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            overflow: hidden;
         }
 
-        .comment-actions {
+        .comments-list .comment-avatar img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .reply-list .comment-avatar {
+            width: 50px;
+            height: 50px;
+        }
+
+        .comment-main-level:after {
+            content: '';
+            width: 0;
+            height: 0;
+            display: block;
+            clear: both;
+        }
+        /**
+         * Caja del Comentario
+         ---------------------------*/
+        .comments-list .comment-box {
+            width: 680px;
             float: right;
+            position: relative;
+            -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+            -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+            box-shadow: 0 1px 1px rgba(0,0,0,0.15);
         }
-        .comment-actions li {
-            display: inline;
-            margin: -2px;
+
+        .comments-list .comment-box:before, .comments-list .comment-box:after {
+            content: '';
+            height: 0;
+            width: 0;
+            position: absolute;
+            display: block;
+            border-width: 10px 12px 10px 0;
+            border-style: solid;
+            border-color: transparent #FCFCFC;
+            top: 8px;
+            left: -11px;
+        }
+
+        .comments-list .comment-box:before {
+            border-width: 11px 13px 11px 0;
+            border-color: transparent rgba(0,0,0,0.05);
+            left: -12px;
+        }
+
+        .reply-list .comment-box {
+            width: 610px;
+        }
+        .comment-box .comment-head {
+            background: #FCFCFC;
+            padding: 10px 12px;
+            border-bottom: 1px solid #E5E5E5;
+            overflow: hidden;
+            -webkit-border-radius: 4px 4px 0 0;
+            -moz-border-radius: 4px 4px 0 0;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .comment-box .comment-head i {
+            float: right;
+            margin-left: 14px;
+            position: relative;
+            top: 2px;
+            color: #A6A6A6;
             cursor: pointer;
+            -webkit-transition: color 0.3s ease;
+            -o-transition: color 0.3s ease;
+            transition: color 0.3s ease;
         }
-        .comment-actions li.complain {
-            padding-right: 0.75rem;
-            border-right: 1px solid #e1e5eb;
+
+        .comment-box .comment-head i:hover {
+            color: #03658c;
         }
-        .comment-actions li.reply {
-            padding-left: 0.75rem;
-            padding-right: 0.125rem;
+
+        .comment-box .comment-name {
+            color: #283035;
+            font-size: 14px;
+            font-weight: 700;
+            float: left;
+            margin-right: 10px;
         }
-        .comment-actions li:hover {
-            color: #0095ff;
+
+        .comment-box .comment-name a {
+            color: #283035;
         }
-    </style>
+
+        .comment-box .comment-head span {
+            float: left;
+            color: #999;
+            font-size: 13px;
+            position: relative;
+            top: 1px;
+        }
+
+        .comment-box .comment-content {
+            background: #FFF;
+            padding: 12px;
+            font-size: 15px;
+            color: #595959;
+            -webkit-border-radius: 0 0 4px 4px;
+            -moz-border-radius: 0 0 4px 4px;
+            border-radius: 0 0 4px 4px;
+        }
+
+        .comment-box .comment-name.by-author, .comment-box .comment-name.by-author a {color: #03658c;}
+        .comment-box .comment-name.by-author:after {
+            content: 'autor';
+            background: #03658c;
+            color: #FFF;
+            font-size: 12px;
+            padding: 3px 5px;
+            font-weight: 700;
+            margin-left: 10px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+        }
+
+        /** =====================
+         * Responsive
+         ========================*/
+        @media only screen and (max-width: 766px) {
+            .comments-container {
+                width: 480px;
+            }
+
+            .comments-list .comment-box {
+                width: 390px;
+            }
+
+            .reply-list .comment-box {
+                width: 320px;
+            }
+        }</style>
 </head>
 <body>
 <div >
@@ -328,7 +505,86 @@
 <div class="site-section bg-primary">
 
     <div class="container">
+        <div class="comment-block">
+            <form action="/user/search/articles/<%= article._id%>/comment" method="post">
+                <textarea name="comment" id="" cols="30" rows="3" placeholder="Add comment..."></textarea>
+                <button type="submit" class="btn-primary btn">submit</button>
+            </form>
+        </div>
+
         <div class="row element-animate">
+
+
+
+            <div class="comments-container">
+                <h1>Comments </h1>
+
+                <ul id="comments-list" class="comments-list">
+                    <% for(var i=0; i< comments.length;i++) { %>
+                    <li>
+                        <div class="comment-main-level">
+                            <!-- Avatar -->
+                            <div class="comment-avatar"><img src="/uploadnew/<%= comments[i].student.Index %>.png" alt=""></div>
+                            <!-- Contenedor del Comentario -->
+                            <div class="comment-box">
+                                <div class="comment-head">
+                                    <h6 class="comment-name by-author"><%= comments[i].student.firstname%> &nbsp;<%= comments[i].student.lastname%></h6>
+                                    <span><%= comments[i].date%></span>
+
+                                </div>
+                                <div class="comment-content">
+                                 <p style="white-space: normal;">  <%= comments[i].comment%></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Respuestas de los comentarios -->
+
+                        <ul class="comments-list reply-list">
+                            <% for(var j=0; j< reply.length;j++) { %>
+
+                                <% if( comments[i]._id.equals(reply[j].comment) ){%>
+                            <li>
+                                <!-- Avatar -->
+
+                                <div class="comment-avatar"><img src="/uploadnew/<%= reply[j].student.Index %>.png" alt=""></div>
+                                <!-- Contenedor del Comentario -->
+                                <div class="comment-box">
+                                    <div class="comment-head">
+                                        <h6 class="comment-name"><%= reply[j].student.firstname%><%= reply[j].student.lastname%></h6>
+                                        <span><%= reply[j].date%></span>
+
+                                    </div>
+                                    <div class="comment-content">
+                                        <%= reply[j].reply%>
+                                    </div>
+                                </div>
+                            </li>
+                                    <% }%>
+                                    <% }%>
+
+
+                        </ul>
+                        <div class="comments-list reply-list">
+                        <div class="comment-box">
+                            <div class="comment-head">
+
+                            </div>
+                            <div class="comment-content">
+                                <form action="/user/search/articles/<%= article._id%>/<%= comments[i]._id %>/reply " method="post">
+                                    <textarea name="comment" id="" cols="60" rows="1" placeholder="Add reply..."></textarea>
+                                    <button type="submit" class="btn-primary btn">reply</button>
+                                </form>
+
+                            </div>
+                        </div>
+                        </div>
+                    </li>
+
+
+                    <% } %>
+                </ul>
+            </div>
+            <!----------
 
             <div class=" center element-animate" style="text-align: center" >
                 <h2>Comments</h2>
@@ -347,7 +603,7 @@
                     </div>
                 </div>
                 <div id="r"></div>
-                <div class="comm" style="height:400px ;overflow-y: scroll;margin : 15px;">
+
                 <% for(var i=0; i< comments.length;i++) { %>
 
                     <div class="comment-wrap">
@@ -355,7 +611,7 @@
                             <div class="avatar" style="background-image: url('https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg')"></div>
                         </div>
                         <div class="comment-block">
-                            <p class="comment-text"><%= comments[i].comment %></p>
+                            <p class="comment-text" style="word-wrap: break-word;"><%= comments[i].comment %></p>
                             <div class="bottom-comment">
                                 <div class="comment-date"><%= comments[i].student.firstname%> &nbsp;<%= comments[i].student.lastname%></div>
                                 <ul class="comment-actions">
@@ -369,7 +625,7 @@
 
                     <% if( comments[i]._id.equals(reply[j].comment) ){%>
 
-                            <div class="comment-wrap "  style="margin-left: 30%">
+                            <div class="reply-wrap "  style="margin-left: 30%">
                                 <div class="photo">
                                     <div class="avatar" style="background-image: url('https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg')"></div>
                                 </div>
@@ -395,7 +651,7 @@
 
                       </div>
                 <% } %>
-                </div>
+
 
 
 
