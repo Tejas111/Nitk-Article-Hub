@@ -20,7 +20,7 @@
     <link rel="stylesheet" type="text/css" href="/css/component.css" />
     <script src="/js/modernizr.custom.js"></script>
 
-
+    
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
     <link href="https://unpkg.com/ionicons@4.4.4/dist/css/ionicons.min.css" rel="stylesheet">
 
@@ -46,7 +46,36 @@
         padding-left:10px;
         margin-top: 3px;
         color:green;
+
+
+
     }
+    .card {position: relative; border-radius: 3px; background-color: #fff;color: #4f5256;border: 1px solid #f2f2f2;margin-bottom: 16px;background:#fff;}
+.card-header{ padding: 16px;margin:0px;}
+.card-body {position: relative; padding: 16px;}
+
+.gaadiex-list {list-style-type: none; margin: 0;padding: 0;}
+.gaadiex-list>.gaadiex-list-item {padding: 0 22px;}
+.gaadiex-list-item-img  {
+    float: left;
+    width: 58px;
+    height: 58px;
+    margin-top: 20px;
+    margin-bottom: 8px;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+.gaadiex-list-item i  {
+    float: left;
+    font-size:48px;
+    width: 58px;
+    height: 58px;
+    margin-top: 20px;
+    margin-bottom: 8px;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+.border-b-1 {border-bottom: 1px solid rgba(162,162,162,.16);}
         </style>
 </head>
 
@@ -108,12 +137,88 @@
     </div>
 
 
-
+    <div
 
     <div class="abc" style="margin-top: 60px">
 
+    <!--<div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <h1> Followers </h1>
+                <p> Total no of followers: <%= followers.lengtph %> </>
+                <% if(followers) {%>
+                    <% for(var i=0; i< followers.length; i++) { %>
+                        <li> <%= followers[i].followed_to.firstname %>+' '+<%= followers[i].followed_to.lastname %> </li>
+                    <% } %>
+                <% } %>
+            </div>
+            <div class="col-md-6">
+                <h1 style="text-align:center"> Following </h1>
+                <p> Total no of authors following: <%= following.length %> </p>
+                <% if(following) {%>
+                    <% for(var i=0; i< following.length; i++) { %>
+                        <li style="test-align:center"> <%= following[i].followed_by.firstname %> + ' ' + <%= following[i].followed_by.lastname %> </li>
+                    <% } %>
+                <% } %>
+            </div>
+        </div>
+
+    </div>-->
 
 
+    <div class="container">
+	<div class="row">
+		<div class="col-md-4">
+		    <div class="card">
+		        <div style="text-align:center" class="card-header">
+                    <h4>Followers</h4>
+                    <h2> Total followers: <%= followers.length %> </h2>
+                </div>
+                <% if(followers) {%>
+                 <% for(var i=0; i< followers.length; i++) { %>
+		        <div class="gaadiex-list">
+                    <div class="gaadiex-list-item"><img class="gaadiex-list-item-img" src="http://www.free-icons-download.net/images/commercial-male-user-icon-32765.png" alt="List user">
+                      <div class="gaadiex-list-item-text">
+                            
+                                <h3><a href='#'> <%= followers[i].followed_by.firstname %>  <%= followers[i].followed_by.lastname %> </a></h3>
+                           
+                        <!--<h3><a href="#">Eric Graves</a></h3>
+                        <h4>Brunch this weekend?</h4>
+                        <p> I'll be in your neighborhood doing errands</p>-->
+                      </div>
+                    </div>
+
+                </div>
+                <% } %>
+                <% } %>
+            </div>
+        </div>
+        <div class="col-md-4">
+		    <div class="card">
+		        <div style="text-align:center" class="card-header">
+                    <h4>Following</h4>
+                    <h2> Total following: <%= following.length %> </h2>
+                </div>
+                <% if(following) {%>
+                <% for(var i=0; i< following.length; i++) { %>
+		        <div class="gaadiex-list">
+                    <div class="gaadiex-list-item"><img class="gaadiex-list-item-img" src="http://www.free-icons-download.net/images/commercial-male-user-icon-32765.png" alt="List user">
+                      <div class="gaadiex-list-item-text">
+                            
+                                <h3><a href='#'> <%= following[i].followed_to.firstname %>  <%= following[i].followed_to.lastname %> </a></h3>
+                            
+                        <!--<h3><a href="#">Eric Graves</a></h3>
+                        <h4>Brunch this weekend?</h4>
+                        <p> I'll be in your neighborhood doing errands</p>-->
+                      </div>
+                    </div>
+                </div>
+                <% } %>
+                        <% } %>
+            </div>
+        </div>
+    </div>
+    </div>
 
         <!-- loader -->
         <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">

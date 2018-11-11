@@ -127,8 +127,34 @@ Router.get('/', function(req, res, next) {
     console.log("hoooooooo................");
     if(req.session)
     {
-        res.render('user/user_home');
-    }else{
+        students.findOne({Index:req.user._id})
+        .exec((err,file)=>{
+            if (err) throw err;
+            else{
+                if(file){
+                    //to display no. of followers
+                    follow.find({followed_to:file._id}).populate('followed_by')
+                    .exec((err, followers)=>{
+                        if (err) throw err;
+                        console.log(followers)
+                    
+                    follow.find({followed_by:file._id}).populate('followed_to')
+                    .exec((err,following)=>{
+                        if(err) throw err;
+                        console.log(following);
+                    res.render('user/user_home',{followers:followers,following:following})
+
+                    })
+
+                    })
+
+                }
+            }
+        })
+        
+        
+        }
+    else{
         res.redirect('/login');
     }
 
@@ -426,13 +452,9 @@ Router.get('/search/articles/:id',(req,res)=> {
                                         res.redirect('/');
                                     }
                                     else {
-
-                                        var message = req.flash('info');
-
-
                                         console.log("---------------------");
                                         console.log(r);
-                                        res.render('user/search/article',{article : articles ,comments :comments ,reply: r,message:message});
+                                        res.render('user/search/article',{article : articles ,comments :comments ,reply: r});
                                     }
                                 });
 
@@ -545,7 +567,7 @@ Router.post('/search/articles/:id/:cid/reply',(req,res)=> {
 });
 
 // For the process of following
-Router.post('/search/articles/:id/follow',(req,res,next)=>{
+Router.post('/search/author/:id/follow',(req,res,next)=>{
 
     students.findOne({ Index: req.user._id })
         .exec((err, s) => {
@@ -556,20 +578,16 @@ Router.post('/search/articles/:id/follow',(req,res,next)=>{
             }
             else {
                 req.body.followed_by = s._id;
-                // req.body.follower_email = s.email;
-            }
-        });
-    
-    article.findById(req.params.id).populate('student')
-    .then((file)=>{
-        req.body.followed_to = file.author._id;
-        req.body.followed_article = file._id;
-        follow.findOne({followed_by:req.user._id,followed_to:file.author._id})
+                 req.body.followed_to = req.params.id;
+            
+        
+        console.log(req.body.followed_by, req.body.followed_to);
+        follow.findOne({followed_by:s._id,followed_to:req.params.id})
         .exec((err,file)=>{
             if(file){
                 console.log("You have already followed the given author");
                 // var a = "You have already followed the given author";
-                var url = '/user/search/articles/'+req.params.id;
+                var url = '/user/search/author/'+req.params.id;
                 req.flash("info","You have already followed the given author");
                 res.redirect(url);
             }
@@ -579,16 +597,18 @@ Router.post('/search/articles/:id/follow',(req,res,next)=>{
                         console.log("One follower Inserted After checking ");
                         var a ="You have successfully followed the author";
                         req.flash("info","You have successfully followed the author");
-                        var url = '/user/search/articles/'+req.params.id;
-                        res.redirect(200,url)
+                        var url = '/user/search/author/'+req.params.id;
+                        res.redirect(url)
                     },(err)=>next(err))
                     .catch((err)=>next(err));
                 
             }
         })
-    },(err)=>next(err))
-    .catch((err)=>next(err));
-})
+  
+
+        }
+    });
+});
 
 
 
@@ -611,10 +631,10 @@ Router.get('/search/author/:id',(req,res)=> {
                     } else {
 
                             console.log(" in profile page 1b ");
-
+                            var message = req.flash('info');
                             console.log(file);
-
-                            res.render('user/search/author', {student: file});
+                            console.log(req.flash('info'))
+                            res.render('user/search/author', {student: file, message:message});
                      }
                 }
                 else {

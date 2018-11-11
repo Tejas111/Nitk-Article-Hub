@@ -74,13 +74,12 @@ app.use('/', indexRouter);
 //app.get('/users', indexRouter);
 app.use('/users',users)
 //app.use('/search',searchRouter);
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'uploads')));
+
 //app.use('')
 
 
 
-function auth(req,res,next){
+async function auth(req,res,next){
   //console.log(req.user);
 
   if (!req.user) {
@@ -94,6 +93,8 @@ function auth(req,res,next){
         next();
   }
 }
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'uploads')));
 app.use(auth);
 app.use('/user',user);
 // app.use(express.static(path.join(__dirname, 'public')));

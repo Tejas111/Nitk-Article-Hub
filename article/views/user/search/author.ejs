@@ -188,6 +188,11 @@
                 </div>
             </div>
         </div>
+        <div id='a'>
+        <% if(message) { %>
+        <p style="color:red;text-align:center;padding-top:5px"> <%= message %> </p>
+        <% } %>
+        </div>
     </section>
     <!-- END section -->
 
@@ -252,9 +257,9 @@
                 </div>
                 <div class="col-md-4 col-sm-12">
 
-
+                    <form action="/user/search/author/<%= student._id %>/follow" method="POST">
                     <Button class="btn btn-primary submit" style="background-color: white;color: teal;width: 40%" >Follow</Button>
-
+                    </form>
 
                 </div>
             </div>
@@ -288,6 +293,7 @@
 <script src="/js/gnmenu.js"></script>
 <script>
     new gnMenu( document.getElementById( 'gn-menu' ) );
+    $('#a').show().delay(5000).fadeOut();
 </script>
 </body>
 </html>
