@@ -123,11 +123,11 @@
                         <div class="fields d-block d-lg-flex">
                             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                             <div class="textfield-search  one-third"><input style="
-                                                                            line-height: 44px;" type="text" name="keywords" class="form-control" placeholder="Keyword search..."></div>
+                                                                            line-height: 44px;" type="text" name="keywords" id="keyword" class="form-control" placeholder="Keyword search..."></div>
 &nbsp;&nbsp;&nbsp;
 
                             <div class="textfield-search one-third"><input  style="
-                                                                            line-height: 44px;" type="text" class="form-control" name="author" placeholder="Author search..."></div>
+                                                                            line-height: 44px;" type="text" class="form-control" id="author" name="author" placeholder="Author search..."></div>
 
                         </div>
                         &nbsp;
@@ -135,9 +135,22 @@
                                                                             height: 58px;"value="Search">
                     </form>
 
-                    <div id="result" class="u" style="">
+                    <div class="row">
 
+                        <div class="col-lg-6">
+                            <div id="result" class="u" style="">
+
+                            </div>
+
+                        </div>
+                        <div class="col-lg-6">
+                            <div id="result1" class="u" style="">
+
+                            </div>
+
+                        </div>
                     </div>
+
                 </div>
             </li>
 
@@ -282,6 +295,7 @@ $(document).ready(function () {
     $(document).on('click', '.u li', function () {
         $('#keyword').val($(this).text());
         $('#result').fadeOut();
+
     });
     $('body').on('click', function () {
         $('#result').fadeOut();

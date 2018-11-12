@@ -11,6 +11,7 @@ var usersRouter = require('./routes/users');
 var flash = require('connect-flash');
 var grid = require('./routes/gridfs');
 var uploadRouter = require('./routes/uploadRouter');
+var csrf = require('csurf');
 var app = express();
 var searchRouter = require('./routes/search');
 //var student=require('./models/users');
@@ -59,6 +60,7 @@ store.on('error', function(error) {
     assert.ifError(error);
     assert.ok(false);
 });
+// var csrfProtection = csrf({ cookie: true });
 
 app.use(session({
   name: 'session-id',

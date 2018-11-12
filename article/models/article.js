@@ -10,7 +10,7 @@ var article_schema = new Schema({
 
     //likes:{type:Number,default:0},
     author:{type:mongoose.Schema.Types.ObjectId,ref:'student'},
-    date: { type: Date, default: Date.now() }
+    date: { type: Date, default: Date.now()}
     
 });
 
