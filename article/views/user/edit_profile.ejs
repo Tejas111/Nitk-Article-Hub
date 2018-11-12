@@ -8,29 +8,29 @@
 		<meta name="description" content="A sidebar menu as seen on the Google Nexus 7 website" />
 		<meta name="keywords" content="google nexus 7 menu, css transitions, sidebar, side menu, slide out menu" />
         <meta name="author" content="Codrops" />
-    
+
 		<link rel="shortcut icon" href="/favicon.ico">
 		<link rel="stylesheet" type="text/css" href="/css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="/css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="/css/component.css" />
         <script src="/js/modernizr.custom.js"></script>
-          
+
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        
+
         <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
         <link href="https://unpkg.com/ionicons@4.4.4/dist/css/ionicons.min.css" rel="stylesheet">
 
         <link rel="stylesheet" href="/css/bootstrap.css">
         <link rel="stylesheet" href="/css/animate.css">
         <link rel="stylesheet" href="/css/owl.carousel.min.css">
-    
+
         <link rel="stylesheet" href="/fonts/ionicons/css/ionicons.min.css">
        <link rel="stylesheet" href="/fonts/fontawesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
         <link rel="stylesheet" href="/css/magnific-popup.css">
-    
+
         <!-- Theme Style -->
         <link rel="stylesheet" href="/css/style.css">
 	</head>
@@ -64,10 +64,30 @@
 						</div><!-- /gn-scroller -->
 					</nav>
 				</li>
-       
-            <li class="navbar-nav absolute-right">
-              <a href="#">logout</a> 
-            </li>
+
+                <li class="absolute-right" style="background-color: lightcyan ;">
+                    <div style="height: fit-content" >
+                        <form action="/user/search" method="post" class="d-block d-lg-flex">
+                            <div class="fields d-block d-lg-flex">
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                <div class="textfield-search  one-third"><input style="
+                                                                            line-height: 44px;" type="text" name="keywords" class="form-control" placeholder="Keyword search..."></div>
+                                &nbsp;&nbsp;&nbsp;
+
+                                <div class="textfield-search one-third"><input  style="
+                                                                            line-height: 44px;" type="text" class="form-control" name="author" placeholder="Author search..."></div>
+
+                            </div>
+                            &nbsp;
+                            <input type="submit" class="search-submit btn btn-primary" style="
+                                                                            height: 58px;"value="Search">
+                        </form>
+
+                        <div id="result" class="u" style="">
+
+                        </div>
+                    </div>
+                </li>
       
 			</ul>
             </div>

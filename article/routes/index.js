@@ -3,6 +3,8 @@ var bodyParser = require('body-parser');
 var router = express.Router();
 router.use(bodyParser.json());
 var student = require('../models/userdetail');
+var category = require('../models/category');
+var art_cat = require('../models/art_cat');
 var mongoose = require('mongoose');
 var users = require('../models/user');
 var comments= require('../models/comment');
@@ -11,7 +13,16 @@ var article = require('../models/article');
 var like = require('../models/likes');
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('homepage');
+    category.find()
+        .exec((err, file) => {
+            if (err) throw err;
+            else {
+                console.log(file);
+                res.render('homepage',{cats:file});
+
+            }
+        });
+
 });
 router.get('/register', function(req, res, next) {
   res.render('register');
@@ -36,14 +47,35 @@ router.get('/about', function(req, res, next) {
 
 router.post('/search', function(req, res, next) {
     if(req.body.keywords) {
-        article.find({'title': {'$regex': req.body.keywords, '$options': 'i'}}).populate('author')
-            .exec((err, file) => {
-                if (err) throw err;
-                else {
-                    console.log(file);
-                    res.render('search/articles', {articles: file});
-                }
-            });
+        if(req.body.category ==0) {
+            article.find({'title': {'$regex': req.body.keywords, '$options': 'i'}}).populate('author')
+                .exec((err, file) => {
+                    if (err) throw err;
+                    else {
+                        console.log(file);
+                        res.render('search/articles', {articles: file,op:1});
+                    }
+                });
+        }
+        else
+        {var id = mongoose.Types.ObjectId(req.body.category);
+            art_cat.find({'category': id}).populate({path: 'article',match:{ title : {'$regex': req.body.keywords}}})
+                .exec((err, file) => {
+                    if (err) throw err;
+                    else {
+                        console.log(file);
+
+
+
+                        res.render('search/articles', {articles: file ,op:2});
+
+
+
+
+                    }
+                });
+        }
+
     }
     else if(req.body.author){
 
@@ -57,15 +89,32 @@ router.post('/search', function(req, res, next) {
             });
     }
     else
-    {
+    {   if(category == 0) {
         article.find({'title': {'$regex': req.body.keywords, '$options': 'i'}}).populate('author')
             .exec((err, file) => {
                 if (err) throw err;
                 else {
                     console.log(file);
-                    res.render('search/articles', {articles: file});
+                    res.render('search/articles', {articles: file,op:1});
                 }
             });
+       }
+       else
+            {
+                var id = mongoose.Types.ObjectId(req.body.category);
+                art_cat.find({'category': id}).populate( 'article')
+                    .exec((err, file) => {
+                        if (err) throw err;
+                        else {
+                            console.log(file);
+
+
+
+                            res.render('search/articles', {articles: file ,op:2});
+                        }
+                    });
+            }
+
     }
 
 });

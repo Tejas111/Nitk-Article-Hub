@@ -73,12 +73,14 @@
                     <div class="textfield-search one-third"><input type="text" name="keywords" class="form-control" placeholder="Keyword search..."></div>
                     <div class="select-wrap one-third">
                       <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                      <select name="" id="" class="form-control">
-                        <option value="">Category </option>
-                        <option value="">Laravel</option>
-                        <option value="">PHP</option>
-                        <option value="">JavaScript</option>
-                        <option value="">Python</option>
+                      <select name="category" id="" class="form-control">
+                        <option value=0>category</option>
+                        <% for(var i=0;i<cats.length;i++) {%>
+
+                          <option value="<%= cats[i]._id%>" ><%= cats[i].category%> </option>
+
+                        <% }%>
+
                       </select>
                     </div>
                 

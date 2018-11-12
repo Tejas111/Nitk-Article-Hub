@@ -347,8 +347,28 @@
             </nav>
         </li>
 
-        <li class="navbar-nav absolute-right">
-            <a href="#">logout</a>
+        <li class="absolute-right" style="background-color: lightcyan ;">
+            <div style="height: fit-content" >
+                <form action="/user/search" method="post" class="d-block d-lg-flex">
+                    <div class="fields d-block d-lg-flex">
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <div class="textfield-search  one-third"><input style="
+                                                                            line-height: 44px;" type="text" name="keywords" class="form-control" placeholder="Keyword search..."></div>
+                        &nbsp;&nbsp;&nbsp;
+
+                        <div class="textfield-search one-third"><input  style="
+                                                                            line-height: 44px;" type="text" class="form-control" name="author" placeholder="Author search..."></div>
+
+                    </div>
+                    &nbsp;
+                    <input type="submit" class="search-submit btn btn-primary" style="
+                                                                            height: 58px;"value="Search">
+                </form>
+
+                <div id="result" class="u" style="">
+
+                </div>
+            </div>
         </li>
 
     </ul>
