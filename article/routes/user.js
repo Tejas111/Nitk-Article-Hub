@@ -10,6 +10,7 @@ var replies = require('../models/reply');
 var authenticate = require('../authenticate');
 var follow = require('../models/follow');
 var multer = require('multer');
+var like = require('../models/likes')
 // var multer2 = require('multer');
 var path = require('path');
 //for nodemailer
@@ -646,6 +647,33 @@ Router.get('/search/author/:id',(req,res)=> {
         });
 
 });
+// for the sake of like
+Router.post('/search/articles/:id/like',(req,res)=>{
+        students.findOne({Index:req.user._id})
+        .exec((err,student)=>{
+        if(err) throw err;
+        like.findOne({liked_by:student._id,liked_article:req.params.id})
+        .exec((err,file)=>{
+            if(!file){
+            like.create({liked_by:student._id,liked_article:req.params.id})
+            .then((like)=>{
+                console.log("+++++++++++++++++++++++");
+                console.log(like);
+                console.log("+++++++++++++++++++++++");
+               res.send("<p style='color:red'>You liked this article</p>");
+            },(err) => next(err))
+            .catch((err)=>next(err));
+        }
+        else{
+            res.send("<p style='color:red'>You already liked this article</p>");
+        }
+        })
+        // req.body.liked_to = file._id;
+        // req.body.liked_article = req.params.id;
+       
+    })
+    })
+
 
 
 module.exports=Router;

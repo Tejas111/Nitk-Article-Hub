@@ -8,6 +8,7 @@ var users = require('../models/user');
 var comments= require('../models/comment');
 var replies= require('../models/reply');
 var article = require('../models/article');
+var like = require('../models/likes');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('homepage');
@@ -120,7 +121,7 @@ router.get('/search/articles/:id',(req,res)=> {
 
 
 
-
+// for the sake of like
 
 router.get('/search/authors/:id',(req,res)=> {
 

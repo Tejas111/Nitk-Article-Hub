@@ -454,16 +454,15 @@
                         </div>
                         <!------>
                         <br>
-                        <button  class="search-submit btn btn-primary  " ><i class="glyphicon glyphicon-like"></i>Like</button>
+                        <button  id="a" class="search-submit btn btn-primary  " ><i class="glyphicon glyphicon-like"></i>Like</button>
+                        <div id="result" style="color:red">
+                        <div>
                        <!-- <form action="/user/search/articles/<%= article._id %>/follow" method="POST">
                         <button  class="search-submit btn btn-primary  " ><i class="glyphicon glyphicon-like"></i><a>Follow</a></button>
                         </form>-->
                     </div>
 
-
-
-
-
+                    
                 </div>
 
 
@@ -688,6 +687,23 @@
 <script src="/js/gnmenu.js"></script>
 <script>
     new gnMenu( document.getElementById( 'gn-menu' ) );
+</script>
+<script>
+$(document).ready(function () {
+    $('#a').click(function () {
+             {
+                $.ajax({
+                    url: "/user/search/articles/<%= article._id %>/like",
+                    method: "POST",
+                    data: { query: 1 },
+                    success: function (data) {
+                        $('#result').fadeIn();
+                        $('#result').html(data);
+                    }
+                });
+            }
+        });
+});
 </script>
 </body>
 </html>
