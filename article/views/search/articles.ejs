@@ -141,7 +141,7 @@
                             <div class="text">
                                 <h3 class="heading"><a href="/search/articles/<%= articles[i]._id %>"><%= articles[i].title%></a></h3>
                                 <div class="meta">
-                                    <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
+                                    <div><a href="#"><span class="ion-android-calendar"></span> <%= article.date.toDateString()%></a></div>
                                     <% if( articles[i].author) { %>
                                         <div><a href="#"><span class="ion-android-person"></span> <%= articles[i].author.firstname %> </a></div>
                                     <% }%>
@@ -159,7 +159,7 @@
 
                     <% for(var i=0; i< articles.length; i++) { %>
 
-                    <% if(articles[i].article != null) %>
+                    <% if(articles[i].article) %>
 
                         <div class="col-md-2 col-lg-1">
                         </div>
@@ -173,7 +173,7 @@
                                 <div class="text">
                                     <h3 class="heading"><a href="/search/articles/<%= articles[i].article._id %>"><%= articles[i].article.title%></a></h3>
                                     <div class="meta">
-                                        <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
+                                        <div><a href="#"><span class="ion-android-calendar"></span><%= articles[i].article.date.toDateString() %></a></div>
 
 
                                         <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>

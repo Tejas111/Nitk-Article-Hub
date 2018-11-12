@@ -9,7 +9,8 @@ var article_schema = new Schema({
     //comments:[String],
 
     //likes:{type:Number,default:0},
-    author:{type:mongoose.Schema.Types.ObjectId,ref:'student'}
+    author:{type:mongoose.Schema.Types.ObjectId,ref:'student'},
+    date: { type: Date, default: Date.now() }
     
 });
 

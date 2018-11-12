@@ -59,7 +59,7 @@ router.post('/search', function(req, res, next) {
         }
         else
         {var id = mongoose.Types.ObjectId(req.body.category);
-            art_cat.find({'category': id}).populate({path: 'article',match:{ title : {'$regex': req.body.keywords}}})
+            art_cat.find({'category': id}).populate('article')
                 .exec((err, file) => {
                     if (err) throw err;
                     else {
@@ -149,22 +149,13 @@ router.get('/search/articles/:id',(req,res)=> {
                                         res.redirect('/');
                                     }
                                     else {
-                                        like.find().populate({path:'liked_article',match:{author:articles.author._id}})
-                                    .exec((err,result)=>{
-                                        console.log(result);
 
-                                        likes = result.length;
-                                        if(err) throw err;
-                                        else{
-                                            console.log("---------------------");
-                                        console.log(r);
-                                        res.render('search/article',{article : articles ,comments :comments ,reply: r,likes:likes});
-                                        }
-                                    });
                                         var message = req.flash('info');
 
 
-                                        
+                                        console.log("---------------------");
+                                        console.log(r);
+                                        res.render('search/article',{article : articles ,comments :comments ,reply: r});
                                     }
                                 });
 

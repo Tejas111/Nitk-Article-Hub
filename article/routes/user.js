@@ -262,20 +262,8 @@ Router.get('/profile', function(req, res, next) {
 
                                 }, function (err, c) {
                                     following=c;
-                                    like.find().populate({path:'liked_article',match:{author:file._id}})
-                                    .exec((err,result)=>{
-                                        console.log(result);
-
-                                        likes = result.length;
-                                        if(err) throw err;
-                                        else{
-                                        console.log(articles + " " +followers+" "+following+ " "+ likes);
-                                    res.render('user/pro', {student: file,articles: articles,followers:followers,following:following,likes:likes});
-                                        }
-                                    })
-                                    
-                                    })
-                                   
+                                    console.log(articles + " " +followers+" "+following);
+                                    res.render('user/pro', {student: file,articles: articles,followers:followers,following:following});
 
 
 
@@ -283,7 +271,7 @@ Router.get('/profile', function(req, res, next) {
 
                             });
 
-                        
+                        });
 
 
 
@@ -564,15 +552,7 @@ Router.get('/search/articles/:id',(req,res)=> {
                                     else {
                                         console.log("---------------------");
                                         console.log(r);
-                                        like.find({liked_article:req.params.id})
-                                        .exec((err,like)=>{
-                                            if(err) throw err;
-                                            else{
-                                               var likes = like.length;
-                                            res.render('user/search/article',{article : articles ,comments :comments ,reply: r,likes:likes});
-                                            }
-                                        })
-                                        
+                                        res.render('user/search/article',{article : articles ,comments :comments ,reply: r});
                                     }
                                 });
 
@@ -749,59 +729,10 @@ Router.get('/search/author/:id',(req,res)=> {
                     } else {
 
                             console.log(" in profile page 1b ");
-
-                            var articles=0;
-                        var followers=0;
-                        var following=0;
-                        console.log(file);
-                        article.count({
-                            author: file._id
-
-                        }, function (err, c) {
-                            console.log("c = "+c);
-                            articles=c;
-                            console.log("art = "+articles);
-
-                            follow.count({
-                                followed_to: file._id
-
-
-                            }, function (err, c) {
-                                followers=c;
-
-                                follow.count({
-                                    followed_by: file._id
-
-
-                                }, function (err, c) {
-                                    following=c;
-                                    like.find().populate({path:'liked_article',match:{author:file._id}})
-                                    .exec((err,result)=>{
-                                        console.log(result);
-
-                                        likes = result.length;
-                                        if(err) throw err;
-                                        else{
-                                            var message = req.flash('info');
-                                            console.log(file);
-                                            console.log(req.flash('info'))
-                    
-                                        console.log(articles + " " +followers+" "+following+ " "+ likes);
-                                    res.render('user/search/author', {student: file,message:message,articles: articles,followers:followers,following:following,likes:likes});
-                                        }
-                                    })
-                                    
-                                    })
-                                   
-
-
-
-                                });
-
-                            });
-
-                        
-                            
+                            var message = req.flash('info');
+                            console.log(file);
+                            console.log(req.flash('info'))
+                            res.render('user/search/author', {student: file, message:message});
                      }
                 }
                 else {
@@ -817,36 +748,23 @@ Router.get('/search/author/:id',(req,res)=> {
 Router.post('/search/articles/:id/like',(req,res)=>{
         students.findOne({Index:req.user._id})
         .exec((err,student)=>{
-        article.findOne({_id:req.params.id,author:student._id})
-        .exec((err,result)=>{
-            if(err) throw err;
-            else{
-                if(!result){
-                    if(err) throw err;
-                like.findOne({liked_by:student._id,liked_article:req.params.id})
-                .exec((err,file)=>{
-                    if(!file){
-                    like.create({liked_by:student._id,liked_article:req.params.id})
-                    .then((like)=>{
-                        console.log("+++++++++++++++++++++++");
-                        console.log(like);
-                        console.log("+++++++++++++++++++++++");
-                    res.send("<p style='color:red'>You liked this article</p>");
-                    },(err) => next(err))
-                    .catch((err)=>next(err));
-                    }
-                    else{
-                        res.send("<p style='color:red'>You already liked this article</p>");
-                    }
+        if(err) throw err;
+        like.findOne({liked_by:student._id,liked_article:req.params.id})
+        .exec((err,file)=>{
+            if(!file){
+            like.create({liked_by:student._id,liked_article:req.params.id})
+            .then((like)=>{
+                console.log("+++++++++++++++++++++++");
+                console.log(like);
+                console.log("+++++++++++++++++++++++");
+               res.send("<p style='color:red'>You liked this article</p>");
+            },(err) => next(err))
+            .catch((err)=>next(err));
+        }
+        else{
+            res.send("<p style='color:red'>You already liked this article</p>");
+        }
         })
-
-                }
-                else{
-                    res.send("<p style='color:red'>You can't like this article</p>")
-                }
-            }
-        })
-        
         // req.body.liked_to = file._id;
         // req.body.liked_article = req.params.id;
        
