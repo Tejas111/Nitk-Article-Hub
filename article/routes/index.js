@@ -68,6 +68,10 @@ router.post('/search', function(req, res, next) {
 
 
                         res.render('search/articles', {articles: file ,op:2});
+
+
+
+                        
                     }
                 });
         }
