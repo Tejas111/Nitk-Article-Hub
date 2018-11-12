@@ -170,7 +170,7 @@
 	<div class="row">
 		<div class="col-md-4">
 		    <div class="card">
-		        <div style="text-align:center" class="card-header">
+		        <div style="text-align:center;margin-top:60px" class="card-header">
                     <h4>Followers</h4>
                     <h2> Total followers: <%= followers.length %> </h2>
                 </div>
@@ -181,6 +181,8 @@
                       <div class="gaadiex-list-item-text">
                             
                                 <h3><a href='#'> <%= followers[i].followed_by.firstname %>  <%= followers[i].followed_by.lastname %> </a></h3>
+                           
+             
                       </div>
                     </div>
 
@@ -191,7 +193,7 @@
         </div>
         <div class="col-md-4">
 		    <div class="card">
-		        <div style="text-align:center" class="card-header">
+		        <div style="text-align:center;margin-top:60px" class="card-header">
                     <h4>Following</h4>
                     <h2> Total following: <%= following.length %> </h2>
                 </div>
@@ -201,13 +203,13 @@
                     <div class="gaadiex-list-item"><img class="gaadiex-list-item-img" src="http://www.free-icons-download.net/images/commercial-male-user-icon-32765.png" alt="List user">
                       <div class="gaadiex-list-item-text">
                             
-                                <h3><a href='#'> <%= following[i].followed_to.firstname %>  <%= following[i].followed_to.lastname %> </a></h3>
-                        
+                       <h3><a href='#'> <%= following[i].followed_to.firstname %>  <%= following[i].followed_to.lastname %> </a></h3>
+                          
                       </div>
                     </div>
                 </div>
                 <% } %>
-                <% } %>
+                  <% } %>
             </div>
         </div>
     </div>
