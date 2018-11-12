@@ -369,18 +369,45 @@ Router.post('/my_articles/:id',(req,res)=> {
 
 
 
+
+
 Router.post('/search', function(req, res, next) {
-    article.find({'title' : { '$regex' : req.body.keywords, '$options' : 'i' }}).populate('author')
-        .exec((err,file)=>{
-            if (err) throw err;
-            else
-            {
-                console.log(file);
-                res.render('user/search/articles',{articles :file});
-            }
-        });
+    if(req.body.keywords) {
+        article.find({'title': {'$regex': req.body.keywords, '$options': 'i'}}).populate('author')
+            .exec((err, file) => {
+                if (err) throw err;
+                else {
+                    console.log(file);
+                    res.render('user/search/articles',{articles :file});
+                }
+            });
+    }
+    else if(req.body.author){
+
+        students.find({'firstname': {'$regex': req.body.author, '$options': 'i'}})
+            .exec((err, file) => {
+                if (err) throw err;
+                else {
+                    console.log(file);
+                    res.render('user/search/authors',{authors :file});
+                }
+            });
+    }
+    else
+    {
+        article.find({'title': {'$regex': req.body.keywords, '$options': 'i'}}).populate('author')
+            .exec((err, file) => {
+                if (err) throw err;
+                else {
+                    console.log(file);
+                    res.render('search/articles', {articles: file});
+                }
+            });
+    }
 
 });
+
+
 //Ajax search of keywords
 Router.post('/searchajax',(req,res)=>{
     article.find({'title':{ '$regex' : req.body.query, '$options' : 'i' }})

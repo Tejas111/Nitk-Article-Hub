@@ -50,6 +50,9 @@
 
 
     }
+        input {
+            line-height: 30px;
+        }
     .card {position: relative; border-radius: 3px; background-color: #fff;color: #4f5256;border: 1px solid #f2f2f2;margin-bottom: 16px;background:#fff;}
 .card-header{ padding: 16px;margin:0px;}
 .card-body {position: relative; padding: 16px;}
@@ -114,22 +117,31 @@
     </div><!-- /gn-scroller -->
     </nav>
     </li>
-            <li class="absolute-right" >
+            <li class="absolute-right" style="background-color: lightcyan ;">
                 <div style="height: fit-content" >
-                    <form action="/user/search" method="post" class="d-block d-lg-flex " >
+                    <form action="/user/search" method="post" class="d-block d-lg-flex">
                         <div class="fields d-block d-lg-flex">
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            <div class="textfield-search  one-third"><input style="
+                                                                            line-height: 44px;" type="text" name="keywords" class="form-control" placeholder="Keyword search..."></div>
+&nbsp;&nbsp;&nbsp;
 
-                            <div class="textfield-search "><input type="text" name="keywords" id="keyword" class="form-control" placeholder="search articles..." autocomplete="off"></div>
+                            <div class="textfield-search one-third"><input  style="
+                                                                            line-height: 44px;" type="text" class="form-control" name="author" placeholder="Author search..."></div>
 
                         </div>
-                        <input type="submit" class="search-submit btn btn-primary" value="Search">
+                        &nbsp;
+                        <input type="submit" class="search-submit btn btn-primary" style="
+                                                                            height: 58px;"value="Search">
                     </form>
 
-                    <div id="result" class="u" style="border: 1px solid lightskyblue">
+                    <div id="result" class="u" style="">
 
                     </div>
                 </div>
             </li>
+
+
 
 
 
@@ -139,76 +151,61 @@
 
     <div>
 
-    
-
-    <!--<div class="container-fluid">
-        <div class="row">
-            <div class="col-md-6">
-                <h1> Followers </h1>
-                <p> Total no of followers: <%= followers.lengtph %> </>
-                <% if(followers) {%>
-                    <% for(var i=0; i< followers.length; i++) { %>
-                        <li> <%= followers[i].followed_to.firstname %>+' '+<%= followers[i].followed_to.lastname %> </li>
-                    <% } %>
-                <% } %>
-            </div>
-            <div class="col-md-6">
-                <h1 style="text-align:center"> Following </h1>
-                <p> Total no of authors following: <%= following.length %> </p>
-                <% if(following) {%>
-                    <% for(var i=0; i< following.length; i++) { %>
-                        <li style="test-align:center"> <%= following[i].followed_by.firstname %> + ' ' + <%= following[i].followed_by.lastname %> </li>
-                    <% } %>
-                <% } %>
-            </div>
-        </div>
-
-    </div>-->
 
 
     <div class="container">
 	<div class="row">
-		<div class="col-md-4">
-		    <div class="card">
-		        <div style="text-align:center;margin-top:60px" class="card-header">
-                    <h4>Followers</h4>
-                    <h2> Total followers: <%= followers.length %> </h2>
-                </div>
-                <% if(followers) {%>
-                 <% for(var i=0; i< followers.length; i++) { %>
-		        <div class="gaadiex-list">
-                    <div class="gaadiex-list-item"><img class="gaadiex-list-item-img" src="http://www.free-icons-download.net/images/commercial-male-user-icon-32765.png" alt="List user">
-                      <div class="gaadiex-list-item-text">        
-                        <h3><a href='#'> <%= followers[i].followed_by.firstname %>  <%= followers[i].followed_by.lastname %> </a></h3>
-                      </div>
-                    </div>
+        <div class="col-lg-9">
 
-                </div>
-                <% } %>
-                <% } %>
-            </div>
+
         </div>
-        <div class="col-md-4">
-		    <div class="card">
-		        <div style="text-align:center;margin-top:60px" class="card-header">
-                    <h4>Following</h4>
-                    <h2> Total following: <%= following.length %> </h2>
-                </div>
-                <% if(following) {%>
-                <% for(var i=0; i< following.length; i++) { %>
-		        <div class="gaadiex-list">
-                    <div class="gaadiex-list-item"><img class="gaadiex-list-item-img" src="http://www.free-icons-download.net/images/commercial-male-user-icon-32765.png" alt="List user">
-                      <div class="gaadiex-list-item-text">
-                            
-                       <h3><a href='#'> <%= following[i].followed_to.firstname %>  <%= following[i].followed_to.lastname %> </a></h3>
-                          
-                      </div>
-                    </div>
-                </div>
-                <% } %>
-                  <% } %>
-            </div>
-        </div>
+        <div class="col-lg-3" >
+                        <div style="margin-top:130px;">
+                            <div class="card">
+                                <div style="text-align:center;" class="card-header">
+                                    <h5>Followers</h5>
+                                    <h6> Total followers: <%= followers.length %> </h6>
+                                </div>
+                                <div class="card-body">
+                                <% if(followers) {%>
+                                 <% for(var i=0; i< followers.length; i++) { %>
+                                <div class="gaadiex-list">
+                                    <div class="gaadiex-list-item">
+                                      <div class="gaadiex-list-item-text">
+                                        <h6><a href='#'> <%= followers[i].followed_by.firstname %>  <%= followers[i].followed_by.lastname %> </a></h6>
+                                      </div>
+                                    </div>
+
+                                </div>
+                                </div>
+                                <% } %>
+                                <% } %>
+                            </div>
+                        </div>
+                        <div >
+                            <div class="card">
+                                <div style="text-align:center;" class="card-header">
+                                    <h5>Following</h5>
+                                    <h6> Total following: <%= following.length %> </h6>
+                                </div>
+                                <div class="card-body">
+                                <% if(following) {%>
+                                <% for(var i=0; i< following.length; i++) { %>
+                                <div class="gaadiex-list">
+                                    <div class="gaadiex-list-item">
+                                      <div class="gaadiex-list-item-text">
+
+                                       <h6><a href='#'> <%= following[i].followed_to.firstname %>  <%= following[i].followed_to.lastname %> </a></h6>
+
+                                      </div>
+                                    </div>
+                                </div>
+                                <% } %>
+                                  <% } %>
+                            </div>
+                            </div>
+                        </div>
+              </div>
     </div>
     </div>
 
