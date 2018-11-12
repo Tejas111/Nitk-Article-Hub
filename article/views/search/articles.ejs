@@ -124,6 +124,9 @@
         <h2 class="heading text-center mb-4">Articles </h2><br><br>
         <div class="row justify-content-center">
 
+            <% if(op === 1) {%>
+
+
                 <% for(var i=0; i< articles.length; i++) { %>
 
                     <div class="col-md-2 col-lg-1">
@@ -150,6 +153,38 @@
                     </div>
 
                 <% } %>
+
+            <% } else {%>
+
+
+                    <% for(var i=0; i< articles.length; i++) { %>
+
+                    <% if(articles[i].article != null) %>
+
+                        <div class="col-md-2 col-lg-1">
+                        </div>
+
+                        <div class="col-md-10 col-lg-5">
+
+                            <div class="block-21 d-flex mb-4">
+                                <figure class="mr-3">
+                                    <a href="#"><img src="/images/img_3.jpg" alt="" class="img-fluid"></a>
+                                </figure>
+                                <div class="text">
+                                    <h3 class="heading"><a href="/search/articles/<%= articles[i].article._id %>"><%= articles[i].article.title%></a></h3>
+                                    <div class="meta">
+                                        <div><a href="#"><span class="ion-android-calendar"></span> May 29, 2018</a></div>
+
+
+                                        <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    <% } %>
+
+            <% }%>
 
 
             </div>

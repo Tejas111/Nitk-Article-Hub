@@ -123,10 +123,14 @@
                                         <input type="text" class="form-control " name="description" id="description" placeholder="Some Description" >
                                     </div>
                                 </div>
+
+
                                 <div class="form-group">
                                     <div class="col-xs-12">
                                         <label style="margin-top: 20px;" for="category"><h4>Category</h4></label><br>
-                                        <input type="text" class="form-control " name="category" id="description" placeholder="category" >
+                                        <% for(var i=0;i<category.length;i++ ){%>
+                                        <input type="checkbox" name="category" value="<%= category[i]._id%>"><%= category[i].category%><br>
+                                        <%} %>
                                     </div>
                                 </div>
 
@@ -157,6 +161,21 @@
                                     </div>
                                 </div>
                             </form>
+
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <form class="form" action="/user/new_category" method="post" id="new_article_form">
+
+                                <input class=""  name="category" type='text' /><br>
+                                <button class="search-submit btn btn-primary pull-right" type="submit" style="font-size:15px;"><i class="glyphicon glyphicon-ok-sign"></i> Submit</button>
+
+
+                            </form>
+
                             <script type="text/javascript">
                                 $('#textarea').textext({ plugins: 'tags' });
 

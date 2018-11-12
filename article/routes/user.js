@@ -6,6 +6,8 @@ Router.use(bodyParser.json());
 var mongoose = require('mongoose');
 var students = require('../models/userdetail');
 var comments = require('../models/comment');
+var category= require('../models/category');
+var art_cat= require('../models/art_cat');
 var replies = require('../models/reply');
 var authenticate = require('../authenticate');
 var follow = require('../models/follow');
@@ -52,7 +54,20 @@ const upload = multer({storage:storage, fileFilter:imageFileFilter});
 
 Router.route('/new_article')
     .get((req,res,next)=>{
-        res.render('user/new_article');
+
+        category.find()
+            .exec((err, file) => {
+                if (err) {
+                    console.log(" in new_article page 1a ");
+                    console.log(err);
+
+                }
+                else {
+                    res.render('user/new_article',{category:file});
+                }
+            });
+
+
     })
 
     .post(upload.single('pdf'),(req,res,next)=>{
@@ -110,9 +125,49 @@ Router.route('/new_article')
                     article.create(req.body)
                         .then((article)=>{
                             console.log("+++++++++++++++++++++++");
-                            console.log(req.file);
+                            console.log(article);
                             console.log("+++++++++++++++++++++++");
-                            res.redirect('/user/profile');
+                            var i=0;
+                            var cats=req.body.category;
+                            if(cats instanceof Array)
+                            {
+                                for (i = 0; i < cats.length; i++) {
+                                    var id = mongoose.Types.ObjectId(cats[i]);
+                                    var c = {
+                                        'article': article._id,
+                                        'category': id
+                                    }
+                                    art_cat.create(c)
+                                        .then((a) => {
+                                            console.log("++++++++++++111+++++++++++");
+                                            console.log(a);
+                                            console.log("++++++++++++111+++++++++++");
+
+                                        }, (err) => next(err))
+                                        .catch((err) => next(err));
+                                }
+
+                            }
+                            else {
+
+
+                                var id = mongoose.Types.ObjectId(cats);
+                                var c = {
+                                    'article': article._id,
+                                    'category': id
+                                }
+                                art_cat.create(c)
+                                    .then((a) => {
+                                        console.log("+++++++++222++++++++++++++");
+                                        console.log(a);
+
+                                        console.log("+++++++++222++++++++++++++");
+
+                                    }, (err) => next(err))
+                                    .catch((err) => next(err));
+                            }
+
+                            res.redirect('/user/my_articles');
                         },(err) => next(err))
                         .catch((err)=>next(err));
        
@@ -255,6 +310,21 @@ Router.get('/logout',(req,res)=>{
         next(err);
     }
 });
+
+Router.post('/new_category',(req,res)=>{
+    var obj={
+        'category':req.body.category
+    }
+    category.create(obj)
+        .then((article)=>{
+            console.log("+++++++++++++++++++++++");
+
+            console.log("+++++++++++++++++++++++");
+            res.redirect('/user/new_article');
+        },(err) => next(err))
+        .catch((err)=>next(err));
+});
+
 
 Router.get('/my_articles',(req,res)=>{
 
