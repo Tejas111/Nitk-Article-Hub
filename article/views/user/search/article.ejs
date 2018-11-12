@@ -428,7 +428,7 @@
                                         <!-- <span class="flaticon-like"></span> -->
                                     </div>
                                     <div class="text">
-                                        <strong class="number" data-number="0">9</strong>
+                                        <strong class="number" data-number="0"><%= likes %></strong>
                                         <span>Likes</span>
                                     </div>
                                 </div>
@@ -697,8 +697,9 @@ $(document).ready(function () {
                     method: "POST",
                     data: { query: 1 },
                     success: function (data) {
-                        $('#result').fadeIn();
-                        $('#result').html(data);
+                        
+                        $('#result').html(data).show().delay(3000).fadeOut();
+                        
                     }
                 });
             }
