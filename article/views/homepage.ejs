@@ -135,46 +135,6 @@
     </section>
     <!-- END section -->
 
-    <section class="site-section pt-3 element-animate" id="go">
-      <div class="container">
-        <div class="row">
-           
-          <div class="col-md-6 col-lg-4">
-            <div class="media block-6 d-block">
-              <div class="icon mb-3"><span class="flaticon-student"></span></div>
-              <div class="media-body">
-                <h3 class="heading">Student</h3>
-                <p>Students with Top Articles</p>
-                <p><a href="#" class="more">Read More <span class="ion-arrow-right-c"></span></a></p>
-              </div>
-            </div> 
-          </div>
-          
-          <div class="col-md-6 col-lg-4">
-            <div class="media block-6 d-block">
-              <div class="icon mb-3"><span class="flaticon-diploma"></span></div>
-              <div class="media-body">
-                <h3 class="heading">Top Articles</h3>
-                <p>Have a look at Trending Articles</p>
-                <p><a href="#" class="more">Read More <span class="ion-arrow-right-c"></span></a></p>
-              </div>
-            </div> 
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="media block-6 d-block">
-              <div class="icon mb-3"><span class="flaticon-professor"></span></div>
-              <div class="media-body">
-                <h3 class="heading"> Proffessor</h3>
-                <p>Proffessors with Top Articles.</p>
-                <p><a href="#" class="more">Read More <span class="ion-arrow-right-c"></span></a></p>
-              </div>
-            </div> 
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- END section -->
-
     <section class="site-section bg-light element-animate" id="section-counter">
       <div class="container">
         <div class="row">
@@ -198,18 +158,18 @@
                     <span class="flaticon-student"></span>
                   </div>
                   <div class="text">
-                    <strong class="number" data-number="121">0</strong>
+                    <strong class="number" data-number="<%= students %>">0</strong>
                     <span>Users</span>
                   </div>
                 </div>
 
                 <div class="block-18 d-flex align-items-center">
                   <div class="icon mr-4">
-                    <span class="flaticon-university"></span>
+                    <span class="flaticon-open-book"></span>
                   </div>
                   <div class="text">
-                    <strong class="number" data-number="193">0</strong>
-                    <span>something</span>
+                    <strong class="number" data-number="<%= likes %>">0</strong>
+                    <span>Likes</span>
                   </div>
                 </div>
 
@@ -217,10 +177,10 @@
               <div class="col-md-6">
                 <div class="block-18 d-flex align-items-center">
                   <div class="icon mr-4">
-                    <span class="flaticon-books"></span>
+                    <span class="flaticon-open-book"></span>
                   </div>
                   <div class="text">
-                    <strong class="number" data-number="192">0</strong>
+                    <strong class="number" data-number="<%= articles%>">0</strong>
                     <span>Articles</span>
                   </div>
                 </div>
@@ -230,8 +190,8 @@
                     <span class="flaticon-mortarboard"></span>
                   </div>
                   <div class="text">
-                    <strong class="number" data-number="1921">0</strong>
-                    <span>something</span>
+                    <strong class="number" data-number="<%= comments %>">0</strong>
+                    <span>Comments</span>
                   </div>
                 </div>
                 

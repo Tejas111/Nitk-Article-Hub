@@ -18,7 +18,46 @@ router.get('/', function(req, res, next) {
             if (err) throw err;
             else {
                 console.log(file);
-                res.render('homepage',{cats:file});
+                student.count()
+                    .exec((err, s) => {
+                        if (err) throw err;
+                        else {
+
+
+                            article.count()
+                                .exec((err, a) => {
+                                    if (err) throw err;
+                                    else {
+
+                                        like.count()
+                                            .exec((err, l) => {
+                                                if (err) throw err;
+                                                else {
+                                                    comments.count()
+                                                        .exec((err, com) => {
+                                                            if (err) throw err;
+                                                            else {
+
+
+                                                                res.render('homepage',{cats:file,students:s,articles:a,likes:l,comments:com});
+
+                                                            }
+                                                        });
+
+
+
+                                                }
+                                            });
+
+
+
+                                    }
+                                });
+
+
+                        }
+                    });
+
 
             }
         });
@@ -59,7 +98,7 @@ router.post('/search', function(req, res, next) {
         }
         else
         {var id = mongoose.Types.ObjectId(req.body.category);
-            art_cat.find({'category': id}).populate('author')
+            art_cat.find({'category': id}).populate('article')
                 .exec((err, file) => {
                     if (err) throw err;
                     else {

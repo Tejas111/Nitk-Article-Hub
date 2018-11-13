@@ -122,10 +122,10 @@
                         <div class="col-lg-6 col-sm-12">
                             <ul class="list-group">
                                 <% if(student) { %>
-                                    <li class="list-group-item text-muted"><%= student.firstname %></li>
+                                    <li class="list-group-item text-muted"><b style="color: #11cbd7">Firest Name:</b> <%= student.firstname %></li>
 
-                                    <li class="list-group-item text-right"><span class="pull-left"><%= student.lastname %></li>
-                                    <li class="list-group-item text-right"><span class="pull-left"> <%= student.mobile %></li>
+                                    <li class="list-group-item text-right"><span class="pull-left"> <b style="color: #11cbd7">Last Name:</b>  <%= student.lastname %></span></li>
+                                    <li class="list-group-item text-right"><span class="pull-left"> <b style="color: #11cbd7">Mobile:</b> <%= student.mobile %></span></li>
 
                             </ul>
                             <% } %>
@@ -134,10 +134,10 @@
                         <div class="col-lg-6 col-sm-12">
                             <ul class="list-group">
                                 <% if(student) { %>
-                                    <li class="list-group-item text-muted"><%= student.email %></li>
+                                    <li class="list-group-item text-muted"><b style="color: #11cbd7">Email:</b> <%= student.email %></li>
 
-                                    <li class="list-group-item text-right"><span class="pull-left"><%= student.address %></li>
-                                    <li class="list-group-item text-right"><span class="pull-left"><%= student.course %></li>
+                                    <li class="list-group-item text-right"><span class="pull-left"><b style="color: #11cbd7"> Address:</b> <%= student.address %></span></li>
+                                    <li class="list-group-item text-right"><span class="pull-left"><b style="color: #11cbd7">Course:</b> <%= student.course %></span></li>
 
                             </ul>
                             <% } %>
@@ -155,6 +155,7 @@
                         </div>
 
                     </div>
+
 
                     <div class="row">
                         <div class="col-md-6">
@@ -198,73 +199,38 @@
                                 </div>
                                 <div class="text">
                                     <strong class="number" ><%= likes%></strong>
-                                    <span>Likes</span>
+                                    <span> You Liked</span>
                                 </div>
                             </div>
 
                         </div>
+                        <div id='a'>
+                            <% if(message) { %>
+                                <p style="color:red;text-align:center;padding-top:5px"> <%= message %> </p>
+                            <% } %>
+                        </div>
+                    </div>
+                    <br>
+                    <hr>
+                    <br>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="media block-6 d-block">
+                            <div class="icon mb-3"><span class="flaticon-diploma"></span></div>
+                            <div class="media-body">
+                                <h3 class="heading">Articles</h3>
+                                <p>Have a look at  Articles</p>
+
+                                <p><a href="/user/search/author/<%= student._id %>/articles" class="more"> <span class="ion-arrow-right-c"></span></a></p>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
             </div>
         </div>
-        <div id='a'>
-        <% if(message) { %>
-        <p style="color:red;text-align:center;padding-top:5px"> <%= message %> </p>
-        <% } %>
-        </div>
+
     </section>
     <!-- END section -->
-
-    <section class="site-section pt-3 element-animate">
-        <div class="container">
-            <div class="row">
-                <!---
-              <div class="col-md-6 col-lg-3">
-                <div class="media block-6 d-block">
-                  <div class="icon mb-3"><span class="flaticon-book"></span></div>
-                  <div class="media-body">
-                    <h3 class="heading">Knowledge is power</h3>
-                    <p></p>
-                    <p><a href="#" class="more">Read More <span class="ion-arrow-right-c"></span></a></p>
-                  </div>
-                </div>
-              </div>
-            -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="media block-6 d-block">
-                        <div class="icon mb-3"><span class="flaticon-student"></span></div>
-                        <div class="media-body">
-                            <h3 class="heading">Following</h3>
-                            <p>view whom the user is following</p>
-                            <p><a href="#" class="more"><span class="ion-arrow-right-c"></span></a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="media block-6 d-block">
-                        <div class="icon mb-3"><span class="flaticon-diploma"></span></div>
-                        <div class="media-body">
-                            <h3 class="heading">Articles</h3>
-                            <p>Have a look at  Articles</p>
-                            <p><a href="#" class="more"> <span class="ion-arrow-right-c"></span></a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="media block-6 d-block">
-                        <div class="icon mb-3"><span class="flaticon-professor"></span></div>
-                        <div class="media-body">
-                            <h3 class="heading"> Followers</h3>
-                            <p>View followers</p>
-                            <p><a href="#" class="more"><span class="ion-arrow-right-c"></span></a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- End section-->
 

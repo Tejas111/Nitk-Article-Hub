@@ -262,7 +262,7 @@ Router.get('/profile', function(req, res, next) {
 
                                 }, function (err, c) {
                                     following=c;
-                                    like.find().populate({path:'liked_article',match:{author:file._id}})
+                                    like.find({liked_by : file._id})
                                     .exec((err,result)=>{
                                         console.log(result);
 
@@ -432,7 +432,7 @@ Router.post('/my_articles/:id',(req,res)=> {
     var obj={
         title: req.body.title,
         description:req.body.description,
-        category: req.body.category
+
     };
     article.findByIdAndUpdate( req.params.id,{$set:obj},(err,file)=>{
         if(err) throw err;
@@ -729,6 +729,19 @@ Router.post('/search/author/:id/follow',(req,res,next)=>{
 });
 
 
+Router.get('/search/author/:id/articles',(req,res)=> {
+
+    article.find({'author':req.params.id }).populate('author')
+        .exec((err, file) => {
+            if (err) throw err;
+            else {
+                console.log(file);
+                res.render('user/search/articles', {articles: file});
+            }
+        });
+
+});
+
 
 
 Router.get('/search/author/:id',(req,res)=> {
@@ -775,11 +788,11 @@ Router.get('/search/author/:id',(req,res)=> {
 
                                 }, function (err, c) {
                                     following=c;
-                                    like.find().populate({path:'liked_article',match:{author:file._id}})
-                                    .exec((err,result)=>{
-                                        console.log(result);
+                                    like.count({liked_by:file._id})
+                                        .exec((err,likes)=>{
 
-                                        likes = result.length;
+
+
                                         if(err) throw err;
                                         else{
                                             var message = req.flash('info');

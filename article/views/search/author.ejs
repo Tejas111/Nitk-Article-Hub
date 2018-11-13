@@ -196,15 +196,14 @@
 
 
 
-
                 <div class="row">
                     <div class="col-lg-6 col-sm-12">
                         <ul class="list-group">
                             <% if(student) { %>
-                                <li class="list-group-item text-muted"><%= student.firstname %></li>
+                                <li class="list-group-item text-muted"><b style="color: #11cbd7">Firest Name:</b> <%= student.firstname %></li>
 
-                                <li class="list-group-item text-right"><span class="pull-left"><%= student.lastname %></li>
-                                <li class="list-group-item text-right"><span class="pull-left"> <%= student.mobile %></li>
+                                <li class="list-group-item text-right"><span class="pull-left"> <b style="color: #11cbd7">Last Name:</b>  <%= student.lastname %></span></li>
+                                <li class="list-group-item text-right"><span class="pull-left"> <b style="color: #11cbd7">Mobile:</b> <%= student.mobile %></span></li>
 
                         </ul>
                         <% } %>
@@ -213,10 +212,10 @@
                     <div class="col-lg-6 col-sm-12">
                         <ul class="list-group">
                             <% if(student) { %>
-                                <li class="list-group-item text-muted"><%= student.email %></li>
+                                <li class="list-group-item text-muted"><b style="color: #11cbd7">Email:</b> <%= student.email %></li>
 
-                                <li class="list-group-item text-right"><span class="pull-left"><%= student.address %></li>
-                                <li class="list-group-item text-right"><span class="pull-left"><%= student.course %></li>
+                                <li class="list-group-item text-right"><span class="pull-left"><b style="color: #11cbd7"> Address:</b> <%= student.address %></span></li>
+                                <li class="list-group-item text-right"><span class="pull-left"><b style="color: #11cbd7">Course:</b> <%= student.course %></span></li>
 
                         </ul>
                         <% } %>

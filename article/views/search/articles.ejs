@@ -146,7 +146,7 @@
                                         <div><a href="#"><span class="ion-android-person"></span> <%= articles[i].author.firstname %> </a></div>
                                     <% }%>
 
-                                    <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
+
                                 </div>
                             </div>
                         </div>  
@@ -173,10 +173,9 @@
                                 <div class="text">
                                     <h3 class="heading"><a href="/search/articles/<%= articles[i].article._id %>"><%= articles[i].article.title%></a></h3>
                                     <div class="meta">
-                                        <div><a href="#"><span class="ion-android-calendar"></span> </a></div>
+                                        <div><a href="#"><span class="ion-android-calendar"><%= articles[i].article.date.toDateString() %></span> </a></div>
 
 
-                                        <div><a href="#"><span class="ion-chatbubble"></span> 19</a></div>
                                     </div>
                                 </div>
                             </div>
